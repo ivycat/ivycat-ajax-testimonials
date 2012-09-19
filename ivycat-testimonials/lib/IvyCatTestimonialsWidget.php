@@ -32,7 +32,8 @@ class IvyCatTestimonialsWidget extends WP_Widget{
     public function widget( $args, $instance ){
         extract($args);
         $quantity = ( $instance['testimonial_quantity'] ) ? $instance['testimonial_quantity']  : 1 ;
-        $testimonials = self::get_testimonials( 1, $instance['testimonial_group'] );
+        $group = ( isset( $instance['testimonial_group'] ) && $instance['testimonial_group'] !== 'All Groups' ) ? $instance['testimonial_group'] : false;
+        $testimonials = self::get_testimonials( 1, $group );
         ?>
         <article class="widget widget-text">
             <h3>Testimonials</h3>
