@@ -18,7 +18,7 @@ class IvyCatTestimonials{
         add_action( 'save_post' , array( &$this, 'save_testimonial_metadata' ) );
         add_shortcode( 'ic_do_testimonials', array( &$this, 'do_testimonials' ) );
         add_action( 'wp_ajax_get-testimonials',  array( &$this, 'more_testimonials' ) );
-        add_action( 'wp_ajax_nopriv_get-slides',  array( &$this, 'more_testimonials' ) );
+        add_action( 'wp_ajax_nopriv_get-testimonials',  array( &$this, 'more_testimonials' ) );
         add_action( 'widgets_init', array( &$this, 'init_widgets' ) );
         wp_enqueue_script( 'ict-ajax-scripts', ICTESTI_URL . '/assets/ivycat_testimonials_scripts.js', array( 'jquery' ) );
         wp_localize_script( 'ict-ajax-scripts', 'ICSaconn', array(
