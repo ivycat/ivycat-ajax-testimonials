@@ -102,6 +102,7 @@ If you have suggestions for features that could help everyone, please feel free 
 
 = 1.2 =
 * Fixed loading error bug for non-logged in users.
+* Fixed slow loading of testimonials without a group.
 
 = 1.11 =
 * Bug fixes - minor PHP errors.
