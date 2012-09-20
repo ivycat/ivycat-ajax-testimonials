@@ -1,6 +1,7 @@
 jQuery( 'document' ).ready( function( $ ){
     var ic_ajax_testimonials = function ( ) {
-        var featured_posts = false;
+        var featured_posts = false,
+            play;
         
         jQuery.ivycat_ajax_do = function( ajaxData, callback ){
             return $.post( ICSaconn.ajaxurl, ajaxData, callback );       
@@ -31,8 +32,7 @@ jQuery( 'document' ).ready( function( $ ){
                     jQuery( '#ivycat-testimonial cite' ).html( testimonials[current].testimonial_title  );
                     jQuery( '#ivycat-testimonial div.content' ).html( testimonials[current].testimonial_content  );
                     jQuery( '#ivycat-testimonial' ).customFadeIn( 1000, function(){});
-                });
-                
+                }); 
             }
             
             rotateSwitch = function( ){
@@ -42,6 +42,13 @@ jQuery( 'document' ).ready( function( $ ){
             };
             
              rotateSwitch(  );
+            
+            jQuery('#ivycat-testimonial').hover( function() {
+                clearInterval(play);
+            }, function() {
+                advance_slideshow();
+                rotateSwitch();
+            } );
         }
         
         function testimonial_length(){

@@ -28,8 +28,8 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
  */
-define( 'ICTESTI_DIR', dirname( __FILE__ ) );
-define( 'ICTESTI_URL', str_replace( ABSPATH, site_url( '/' ), ICTESTI_DIR ) );
+define( 'ICTESTI_DIR', plugin_dir_path( __FILE__ ) );
+define( 'ICTESTI_URL', plugin_dir_url( __FILE__ ) );
 require_once 'lib/IvyCatTestimonialsWidget.php';
 class IvyCatTestimonials{
     
