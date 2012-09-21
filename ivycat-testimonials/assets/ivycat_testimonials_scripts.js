@@ -38,7 +38,7 @@ jQuery( 'document' ).ready( function( $ ){
             rotateSwitch = function( ){
                 play = setInterval(function( ){ //Set timer - this will repeat itself every 8 seconds
                     if( typeof( testimonials ) !== 'undefined' ) advance_slideshow();
-                }, 3000); //Timer speed in milliseconds (8 seconds)
+                }, 8000); //Timer speed in milliseconds (8 seconds)
             };
             
              rotateSwitch(  );
