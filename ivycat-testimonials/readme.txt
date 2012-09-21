@@ -1,5 +1,5 @@
 === IvyCat AJAX Testimonials ===
-Contributors: dgilfoy, ivycat, sewmyheadon
+Contributors: ivycat, dgilfoy, sewmyheadon, bradyvercher
 Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, testimonials, commendation, recommendation, widget, custom post type, shortcode, ajax
 Requires at least: 3.0
@@ -7,8 +7,6 @@ Tested up to: 3.4
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-==Short Description ==
 
 Simple plugin for adding dynamic testimonials to your site.
 
@@ -51,9 +49,9 @@ In your WordPress Dashboard, go to Appearance/Widgets and use the IvyCat Testimo
 
 #### Using shortcodes:
 
-* [ic_do_testimonials] - Adds a testimonial, Defaults to three testimonials.
-* [ic_do_testimonials group='my-created-group'] - Adds testimonials from a custom group.  Defaults to three testimonials.
-* [ic_do_testimonials quantity='5'] - changes default quantity to 5. 
+* `[ic_do_testimonials]` - Adds a testimonial, Defaults to three testimonials.
+* `[ic_do_testimonials group='my-created-group']` - Adds testimonials from a custom group.  Defaults to three testimonials.
+* `[ic_do_testimonials quantity='5']` - changes default quantity to 5. 
 
 #### Using PHP functions:
 
@@ -100,6 +98,17 @@ If you have suggestions for features that could help everyone, please feel free 
 
 == Changelog ==
 
+= 1.2.1 =
+* *New Feature:* Pause testimonial rotation on mouse hover.
+* Cleaned up debug notices.
+* Limited the javascript to the pages that it's needed on.
+* Added taxonomy labels.
+* Add testimonial post update messages.
+* Escaped data for security.
+* Added a nonce for security and to verify intention when saving data.
+* Wrapped all strings in the proper i18n functions for translation.
+* Updated the widget to allow changing the title.
+
 = 1.2 =
 * Fixed loading error bug for non-logged in users.
 * Fixed slow loading of testimonials without a group.
@@ -112,6 +121,12 @@ If you have suggestions for features that could help everyone, please feel free 
 * Initial commit
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Important security and feature updates; please upgrade.
+
+= 1.2 =
+Added new  serious loading error bug for non-logged in users.
 
 = 1.2 =
 Fixed serious loading error bug for non-logged in users.
