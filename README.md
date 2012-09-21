@@ -1,4 +1,5 @@
-=== IvyCat AJAX Testimonials ===
+IvyCat AJAX Testimonials
+========================
 Contributors: ivycat, dgilfoy, sewmyheadon, bradyvercher
 Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, testimonials, commendation, recommendation, widget, custom post type, shortcode, ajax
