@@ -71,7 +71,7 @@ class IvyCatTestimonials {
             'capability_type'      => 'post',
             'hierarchical'         => false,
             'menu_position'        => 4,
-            'supports'             => array( 'title', 'editor' )
+            'supports'             => array( 'title', 'editor', 'excerpt' )
         );
 
         register_post_type( 'testimonials', $args );
@@ -215,7 +215,7 @@ class IvyCatTestimonials {
             'post_type' => 'testimonials',
             'orderby' => 'meta_value_num',
             'meta_key' => 'ivycat_testimonial_order',
-            'order' => 'DESC',
+            'order' => 'ASC',
             'posts_per_page' => $quantity
         );
         
@@ -240,7 +240,7 @@ class IvyCatTestimonials {
                 $testimonial_data[] = array(
                     'testimonial_id' => $row->ID,
                     'testimonial_title' => $row->post_title,
-                    'testimonial_content' => $post_content 
+                    'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) ? $row->post_excerpt : $post_content 
                 );
             }
         }
