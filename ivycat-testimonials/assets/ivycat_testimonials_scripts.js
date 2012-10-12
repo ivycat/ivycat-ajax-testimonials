@@ -46,7 +46,9 @@ jQuery( 'document' ).ready( function( $ ){
             jQuery('#ivycat-testimonial').hover( function() {
                 clearInterval(play);
             }, function() {
-                advance_slideshow();
+                if( typeof $( '#testimonial-dets' ) == 'string' ){
+					advance_slideshow();
+				}
                 rotateSwitch();
             } );
         }
