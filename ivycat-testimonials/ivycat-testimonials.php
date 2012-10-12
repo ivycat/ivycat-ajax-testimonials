@@ -176,11 +176,15 @@ class IvyCatTestimonials {
     public function do_testimonials( $atts, $content = null ) {
         $atts = shortcode_atts( array(
             'quantity' => 3,
-            'group'    => false
+            'group'    => false,
+			'num_words' => false,
+			'more_tag' => false,
+			'ajax_on' => true,
+			'all_url' => false
         ), $atts );
         extract( $atts );
         
-        $testimonials = self::get_testimonials( 1, $group );
+        $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag );
         ob_start();
         ?>
         <div id="ivycat-testimonial">
@@ -188,11 +192,18 @@ class IvyCatTestimonials {
                 <div class="content"><?php echo $testimonials[0]['testimonial_content'] ?></div>
                 <footer>
                     <cite>
-                        <?php echo $testimonials[0]['testimonial_title']; ?>
+                        <a href="<?php echo $testimonials[0]['testimonial_link']; ?>">
+							<?php echo $testimonials[0]['testimonial_title']; ?>
+						</a>
                     </cite>
                 </footer>
+				<?php if( $all_url ) : ?>
+					<a href="<?php echo $all_url; ?>">See All Testimonals</a>
+				<?php endif; ?>
             </blockquote>
-            <input id="testimonial-dets" type="hidden" name="testimonial-dets" value="<?php echo $quantity . '|' . $group; ?>">
+            <?php if( $ajax_on ): ?>
+				<input id="testimonial-dets" type="hidden" name="testimonial-dets" value="<?php echo $quantity . '|' . $group; ?>">
+			<?php endif; ?>
         </div>
         <?php
         $contents = ob_get_clean();
@@ -202,6 +213,7 @@ class IvyCatTestimonials {
         return $contents;
     }
     
+    
     public function more_testimonials() {
         $dets = explode( '|', $_POST['testimonial-dets'] );
         $group = ( 'All Groups' == $dets[1] ) ? false : $dets[1];
@@ -210,7 +222,7 @@ class IvyCatTestimonials {
         wp_die();
     }
     
-    public function get_testimonials( $quantity , $group, $num_words=false, $more_tag=false ) {
+    public function get_testimonials( $quantity , $group, $num_words, $more_tag ) {
         $args = array(
             'post_type' => 'testimonials',
             'orderby' => 'meta_value_num',
@@ -223,23 +235,28 @@ class IvyCatTestimonials {
             $args['tax_query'] = array(
                 array(
                     'taxonomy' => 'testimonial-group',
-                    'field' => 'slug',
+                    'field' => is_numeric( $group ) ? 'id' : 'slug',
                     'terms' => $group
                 )
             );
         }
+		
 		$more = ( $more_tag ) ? $more_tag : ' Read More';
         $testimonials = get_posts( $args );
         $testimonial_data = array();
+		
         if ( $testimonials ) {
             foreach( $testimonials as $row ) {
+				
 				$post_more = ( $more_tag )? '<a href="'.home_url( '/testimonial/' .$row->post_name . '/' ).'">'.$more.'</a>' : '';
 				$post_content = ( $num_words ) ?
 					wp_trim_words( $row->post_content, $num_words, $post_more )
 					: $row->post_content;
+					
                 $testimonial_data[] = array(
                     'testimonial_id' => $row->ID,
                     'testimonial_title' => $row->post_title,
+					'testimonial_link' => home_url( '/testimonial/' ) . $row->post_name . '/',
                     'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) ? $row->post_excerpt : $post_content 
                 );
             }

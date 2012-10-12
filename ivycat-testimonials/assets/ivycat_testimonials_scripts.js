@@ -11,7 +11,7 @@ jQuery( 'document' ).ready( function( $ ){
             testimonial_start = 1;
              jQuery.ivycat_ajax_do( { 'action' : 'get-testimonials', 'testimonial-dets' : jQuery( '#testimonial-dets' ).val() }, function( resp ){
                 testimonials = $.parseJSON( resp );
-                //console.log( testimonials );
+                console.log( testimonials );
             });
              
             function advance_slideshow(){
