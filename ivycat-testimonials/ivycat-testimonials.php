@@ -184,7 +184,7 @@ class IvyCatTestimonials {
         ), $atts );
         extract( $atts );
         
-        $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag );
+        $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on );
         ob_start();
         ?>
         <div id="ivycat-testimonial">
@@ -222,12 +222,12 @@ class IvyCatTestimonials {
         wp_die();
     }
     
-    public function get_testimonials( $quantity , $group, $num_words, $more_tag ) {
+    public function get_testimonials( $quantity , $group, $num_words, $more_tag, $ajax_on ) {
         $args = array(
             'post_type' => 'testimonials',
             'orderby' => 'meta_value_num',
             'meta_key' => 'ivycat_testimonial_order',
-            'order' => 'ASC',
+            'order' => ( $ajax_on ) ? 'ASC' : 'RAND',
             'posts_per_page' => $quantity
         );
         
