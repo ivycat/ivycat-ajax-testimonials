@@ -44,31 +44,19 @@ class IvyCatTestimonialsWidget extends WP_Widget {
     
     public function widget( $args, $instance ) {
         extract($args);
-        
         $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Testimonials', 'ivycat-ajax-testimonials' ) : $instance['title'], $instance, $this->id_base );
         
         $quantity = ( $instance['testimonial_quantity'] ) ? absint( $instance['testimonial_quantity'] ) : 1;
         $group = ( isset( $instance['testimonial_group'] ) && 'All Groups' !== $instance['testimonial_group'] ) ? $instance['testimonial_group'] : false;
-        $testimonials = IvyCatTestimonials::get_testimonials( 1, $group );
-        ?>
-        <article class="widget widget-text">
-            <?php echo $before_title . $title . $after_title; ?>
-            
-            <div id="ivycat-testimonial" class="container">
-                <blockquote class="testimonial-content">
-                    <div class="content"><?php echo $testimonials[0]['testimonial_content']; ?></div>
-                    <footer>
-                        <cite>
-                            <?php echo $testimonials[0]['testimonial_title']; ?>
-                        </cite>
-                    </footer>
-                </blockquote>
-                <input id="testimonial-dets" type="hidden" name="testimonial-dets" value="<?php echo $quantity . '|' . $instance['testimonial_group']; ?>">
-            </div>
-        </article>
-        <?php
-        
-        wp_enqueue_script( 'ict-ajax-scripts' );
+		$atts = array(
+			'quantity' => $quantity,
+			'group' => $group,
+			'num_words' => false,
+			'more_tag' => false,
+			'ajax_on' => true,
+			'all_url' => false
+		);
+        echo apply_filters( 'the_content', IvyCatTestimonials::do_testimonials( $atts ) );
     }
     
     public function update( $new_instance, $old_instance ) {

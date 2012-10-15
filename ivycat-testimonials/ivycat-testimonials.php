@@ -6,7 +6,7 @@
  *  Description: Simple plugin for adding dynamic testimonials to your site.
  *  Author: IvyCat Web Services
  *  Author URI: http://www.ivycat.com
- *  Version: 1.2.1
+ *  Version: 1.2.2
  *  License: GNU General Public License v2.0
  *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -183,8 +183,8 @@ class IvyCatTestimonials {
 			'all_url' => false
         ), $atts );
         extract( $atts );
-        
         $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on );
+        
         ob_start();
         ?>
         <div id="ivycat-testimonial">
@@ -217,7 +217,10 @@ class IvyCatTestimonials {
     public function more_testimonials() {
         $dets = explode( '|', $_POST['testimonial-dets'] );
         $group = ( 'All Groups' == $dets[1] ) ? false : $dets[1];
-        $testimonials = self::get_testimonials( $dets[0], $group );
+		$num_words = ( isset( $dets[3] ) ) ? $dets[3] : false;
+		$more_tag = ( isset( $dets[4] ) ) ? $dets[4] : false;
+		$ajax_on = ( isset( $dets[5] ) ) ? $dets[5] : false;
+        $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, $ajax_on );
         echo json_encode( $testimonials );
         wp_die();
     }
