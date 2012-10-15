@@ -185,8 +185,7 @@ class IvyCatTestimonials {
         extract( $atts );
         $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on );
         
-        ob_start();
-        ?>
+        ob_start(); ?>
         <div id="ivycat-testimonial">
             <blockquote class="testimonial-content">
                 <div class="content"><?php echo $testimonials[0]['testimonial_content'] ?></div>
@@ -201,26 +200,28 @@ class IvyCatTestimonials {
 					<a href="<?php echo $all_url; ?>">See All Testimonals</a>
 				<?php endif; ?>
             </blockquote>
-            <?php if( $ajax_on ): ?>
-				<input id="testimonial-dets" type="hidden" name="testimonial-dets" value="<?php echo $quantity . '|' . $group; ?>">
+            <?php if( $ajax_on ): 
+				wp_enqueue_script( 'ict-ajax-scripts' );
+				$details = $quantity . '|' . $group;
+				if( $num_words )
+					$details .=  '|' . $num_words;
+				if( $more_tag )
+					$details .=  '|' . $more_tag; ?>
+				<input id="testimonial-dets" type="hidden" name="testimonial-dets" value="<?php echo $details; ?>">
 			<?php endif; ?>
         </div>
         <?php
         $contents = ob_get_clean();
         
-        wp_enqueue_script( 'ict-ajax-scripts' );
-        
         return $contents;
     }
-    
     
     public function more_testimonials() {
         $dets = explode( '|', $_POST['testimonial-dets'] );
         $group = ( 'All Groups' == $dets[1] ) ? false : $dets[1];
 		$num_words = ( isset( $dets[3] ) ) ? $dets[3] : false;
 		$more_tag = ( isset( $dets[4] ) ) ? $dets[4] : false;
-		$ajax_on = ( isset( $dets[5] ) ) ? $dets[5] : false;
-        $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, $ajax_on );
+        $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, true );
         echo json_encode( $testimonials );
         wp_die();
     }
