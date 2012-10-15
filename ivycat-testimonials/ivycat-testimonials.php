@@ -259,7 +259,7 @@ class IvyCatTestimonials {
                 $testimonial_data[] = array(
                     'testimonial_id' => $row->ID,
                     'testimonial_title' => $row->post_title,
-					'testimonial_link' => home_url( '/testimonial/' ) . $row->post_name . '/',
+					'testimonial_link' => home_url( '/testimonials/' ) . $row->post_name . '/',
                     'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) ? $row->post_excerpt : $post_content 
                 );
             }
