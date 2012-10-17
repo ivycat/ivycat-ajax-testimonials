@@ -38,7 +38,7 @@ if ( ! defined( 'ICTESTI_URL' ) )
 add_action( 'plugins_loaded', array( 'IvyCatTestimonials', 'start' ) );
 
 class IvyCatTestimonials {
-    
+	
     public function start() {
         add_action( 'init', array( __CLASS__, 'init' ) );
         add_action( 'widgets_init', array( __CLASS__, 'register_widgets' ) );
@@ -179,7 +179,7 @@ class IvyCatTestimonials {
             'group'    => false,
 			'num_words' => false,
 			'more_tag' => false,
-			'ajax_on' => true,
+			'ajax_on' => 'yes',
 			'all_url' => false
         ), $atts );
         extract( $atts );
@@ -221,7 +221,7 @@ class IvyCatTestimonials {
         $group = ( 'All Groups' == $dets[1] ) ? false : $dets[1];
 		$num_words = ( isset( $dets[3] ) ) ? $dets[3] : false;
 		$more_tag = ( isset( $dets[4] ) ) ? $dets[4] : false;
-        $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, true );
+        $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, 'yes' );
         echo json_encode( $testimonials );
         wp_die();
     }
@@ -231,7 +231,7 @@ class IvyCatTestimonials {
             'post_type' => 'testimonials',
             'orderby' => 'meta_value_num',
             'meta_key' => 'ivycat_testimonial_order',
-            'order' => ( $ajax_on ) ? 'ASC' : 'RAND',
+            'order' => ( 'yes' == $ajax_on ) ? 'ASC' : 'RAND',
             'posts_per_page' => $quantity
         );
         
