@@ -174,7 +174,7 @@ class IvyCatTestimonials {
     }
     
     public function do_testimonials( $atts, $content = null ) {
-        $atts = shortcode_atts( array(
+        $atts = wp_parse_args( array(
             'quantity' => 3,
             'group'    => false,
 			'num_words' => false,
@@ -185,7 +185,10 @@ class IvyCatTestimonials {
         extract( $atts );
         $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on );
         
-        ob_start(); ?>
+        ob_start();
+		if( isset( $title ) ): ?>
+			<h3><?php echo $title; ?></h3><?php
+		endif; ?>
         <div id="ivycat-testimonial">
             <blockquote class="testimonial-content">
                 <div class="content"><?php echo $testimonials[0]['testimonial_content'] ?></div>

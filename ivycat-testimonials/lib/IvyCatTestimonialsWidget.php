@@ -56,6 +56,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$atts = array(
 			'quantity' => $quantity,
 			'group' => $group,
+			'title' => $title,
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : false,
 			'ajax_on' => ( 'yes' == $instance['testimonial_ajax_on'] ) ? false : true,
