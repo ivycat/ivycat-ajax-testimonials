@@ -229,7 +229,7 @@ class IvyCatTestimonials {
     public function get_testimonials( $quantity , $group, $num_words, $more_tag, $ajax_on ) {
         $args = array(
             'post_type' => 'testimonials',
-            'orderby' => ( 'yes' == $ajax_on ) ? 'meta_value_num' : 'RAND',
+            'orderby' => ( 'yes' == $ajax_on ) ? 'meta_value_num' : 'rand',
             'meta_key' => 'ivycat_testimonial_order',
             'order' => 'ASC',
             'posts_per_page' => $quantity
