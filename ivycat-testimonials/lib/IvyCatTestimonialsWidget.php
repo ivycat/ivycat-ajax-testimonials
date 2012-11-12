@@ -54,7 +54,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
         $quantity = ( $instance['testimonial_quantity'] ) ? absint( $instance['testimonial_quantity'] ) : 1;
         $group = ( isset( $instance['testimonial_group'] ) && 'All Groups' !== $instance['testimonial_group'] ) ? $instance['testimonial_group'] : false;
 		$atts = array(
-			'quantity' => $quantity,
+			'quantity' => ( is_numeric( $quantity ) ) ? $quantity : 3,
 			'group' => $group,
 			'title' => $title,
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
