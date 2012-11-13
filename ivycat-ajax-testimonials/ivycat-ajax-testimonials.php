@@ -173,15 +173,15 @@ class IvyCatTestimonials {
         update_post_meta( $post_id, 'ivycat_testimonial_order', $_POST['testimonial_order'] );
     }
     
-    public function do_testimonials( $atts, $content = null ) {
-        $atts = wp_parse_args( array(
+    public function do_testimonials( $args, $content = null ) {
+        $atts = wp_parse_args( $args, array(
             'quantity' => 3,
             'group'    => false,
 			'num_words' => false,
 			'more_tag' => false,
 			'ajax_on' => 'yes',
 			'all_url' => false
-        ), $atts );
+        ) );
         extract( $atts );
         $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on );
         
@@ -248,7 +248,7 @@ class IvyCatTestimonials {
             );
         }
 		
-		$more = ( $more_tag ) ? $more_tag : ' Read More';
+		$more = ( $more_tag ) ? ' ' . $more_tag : ' Read More';
         $testimonials = get_posts( $args );
         $testimonial_data = array();
 		
