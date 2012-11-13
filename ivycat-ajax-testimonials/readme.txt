@@ -3,13 +3,12 @@ Contributors: dgilfoy, ivycat
 Tags: shortcode, ajax, testimonial, custom post type
 Requires at least: 3.0
 Tested up to: 3.4
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 
-==Short Description ==
-
-Simple Ajax loading Testimonial Plugin.
+Simply add rotating testimonials to your website.
 
 ==Description==
+
 This plugin is a light template/framework for developers to easily add rotating Testimonials to a page. Use a shortcode to add Testimonials to a page.  Supports one rotating Testimonial per page.  Loads up the first Testimonial and pulls in the rest of them via ajax, speeding up page load.  Incorporates a custom post type for the Testimonial.
 
 == Notes ==
@@ -22,26 +21,21 @@ This is a minimal plugin, function over form.  If you would like to extend it, o
 
 == Installation ==
 
-1. Upload the entire ivycat_testimonials directory to your plugins folder 
-2. Click Install Plugin in your WordPress plugin page
-3. ??? Profit ???
+1. Upload the entire ivycat-ajax-testimonials directory to your plugins folder 
+1. Click Install Plugin in your WordPress plugin page
+1. ??? Profit ???
 
 == Usage ==
 
 Shortcode usage:
-    *[ic_do_testimonials] - Adds a testimonial, Defaults to three testimonials.
 
-    *[ic_do_testimonials group='my-created-group'] - Adds slides from a custom group.  Defaults to 3 testimonials
-
-    *[ic_do_testimonials quantity='5'] - changes default quantity to 5.
-	
-	*[ic_do_testimonials num_words='55'] - Shows only the first x number of words, as defined by value given
-	
-	*[ic_do_testimonials num_words='55' read_more='[...]' ] - When num_words is given, allows the text for the "read more" link to be changed
-	
-	*[ic_do_testimonials ajax_on='no'] - Adds the ability to turn off Ajax. If ajax is disabled, a random testimonial will be shown on page load. (on by default)
-	
-	*[ic_do_testimonials all_url='http://www.example.com/testimonials/'] - give a url to show all of the testimonials.  The page for this is not part of the plugin.
+* `[ic_do_testimonials] - Adds a testimonial, Defaults to three testimonials.
+* `[ic_do_testimonials group='my-created-group']` - Adds slides from a custom group.  Defaults to 3 testimonials
+* `[ic_do_testimonials quantity='5']` - changes default quantity to 5.
+* `[ic_do_testimonials num_words='55']` - Shows only the first x number of words, as defined by value given
+* `[ic_do_testimonials num_words='55' read_more='[...]' ]` - When num_words is given, allows the text for the "read more" link to be changed
+* `[ic_do_testimonials ajax_on='no']` - Adds the ability to turn off AJAX. If AJAX is disabled, a random testimonial will be shown on page load. (on by default)
+* `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - give a url to show all of the testimonials.  The page for this is not part of the plugin.
 
 == Screenshots ==
 
@@ -59,7 +53,7 @@ A: We can certainly work with you, and later versions of this plugin might suppo
 == Changelog ==
 
 = 1.2.2 =
-* Fixed errors in pulling testimonials via Ajax.
+* Fixed errors in pulling testimonials via AJAX.
 * Addes shortcode features in the sidebar widget
 
 = 1.2 =
