@@ -72,17 +72,6 @@ You can drop the following WordPress function in your template files, replacing 
 
 `<?php echo do_shortcode("[shortcode]"); ?>`
 
-## Screenshots ##
-
-###1. A testimonial showing on a site.###
-![A testimonial showing on a site.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-1.png)
-
-###2. A list of testimonials.###
-![A list of testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-2.png)
-
-###3. Add / edit testimonials.###
-![Add / edit testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-3.png)
-
 
 ## Frequently Asked Questions ##
 
