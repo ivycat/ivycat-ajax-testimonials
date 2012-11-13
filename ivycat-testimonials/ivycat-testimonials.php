@@ -185,11 +185,11 @@ class IvyCatTestimonials {
         extract( $atts );
         $testimonials = self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on );
         
-        ob_start();
+        ob_start(); ?>
+        <div id="ivycat-testimonial"><?php
 		if( isset( $title ) ): ?>
 			<h3><?php echo $title; ?></h3><?php
 		endif; ?>
-        <div id="ivycat-testimonial">
             <blockquote class="testimonial-content">
                 <div class="content"><?php echo $testimonials[0]['testimonial_content'] ?></div>
                 <footer>
