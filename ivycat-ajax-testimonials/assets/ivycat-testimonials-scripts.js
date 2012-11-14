@@ -36,17 +36,17 @@ jQuery( 'document' ).ready( function( $ ){
                     testimonial_start = current +1;
                 }
                 
-                jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( 1000, function(){
+                jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( ICTaconn.fadeOut, function(){
                     jQuery( '#ivycat-testimonial cite' ).html( testimonials[current].testimonial_title  );
                     jQuery( '#ivycat-testimonial div.ict-content' ).html( testimonials[current].testimonial_content  );
-                    jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( 1000, function(){});
+                    jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( ICTaconn.fadeIn, function(){});
                 }); 
             }
             
             rotateSwitch = function( ){
                 play = setInterval(function( ){ //Set timer - this will repeat itself every 8 seconds
                     if( typeof( ICTaconn ) !== 'undefined' ) advance_slideshow();
-                }, 8000); //Timer speed in milliseconds (8 seconds)
+                }, ICTaconn.speed); //Timer speed in milliseconds (8 seconds)
             };
             
              rotateSwitch(  );

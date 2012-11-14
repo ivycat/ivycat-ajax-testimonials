@@ -8,6 +8,9 @@ class IvyCatTestimonialsWidget extends WP_Widget {
     
     function form( $instance ) {	
         $title = wp_strip_all_tags( $instance['title'] );
+		$slider_speed = ( is_numeric( $instance['testimonial_slide_speed'] ) ) ? $instance['testimonial_slide_speed'] : 8000;
+		$slider_fadein = ( is_numeric( $instance['testimonial_fadein'] ) ) ? $instance['testimonial_fadein'] : 1000;
+		$slider_fadeout = ( is_numeric( $instance['testimonial_fadeout'] ) ) ? $instance['testimonial_fadeout'] : 1000;
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -52,6 +55,22 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all' ); ?>"
 					id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo $instance['testimonial_show_all'] ?>"/>
 		</p>
+		<h3>Slider Settings</h3>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'testimonial_slide_speed' ); ?>"><?php _e( 'Slider Speed (in miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
+			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_slide_speed' ); ?>"
+					id="<?php echo $this->get_field_id( 'testimonial_slide_speed' ); ?>" class="widefat" value="<?php echo $slider_speed; ?>"/>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>"><?php _e( 'Fade In Duration (in miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
+			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_fadein' ); ?>"
+					id="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>" class="widefat" value="<?php echo $slider_fadein; ?>"/>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'testimonial_fadeout' ); ?>"><?php _e( 'Fade Out Duration (in miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
+			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_fadeout' ); ?>"
+					id="<?php echo $this->get_field_id( 'testimonial_fadeout' ); ?>" class="widefat" value="<?php echo $slider_fadeout; ?>"/>
+		</p>
 		<?php
 		do_action( 'ic_testimonials_widget_form', $instance );
     }
@@ -69,9 +88,12 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : false,
 			'ajax_on' => ( 'yes' == $instance['testimonial_ajax_on'] ) ? false : true,
-			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) ) ? $instance['testimonial_show_all'] : false
+			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) ) ? $instance['testimonial_show_all'] : false,
+			'fadeIn' => $instance['testimonial_fadein'],
+			'fadeOut' => $instance['testimonial_fadeout'],
+			'speed' => $instance['testimonial_slide_speed']
 		);
-        echo apply_filters( 'the_content', IvyCatTestimonials::do_testimonials( $atts ) );
+        echo IvyCatTestimonials::do_testimonials( $atts );
     }
     
     public function update( $new_instance, $old_instance ) {
@@ -84,6 +106,9 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_ajax_on'] = $new_instance['testimonial_ajax_on'];
 		$instance['testimonial_show_all'] = $new_instance['testimonial_show_all'];
         $instance['title'] = wp_strip_all_tags( $new_instance['title'] );
+        $instance['testimonial_slide_speed'] = absint( $new_instance['testimonial_slide_speed'] );
+        $instance['testimonial_fadein'] = absint( $new_instance['testimonial_fadein'] );
+        $instance['testimonial_fadeout'] = absint( $new_instance['testimonial_fadeout'] );
 		
         return apply_filters( 'ic_testimonals_widget_save', $instance, $new_instance );
     }

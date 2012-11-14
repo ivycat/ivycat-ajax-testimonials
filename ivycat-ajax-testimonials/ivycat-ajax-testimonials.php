@@ -181,7 +181,10 @@ class IvyCatTestimonials {
 			'num_words' => false,
 			'more_tag' => false,
 			'ajax_on' => 'yes',
-			'all_url' => false
+			'all_url' => false,
+			'fadeIn' => 500,
+			'fadeOut' => 300,
+			'speed' => 8000
         ) );
         extract( apply_filters( 'ic_testimonials_args', $atts ) );
         $testimonials = apply_filters( 'ic_testimonials_data', self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on ) );
@@ -194,13 +197,13 @@ class IvyCatTestimonials {
             <blockquote class="testimonial-content">
                 <div class="ict-content"><?php echo $testimonials[0]['testimonial_content'] ?></div>
                 <footer>
-                    <cite>
-                        <a href="<?php echo $testimonials[0]['testimonial_link']; ?>">
+					<cite>
+						<a href="<?php echo $testimonials[0]['testimonial_link']; ?>">
 							<?php echo $testimonials[0]['testimonial_title']; ?>
 						</a>
-                    </cite>
-                </footer>
-				<?php if( $all_url ) : ?>
+					</cite>
+				</footer>
+				<?php if( strlen( $all_url ) > 1 ) : ?>
 					<p><a href="<?php echo $all_url; ?>">See All Testimonals</a></p>
 				<?php endif; ?>
             </blockquote>
@@ -215,7 +218,10 @@ class IvyCatTestimonials {
 						'ict_group' => $group,
 						'num_words' => $num_words,
 						'more_tag' => $more_tag,
-						'all_url' => $all_url
+						'all_url' => $all_url,
+						'fadeIn' => $fadeIn,
+						'fadeOut' => $fadeOut,
+						'speed' => $speed,
 					) )
 				);
 			endif; ?>
