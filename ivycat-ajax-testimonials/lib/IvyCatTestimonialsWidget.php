@@ -53,6 +53,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 					id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo $instance['testimonial_show_all'] ?>"/>
 		</p>
 		<?php
+		do_action( 'ic_testimonials_widget_form', $instance );
     }
     
     public function widget( $args, $instance ) {
@@ -84,7 +85,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_show_all'] = $new_instance['testimonial_show_all'];
         $instance['title'] = wp_strip_all_tags( $new_instance['title'] );
 		
-        return $instance;
+        return apply_filters( 'ic_testimonals_widget_save', $instance, $new_instance );
     }
     
 }
