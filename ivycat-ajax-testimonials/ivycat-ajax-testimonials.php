@@ -195,7 +195,7 @@ class IvyCatTestimonials {
 			<h3><?php echo $title; ?></h3><?php
 		endif; ?>
             <blockquote class="testimonial-content">
-                <div class="ict-content"><?php echo $testimonials[0]['testimonial_content'] ?></div>
+                <div class="ict-content"><?php echo apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ); ?></div>
                 <footer>
 					<cite>
 						<a href="<?php echo $testimonials[0]['testimonial_link']; ?>">
@@ -207,7 +207,7 @@ class IvyCatTestimonials {
 					<p><a href="<?php echo $all_url; ?>">See All Testimonals</a></p>
 				<?php endif; ?>
             </blockquote>
-            <?php if( $ajax_on ): 
+            <?php if( $ajax_on == 'yes' ): 
 				wp_enqueue_script( 'ict-ajax-scripts' );
 				wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
 					apply_filters( 'ICTaconn-variables', array(
@@ -237,7 +237,7 @@ class IvyCatTestimonials {
         $group = $_POST['ict_group'];
 		$num_words = absint( $_POST['num_words'] );
 		$more_tag = $_POST['more_tag'];
-        $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, 'yes' );
+        $testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes' );
         echo json_encode( $testimonials );
         wp_die();
     }
