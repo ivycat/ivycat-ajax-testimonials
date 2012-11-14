@@ -194,15 +194,9 @@ class IvyCatTestimonials {
 		if( isset( $title ) ): ?>
 			<h3><?php echo $title; ?></h3><?php
 		endif; ?>
-<<<<<<< HEAD
             <blockquote class="testimonial-content">
                 <div class="ict-content"><?php echo apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ); ?></div>
                 <footer>
-=======
-			<blockquote class="testimonial-content">
-				<div class="ict-content"><?php echo $testimonials[0]['testimonial_content']; ?></div>
-				<footer>
->>>>>>> a817a6fad76061980b2ba473d94d5f5ef41b44d4
 					<cite>
 						<a href="<?php echo $testimonials[0]['testimonial_link']; ?>">
 							<?php echo $testimonials[0]['testimonial_title']; ?>
@@ -212,13 +206,9 @@ class IvyCatTestimonials {
 				<?php if( strlen( $all_url ) > 1 ) : ?>
 					<p><a href="<?php echo $all_url; ?>">See All Testimonals</a></p>
 				<?php endif; ?>
-<<<<<<< HEAD
             </blockquote>
             <?php if( $ajax_on == 'yes' ): 
-=======
-			</blockquote>
-			<?php if( $ajax_on ): 
->>>>>>> a817a6fad76061980b2ba473d94d5f5ef41b44d4
+
 				wp_enqueue_script( 'ict-ajax-scripts' );
 				wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
 					apply_filters( 'ICTaconn-variables', array(
