@@ -28,11 +28,11 @@ jQuery( 'document' ).ready( function( $ ){
                     testimonial_start = current +1;
                 }
                 
-                jQuery( '#ivycat-testimonial' ).customFadeOut( 1000, function(){
+               jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( 1000, function(){
                     jQuery( '#ivycat-testimonial cite' ).html( testimonials[current].testimonial_title  );
                     jQuery( '#ivycat-testimonial div.content' ).html( testimonials[current].testimonial_content  );
-                    jQuery( '#ivycat-testimonial' ).customFadeIn( 1000, function(){});
-                }); 
+                    jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( 1000, function(){});
+                });  
             }
             
             rotateSwitch = function( ){
