@@ -205,13 +205,19 @@ class IvyCatTestimonials {
             </blockquote>
             <?php if( $ajax_on ): 
 				wp_enqueue_script( 'ict-ajax-scripts' );
-				$details = $quantity . '|' . $group;
-				if( $num_words )
-					$details .=  '|' . $num_words;
-				if( $more_tag )
-					$details .=  '|' . $more_tag; ?>
-				<input id="testimonial-dets" type="hidden" name="testimonial-dets" value="<?php echo $details; ?>">
-			<?php endif; ?>
+				wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
+					array(
+						'ajaxurl'     => admin_url( 'admin-ajax.php' ),
+						'themeurl'  => get_bloginfo( 'stylesheet_directory' ).'/',
+						'pluginurl'  => ICTESTI_URL,
+						'ict_quantity' => $quantity,
+						'ict_group' => $group,
+						'num_words' => $num_words,
+						'more_tag' => $more_tag,
+						'all_url' => $all_url
+					)
+				);
+			endif; ?>
         </div>
         <?php
         $contents = ob_get_clean();
@@ -220,10 +226,10 @@ class IvyCatTestimonials {
     }
     
     public function more_testimonials() {
-        $dets = explode( '|', $_POST['testimonial-dets'] );
-        $group = ( 'All Groups' == $dets[1] ) ? false : $dets[1];
-		$num_words = ( isset( $dets[3] ) ) ? $dets[3] : false;
-		$more_tag = ( isset( $dets[4] ) ) ? $dets[4] : false;
+        $quantity = absint( $_POST['ict_quantity'] );
+        $group = $_POST['ict_group'];
+		$num_words = absint( $_POST['num_words'] );
+		$more_tag = $_POST['more_tag'];
         $testimonials = self::get_testimonials( $dets[0], $group, $dets[2], $num_words, $more_tag, 'yes' );
         echo json_encode( $testimonials );
         wp_die();
