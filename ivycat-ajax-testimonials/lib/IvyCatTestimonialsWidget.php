@@ -55,7 +55,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>"><?php _e( 'Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_show_all', 'is_numeric', 3, $instance );?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_show_all', 'is_string', '', $instance );?>"/>
 		</p>
 		<h3>Slider Settings</h3>
 		<p>

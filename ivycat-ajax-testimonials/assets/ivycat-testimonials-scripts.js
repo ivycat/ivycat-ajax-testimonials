@@ -37,7 +37,7 @@ jQuery( 'document' ).ready( function( $ ){
                 }
                 
                 jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( ICTaconn.fadeOut, function(){
-                    jQuery( '#ivycat-testimonial cite' ).html( testimonials[current].testimonial_title  );
+                    jQuery( '#ivycat-testimonial cite' ).html( '<a href="' + testimonials[current].testimonial_link+ '">' + testimonials[current].testimonial_title + '</a>'  );
                     jQuery( '#ivycat-testimonial div.ict-content' ).html( testimonials[current].testimonial_content  );
                     jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( ICTaconn.fadeIn, function(){});
                 }); 
