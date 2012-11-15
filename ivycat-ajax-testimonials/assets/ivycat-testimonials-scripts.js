@@ -36,10 +36,10 @@ jQuery( 'document' ).ready( function( $ ){
                     testimonial_start = current +1;
                 }
                 
-                jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( ICTaconn.fadeOut, function(){
+                jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( parseInt( ICTaconn.fadeOut ), function(){
                     jQuery( '#ivycat-testimonial cite' ).html( '<a href="' + testimonials[current].testimonial_link+ '">' + testimonials[current].testimonial_title + '</a>'  );
                     jQuery( '#ivycat-testimonial div.ict-content' ).html( testimonials[current].testimonial_content  );
-                    jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( ICTaconn.fadeIn, function(){});
+                    jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( parseInt( ICTaconn.fadeIn ), function(){});
                 }); 
             }
             
