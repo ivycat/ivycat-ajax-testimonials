@@ -49,7 +49,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		</p>
 		<p>
 			<input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_ajax_on' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="widefat" value="y"<?php checked( $ajax_on, 'y' ); ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="widefat" value="no"<?php checked( $ajax_on, 'no' ); ?>"/>
 			<label for="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>"><?php _e( 'Disable Ajax', 'ivycat-ajax-testimonials' ); ?></label>
 		</p>
 		<p>
@@ -89,7 +89,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'title' => $title,
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : 'Read More...',
-			'ajax_on' => ( 'yes' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
+			'ajax_on' => ( 'no' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
 			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) > 1 ) ? $instance['testimonial_show_all'] : false,
 			'fadeIn' => $instance['testimonial_fadein'],
 			'fadeOut' => $instance['testimonial_fadeout'],
