@@ -284,7 +284,7 @@ class IvyCatTestimonials {
 			}
 		}
 		
-		return $testimonial_data;
+		return apply_filters( 'ic_testimonials_data_array', $testimonial_data );
 	}
 	
 }
