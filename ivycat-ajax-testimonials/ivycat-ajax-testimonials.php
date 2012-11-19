@@ -270,7 +270,7 @@ class IvyCatTestimonials {
 		if ( $testimonials ) {
 			foreach( $testimonials as $row ) {
 				
-				$post_more = ( $more_tag )? '<a href="'.home_url( '/testimonial/' .$row->post_name . '/' ).'">'.$more.'</a>' : '';
+				$post_more = ( $more_tag )? '<a href="'.home_url( '/testimonials/' .$row->post_name . '/' ).'">'.$more.'</a>' : '';
 				$post_content = ( $num_words ) ?
 					wp_trim_words( $row->post_content, $num_words, $post_more )
 					: $row->post_content;
