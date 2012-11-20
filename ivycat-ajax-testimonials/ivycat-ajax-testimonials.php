@@ -188,7 +188,9 @@ class IvyCatTestimonials {
 		) );
 		extract( apply_filters( 'ic_testimonials_args', $atts ) );
 		$testimonials = apply_filters( 'ic_testimonials_data', self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on ) );
-		
+		if( count( $testimonials ) == 0 )
+			return '';
+		$contents = '&nbsp;';
 		ob_start(); ?>
 		<div id="ivycat-testimonial"><?php
 		if( isset( $title ) ): ?>
@@ -228,7 +230,7 @@ class IvyCatTestimonials {
 			endif; ?>
 		</div>
 		<?php
-		$contents = ob_get_clean();
+		$contents .= ob_get_clean();
 		
 		return apply_filters( 'ic_testimonials_contents', $contents );
 	}
