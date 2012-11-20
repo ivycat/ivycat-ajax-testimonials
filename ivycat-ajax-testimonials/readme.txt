@@ -26,7 +26,7 @@ This plugin is a light template/framework for developers to easily add rotating 
 
 Plugin depends upon your theme's style and _does not_ contain native styles.  
 
-This is a minimal plugin, function over form.  If you would like to extend it, or would like us to extend it in later versions, feel free to post ideas in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), or [contact us](http://www.ivycat.com/contact/).
+This is a minimal plugin, preferring function over form.  If you would like to extend it, or would like us to extend it in later versions, feel free to post ideas in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), or [contact us](http://www.ivycat.com/contact/).
 
 == Installation ==
 
