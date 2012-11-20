@@ -263,14 +263,14 @@ class IvyCatTestimonials {
             );
         }
 		
-		$more = ( $more_tag ) ? ' ' . $more_tag : ' Read More';
+		$more = ( $more_tag ) ? $more_tag : 'Read More';
 		$testimonials = get_posts( $args );
 		$testimonial_data = array();
 		
 		if ( $testimonials ) {
 			foreach( $testimonials as $row ) {
 				
-				$post_more = ( $more_tag )? '<a href="'.home_url( '/testimonial/' .$row->post_name . '/' ).'">'.$more.'</a>' : '';
+				$post_more = ( $more_tag )? '<a href="'.home_url( '/testimonials/' .$row->post_name . '/' ).'">'.$more.'</a>' : '';
 				$post_content = ( $num_words ) ?
 					wp_trim_words( $row->post_content, $num_words, $post_more )
 					: $row->post_content;
@@ -284,7 +284,7 @@ class IvyCatTestimonials {
 			}
 		}
 		
-		return $testimonial_data;
+		return apply_filters( 'ic_testimonials_data_array', $testimonial_data );
 	}
 	
 }

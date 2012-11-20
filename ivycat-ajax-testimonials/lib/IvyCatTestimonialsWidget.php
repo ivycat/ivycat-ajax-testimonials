@@ -7,10 +7,12 @@ class IvyCatTestimonialsWidget extends WP_Widget {
     }
     
     function form( $instance ) {	
-        $title = wp_strip_all_tags( $instance['title'] );
-		$slider_speed = ( is_numeric( $instance['testimonial_slide_speed'] ) ) ? $instance['testimonial_slide_speed'] : 8000;
-		$slider_fadein = ( is_numeric( $instance['testimonial_fadein'] ) ) ? $instance['testimonial_fadein'] : 1000;
-		$slider_fadeout = ( is_numeric( $instance['testimonial_fadeout'] ) ) ? $instance['testimonial_fadeout'] : 1000;
+        $title = wp_strip_all_tags( $this->set_field( 'title', 'is_string', 'Testimonials', $instance ) );
+		$slider_speed = $this->set_field( 'testimonial_slide_speed', 'is_numeric', 8000, $instance );
+		$slider_fadein = $this->set_field( 'testimonial_fadein', 'is_numeric', 1000, $instance );
+		$slider_fadeout = $this->set_field( 'testimonial_fadeout', 'is_numeric', 1000, $instance );
+		$group = isset( $instance['testimonial_group'] ) ? $instance['testimonial_group'] : 0 ;
+		$ajax_on = isset( $instance['testimonial_ajax_on'] ) ? $instance['testimonial_ajax_on'] : 'n';
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -33,27 +35,27 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>"><?php _e( 'Quantity to Display:', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_quantity' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>" class="widefat" value="<?php echo $instance['testimonial_quantity'] ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_quantity', 'is_numeric', 3, $instance ); ?>"/>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>"><?php _e( 'Number of Words (leave blank if all)', 'ivycat-ajax-testimonials' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>"><?php _e( 'Number of Words (-1 for all)', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_num_words' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>" class="widefat" value="<?php echo $instance['testimonial_num_words'] ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_num_words', 'is_numeric', -1, $instance ); ?>"/>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_read_more' ); ?>"><?php _e( 'Read More Text', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_read_more' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_read_more' ); ?>" class="widefat" value="<?php echo $instance['testimonial_read_more'] ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_read_more' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_read_more', 'is_string', 'Read More...', $instance ); ?>"/>
 		</p>
 		<p>
 			<input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_ajax_on' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="widefat" value="y"<?php checked( $instance['testimonial_ajax_on'], 'y' ); ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="widefat" value="no"<?php checked( $ajax_on, 'no' ); ?>"/>
 			<label for="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>"><?php _e( 'Disable Ajax', 'ivycat-ajax-testimonials' ); ?></label>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>"><?php _e( 'Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo $instance['testimonial_show_all'] ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_show_all', 'is_string', '', $instance );?>"/>
 		</p>
 		<h3>Slider Settings</h3>
 		<p>
@@ -87,7 +89,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'title' => $title,
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : 'Read More...',
-			'ajax_on' => ( 'yes' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
+			'ajax_on' => ( 'no' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
 			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) > 1 ) ? $instance['testimonial_show_all'] : false,
 			'fadeIn' => $instance['testimonial_fadein'],
 			'fadeOut' => $instance['testimonial_fadeout'],
@@ -95,7 +97,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		);
         echo IvyCatTestimonials::do_testimonials( $atts );
     }
-    
+	
     public function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
 		$widget_id = 'widget-' . $_POST['id_base'] . '-' . $_POST['widget_number'] . '-';
@@ -113,4 +115,10 @@ class IvyCatTestimonialsWidget extends WP_Widget {
         return apply_filters( 'ic_testimonals_widget_save', $instance, $new_instance );
     }
     
+	protected function set_field( $field, $condition, $default, $instance ){
+		if( !function_exists( $condition ) || ! isset( $instance[ $field ] ) )
+			return $default;;
+		return $condition( $instance[ $field] ) ? $instance[ $field ] : $default;
+		
+	}
 }
