@@ -49,7 +49,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		</p>
 		<p>
 			<input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_ajax_on' ); ?>"
-					id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="widefat" value="no"<?php checked( $ajax_on, 'no' ); ?>"/>
+					id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="checkbox" value="no"<?php checked( $ajax_on, 'no' ); ?>"/>
 			<label for="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>"><?php _e( 'Disable Ajax', 'ivycat-ajax-testimonials' ); ?></label>
 		</p>
 		<p>
