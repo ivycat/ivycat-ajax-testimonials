@@ -4,7 +4,7 @@ Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,10 @@ We can certainly work with you, and later versions of this plugin might support 
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Fixed minor bug having to do with output of testimonials that caused an output conflict with [Artiss Readme Parser](http://wordpress.org/extend/plugins/wp-readme-parser/).
+* Switched from using output buffering to string concatenation.
 
 = 1.3.0 =
 * Added timing controls to widget
