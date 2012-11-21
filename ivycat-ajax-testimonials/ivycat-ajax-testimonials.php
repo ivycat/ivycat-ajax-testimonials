@@ -190,46 +190,37 @@ class IvyCatTestimonials {
 		$testimonials = apply_filters( 'ic_testimonials_data', self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on ) );
 		if( count( $testimonials ) == 0 )
 			return '';
-		$contents = '&nbsp;';
-		ob_start(); ?>
-		<div id="ivycat-testimonial"><?php
-		if( isset( $title ) ): ?>
-			<h3><?php echo $title; ?></h3><?php
-		endif; ?>
-            <blockquote class="testimonial-content">
-                <div class="ict-content"><?php echo apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ); ?></div>
-                <footer>
-					<cite>
-						<a href="<?php echo $testimonials[0]['testimonial_link']; ?>">
-							<?php echo $testimonials[0]['testimonial_title']; ?>
-						</a>
-					</cite>
-				</footer>
-				<?php if( strlen( $all_url ) > 1 ) : ?>
-					<p><a href="<?php echo $all_url; ?>">See All Testimonals</a></p>
-				<?php endif; ?>
-            </blockquote>
-            <?php if( $ajax_on == 'yes' ): 
-
-				wp_enqueue_script( 'ict-ajax-scripts' );
-				wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
-					apply_filters( 'ICTaconn-variables', array(
-						'ajaxurl'     => admin_url( 'admin-ajax.php' ),
-						'themeurl'  => get_bloginfo( 'stylesheet_directory' ).'/',
-						'pluginurl'  => ICTESTI_URL,
-						'ict_quantity' => $quantity,
-						'ict_group' => $group,
-						'num_words' => $num_words,
-						'more_tag' => $more_tag,
-						'all_url' => $all_url,
-						'fadeIn' => $fadeIn,
-						'fadeOut' => $fadeOut,
-						'speed' => $speed,
-					) )
-				);
-			endif; ?>
-		</div>
-		<?php
+		if( $ajax_on == 'yes' ): 
+			wp_enqueue_script( 'ict-ajax-scripts' );
+			wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
+				apply_filters( 'ICTaconn-variables', array(
+					'ajaxurl'     => admin_url( 'admin-ajax.php' ),
+					'themeurl'  => get_bloginfo( 'stylesheet_directory' ).'/',
+					'pluginurl'  => ICTESTI_URL,
+					'ict_quantity' => $quantity,
+					'ict_group' => $group,
+					'num_words' => $num_words,
+					'more_tag' => $more_tag,
+					'all_url' => $all_url,
+					'fadeIn' => $fadeIn,
+					'fadeOut' => $fadeOut,
+					'speed' => $speed,
+				) )
+			);
+		endif; 
+		$contents = '<div id="ivycat-testimonial">';
+		$contents .= ( $title) ? '<h3>' . $title . '</h3>' : '';
+		$contents .= '<blockquote class="testimonial-content">
+			<div class="ict-content">'. apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ) . '</div>
+			<footer>
+				<cite>
+					<a href="' . $testimonials[0]['testimonial_link'] . '">' . $testimonials[0]['testimonial_title'] . '</a>
+				</cite>
+			</footer>';
+		$contents .= ( strlen( $all_url ) > 1 ) ? '<p><a href="' . $all_url .'">See All Testimonals</a></p>' : '';
+		$contents .= '</blockquote>';
+		$contents .= '</div>';
+		
 		$contents .= ob_get_clean();
 		
 		return apply_filters( 'ic_testimonials_contents', $contents );
