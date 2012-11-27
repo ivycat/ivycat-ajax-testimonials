@@ -221,8 +221,6 @@ class IvyCatTestimonials {
 		$contents .= '</blockquote>';
 		$contents .= '</div>';
 		
-		$contents .= ob_get_clean();
-		
 		return apply_filters( 'ic_testimonials_contents', $contents );
 	}
 	
