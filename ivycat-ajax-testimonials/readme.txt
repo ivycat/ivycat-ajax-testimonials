@@ -4,7 +4,7 @@ Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 1.3.2
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,7 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials num_words='55']` - Shows only the first x number of words, as defined by value given
 * `[ic_do_testimonials num_words='55' read_more='[...]' ]` - When num_words is given, allows the text for the "read more" link to be changed
 * `[ic_do_testimonials ajax_on='no']` - Adds the ability to turn off AJAX. If AJAX is disabled, a random testimonial will be shown on page load. (on by default)
+* `[ic_do_testimonials link_testimonials=true]` - Adds the ability to link to individual testimonials. (off by default)
 * `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - give a url to show all of the testimonials.  The page for this is not part of the plugin, so you'll want to add one.
 
 = Changing timing on AJAX rotation: =
@@ -119,6 +120,11 @@ We can certainly work with you, and later versions of this plugin might support 
 
 
 == Changelog ==
+
+= 1.3.3 =
+* Fixed a couple notices in JS
+* Fixed Testimonials Title issue with Widget
+* Set link to individual testimonial off by default, with ability to turn it on in widget or shortcode
 
 = 1.3.1 =
 * Fixed minor bug having to do with output of testimonials that caused an output conflict with [Artiss Readme Parser](http://wordpress.org/extend/plugins/wp-readme-parser/).

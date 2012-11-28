@@ -6,7 +6,7 @@
  *  Description: Simply add dynamic testimonials to your site.
  *  Author: IvyCat Web Services
  *  Author URI: http://www.ivycat.com
- *  Version: 1.3.2
+ *  Version: 1.3.3
  *  License: GNU General Public License v2.0
  *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -177,6 +177,8 @@ class IvyCatTestimonials {
 	public function do_testimonials( $args, $content = null ) {
 		$atts = wp_parse_args( $args, array(
 			'quantity' => 3,
+			'title' => false,
+			'link_testimonials' => false,
 			'group'    => false,
 			'num_words' => false,
 			'more_tag' => false,
@@ -187,7 +189,10 @@ class IvyCatTestimonials {
 			'speed' => 8000
 		) );
 		extract( apply_filters( 'ic_testimonials_args', $atts ) );
-		$testimonials = apply_filters( 'ic_testimonials_data', self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on ) );
+		$testimonials = apply_filters( 
+			'ic_testimonials_data', 
+			self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) 
+		);
 		if( count( $testimonials ) == 0 )
 			return '';
 		if( $ajax_on == 'yes' ): 
@@ -205,6 +210,7 @@ class IvyCatTestimonials {
 					'fadeIn' => $fadeIn,
 					'fadeOut' => $fadeOut,
 					'speed' => $speed,
+					'link_testimonials' => $link_testimonials
 				) )
 			);
 		endif; 
@@ -213,9 +219,11 @@ class IvyCatTestimonials {
 		$contents .= '<blockquote class="testimonial-content">
 			<div class="ict-content">'. apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ) . '</div>
 			<footer>
-				<cite>
-					<a href="' . $testimonials[0]['testimonial_link'] . '">' . $testimonials[0]['testimonial_title'] . '</a>
-				</cite>
+				<cite>';
+		$contents .= ( $link_testimonials ) 
+			? '<a href="' . $testimonials[0]['testimonial_link'] . '">' . $testimonials[0]['testimonial_title'] . '</a>' 
+			: $testimonials[0]['testimonial_title'];
+		$contents .= '</cite>
 			</footer>';
 		$contents .= ( strlen( $all_url ) > 1 ) ? '<p><a href="' . $all_url .'">See All Testimonals</a></p>' : '';
 		$contents .= '</blockquote>';
@@ -230,12 +238,12 @@ class IvyCatTestimonials {
 		$num_words = absint( $_POST['num_words'] );
 		$more_tag = $_POST['more_tag'];
 
-        $testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes' );
+        $testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
         echo json_encode( $testimonials );
         wp_die();
     }
     
-    public function get_testimonials( $quantity , $group, $num_words, $more_tag, $ajax_on ) {
+    public function get_testimonials( $quantity , $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) {
         $args = array(
             'post_type' => 'testimonials',
             'orderby' => ( 'yes' == $ajax_on ) ? 'meta_value_num' : 'rand',
@@ -269,7 +277,7 @@ class IvyCatTestimonials {
 				$testimonial_data[] = array(
 					'testimonial_id' => $row->ID,
 					'testimonial_title' => $row->post_title,
-					'testimonial_link' => home_url( '/testimonials/' ) . $row->post_name . '/',
+					'testimonial_link' => ( $link_testimonials ) ? home_url( '/testimonials/' ) . $row->post_name . '/' : false,
 					'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) ? $row->post_excerpt : $post_content 
 				);
 			}
