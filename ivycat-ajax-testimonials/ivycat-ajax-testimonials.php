@@ -110,10 +110,6 @@ class IvyCatTestimonials {
 		add_shortcode( 'ic_do_testimonials', array( __CLASS__, 'do_testimonials' ) );
 		
 		wp_register_script( 'ict-ajax-scripts', ICTESTI_URL . 'assets/ivycat-testimonials-scripts.js', array( 'jquery' ) );
-		wp_localize_script( 'ict-ajax-scripts', 'ICSaconn', array(
-				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			)
-		);
 	}
 	
 	public function register_widgets() {
