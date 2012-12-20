@@ -210,7 +210,8 @@ class IvyCatTestimonials {
 				) )
 			);
 		endif; 
-		$contents = '<div id="ivycat-testimonial">';
+		$testimonial_id = ( 'yes' == $ajax_on ) ? 'ivycat-testimonial' : 'ivycat-testimonial-static';
+		$contents = '<div id="' . $testimonial_id . '">';
 		$contents .= ( $title) ? '<h3>' . $title . '</h3>' : '';
 		$contents .= '<blockquote class="testimonial-content">
 			<div class="ict-content">'. apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ) . '</div>
