@@ -3,7 +3,7 @@ Contributors: dgilfoy, ivycat, sewmyheadon
 Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
