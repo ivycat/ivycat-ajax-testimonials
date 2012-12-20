@@ -38,7 +38,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 				id="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_quantity', 'is_numeric', 3, $instance ); ?>"/>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>"><?php _e( 'Number of Words (-1 for all)', 'ivycat-ajax-testimonials' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>"><?php _e( 'Number of Words (0 for all)', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_num_words' ); ?>"
 				id="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_num_words', 'is_numeric', -1, $instance ); ?>"/>
 		</p>
