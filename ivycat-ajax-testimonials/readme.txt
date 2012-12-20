@@ -121,6 +121,9 @@ We can certainly work with you, and later versions of this plugin might support 
 
 == Changelog ==
 
+= 1.3.4 =
+* Fixed a bug that could cause conflicts with the IvyCat AJAX Image Slider
+
 = 1.3.3 =
 * Fixed a couple notices in JS
 * Fixed Testimonials Title issue with Widget
