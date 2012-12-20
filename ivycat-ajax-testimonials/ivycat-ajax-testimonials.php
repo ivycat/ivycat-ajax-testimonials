@@ -235,7 +235,8 @@ class IvyCatTestimonials {
 		$more_tag = $_POST['more_tag'];
 
         $testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
-        echo json_encode( $testimonials );
+        if( $testimonials )
+        	echo json_encode( $testimonials );
         wp_die();
     }
     

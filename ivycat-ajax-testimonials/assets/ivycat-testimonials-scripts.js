@@ -1,6 +1,7 @@
 jQuery( 'document' ).ready( function( $ ){
-    var ic_ajax_testimonials = function ( ) {
+    ( function ( ) {
         var featured_posts = false,
+            testimonials = {},
             play;
         
         jQuery.ivycat_ajax_do = function( ajaxData, callback ){
@@ -10,24 +11,24 @@ jQuery( 'document' ).ready( function( $ ){
         if( typeof( ICTaconn ) !== 'undefined' ){
             testimonial_start = 1;
              jQuery.ivycat_ajax_do( {
-					'action' : 'get-testimonials',
-					'ict_quantity' : ICTaconn.ict_quantity,
-					'ict_group' : ICTaconn.ict_group,
-					'num_words' : ICTaconn.num_words,
-					'more_tag' : ICTaconn.more_tag,
-					'all_url' : ICTaconn.all_url,
-					'link_testimonials' : ICTaconn.link_testimonials
-				}, function( resp ){
+                    'action' : 'get-testimonials',
+                    'ict_quantity' : ICTaconn.ict_quantity,
+                    'ict_group' : ICTaconn.ict_group,
+                    'num_words' : ICTaconn.num_words,
+                    'more_tag' : ICTaconn.more_tag,
+                    'all_url' : ICTaconn.all_url,
+                    'link_testimonials' : ICTaconn.link_testimonials
+                }, function( resp ){
                 testimonials = $.parseJSON( resp );
                 //console.log( testimonials );
             });
              
             advance_slideshow = function (){
                 //console.log( posts );
-				var testimonial_cite;
+                var testimonial_cite;
                 var total = testimonial_length();
                 if( total < 2 ) return;
-				
+                
                 var current = testimonial_start;
                 
                 var next = current+1;
@@ -39,10 +40,10 @@ jQuery( 'document' ).ready( function( $ ){
                 }
 
                 if( ICTaconn.link_testimonials ){
-					testimonial_cite = '<a href="' + testimonials[current].testimonial_link+ '">' + testimonials[current].testimonial_title + '</a>';
-				}else{
-					testimonial_cite = testimonials[current].testimonial_title;
-				}
+                    testimonial_cite = '<a href="' + testimonials[current].testimonial_link+ '">' + testimonials[current].testimonial_title + '</a>';
+                }else{
+                    testimonial_cite = testimonials[current].testimonial_title;
+                }
 
                 jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( parseInt( ICTaconn.fadeOut, 10 ), function(){
                     jQuery( '#ivycat-testimonial cite' ).html( testimonial_cite );
@@ -63,8 +64,8 @@ jQuery( 'document' ).ready( function( $ ){
                 clearInterval(play);
             }, function() {
                 if( typeof ICTaconn !== 'undefined' ){
-					advance_slideshow();
-				}
+                    advance_slideshow();
+                }
                 rotateSwitch();
             } );
         }
@@ -92,6 +93,5 @@ jQuery( 'document' ).ready( function( $ ){
                     callback();
             });
         };
-    };
-    ic_ajax_testimonials( );
+    })();
 });
