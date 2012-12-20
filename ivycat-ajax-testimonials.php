@@ -214,7 +214,7 @@ class IvyCatTestimonials {
 		$contents = '<div id="' . $testimonial_id . '">';
 		$contents .= ( $title) ? '<h3>' . $title . '</h3>' : '';
 		$contents .= '<blockquote class="testimonial-content">
-			<div class="ict-content">'. apply_filters( 'the_content', $testimonials[0]['testimonial_content'] ) . '</div>
+			<div class="ict-content">'. $testimonials[0]['testimonial_content'] . '</div>
 			<footer>
 				<cite>';
 		$contents .= ( $link_testimonials ) 
@@ -276,7 +276,9 @@ class IvyCatTestimonials {
 					'testimonial_id' => $row->ID,
 					'testimonial_title' => $row->post_title,
 					'testimonial_link' => ( $link_testimonials ) ? home_url( '/testimonials/' ) . $row->post_name . '/' : false,
-					'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) ? $row->post_excerpt : $post_content 
+					'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) 
+						? $row->post_excerpt 
+						: apply_filters( 'the_content', $post_content ) 
 				);
 			}
 		}
