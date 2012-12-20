@@ -5,7 +5,7 @@ jQuery( 'document' ).ready( function( $ ){
             play;
         
         jQuery.ivycat_ajax_do = function( ajaxData, callback ){
-            return $.post( ICSaconn.ajaxurl, ajaxData, callback );
+            return $.post( ICTaconn.ajaxurl, ajaxData, callback );
         };
 
         if( typeof( ICTaconn ) !== 'undefined' ){
