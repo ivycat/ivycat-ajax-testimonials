@@ -263,7 +263,7 @@ class IvyCatTestimonials {
 		$more = ( $more_tag ) ? $more_tag : 'Read More';
 		$testimonials = get_posts( $args );
 		$testimonial_data = array();
-		
+		do_action( 'ica_pre_loop_testimonials', $testimonials );
 		if ( $testimonials ) {
 			foreach( $testimonials as $row ) {
 				
