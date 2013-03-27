@@ -119,7 +119,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_fadeout'] = absint( $new_instance['testimonial_fadeout'] );
 		$instance['testimonial_link_testimonials'] = $new_instance['testimonial_link_testimonials'];
 		
-		return apply_filters( 'ic_testimonals_widget_save', $instance, $new_instance );
+		return apply_filters( 'ic_testimonials_widget_save', $instance, $new_instance );
 	}
 	
 	protected function set_field( $field, $condition, $default, $instance ){

@@ -121,6 +121,9 @@ We can certainly work with you, and later versions of this plugin might support 
 
 == Changelog ==
 
+= 1.3.5 =
+* Fixed a few embarrasing misspellings.
+
 = 1.3.4 =
 * Fixed a bug that could cause conflicts with the IvyCat AJAX Image Slider
 
@@ -151,6 +154,12 @@ We can certainly work with you, and later versions of this plugin might support 
 * Added new shortcode Features
 
 == Upgrade Notice ==
+
+= 1.3.5 =
+Minor update - cosmetic only.
+
+= 1.3.4 =
+Bug fixes and new features: please upgrade.
 
 = 1.3.0 =
 Bug fixes and new features: please upgrade.

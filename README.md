@@ -100,17 +100,6 @@ You can drop the following WordPress function in your template files, replacing 
 
 `<?php echo do_shortcode("[shortcode]"); ?>`
 
-## Screenshots ##
-
-###1. A testimonial showing on a site.###
-![A testimonial showing on a site.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-1.png)
-
-###2. A list of testimonials.###
-![A list of testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-2.png)
-
-###3. Add / edit testimonials.###
-![Add / edit testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-3.png)
-
 
 ## Frequently Asked Questions ##
 
@@ -126,6 +115,9 @@ We can certainly work with you, and later versions of this plugin might support 
 
 
 ## Changelog ##
+
+### 1.3.5 ###
+* Fixed a few embarrassing misspellings.
 
 ### 1.3.4 ###
 * Fixed a bug that could cause conflicts with the IvyCat AJAX Image Slider
@@ -157,6 +149,9 @@ We can certainly work with you, and later versions of this plugin might support 
 * Added new shortcode Features
 
 ## Upgrade Notice ##
+
+### 1.3.5 ###
+**Bug fixes and new features:** please upgrade.  
 
 ### 1.3.0 ###
 **Bug fixes and new features:** please upgrade.  
