@@ -92,7 +92,7 @@ class ICTestimonialPosts {
 	protected function has_theme_template( ) {
 		$template_file = ( $this->args['template'] )
 			? get_stylesheet_directory( )  . '/' . $this->args['template'] // use specified template file
-			: get_stylesheet_directory( ) . '/testimonials_loop_template.php'; // use default template file
+			: get_stylesheet_directory( ) . '/testimonials-loop-template.php'; // use default template file
 		
 		return ( file_exists( $template_file ) ) ? $template_file : false;
 	}
@@ -113,7 +113,7 @@ class ICTestimonialPosts {
 		$output .= apply_filters( 'testimonials_in_page_pre_loop', '' );
 		require ( $file_path = self::has_theme_template( ) )
 			? $file_path // use template file in theme
-			: ICTESTI_DIR . '/testimonials_loop_template.php'; // use default plugin template file
+			: ICTESTI_DIR . '/testimonials-loop-template.php'; // use default plugin template file
 		$output .= ob_get_contents( );
 		$output .= apply_filters( 'testimonials_in_page_post_loop', '' );
 		return ob_get_clean( );
