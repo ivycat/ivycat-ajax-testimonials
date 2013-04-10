@@ -1,17 +1,16 @@
 <?php
-
-/**
- *  Plugin Name: IvyCat AJAX Testimonials
- *  Plugin URI: http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/
- *  Description: Simply add dynamic testimonials to your site.
- *  Author: IvyCat Web Services
- *  Author URI: http://www.ivycat.com
- *  Version: 1.3.5
- *  License: GNU General Public License v2.0
- *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
+/*
+	Plugin Name: IvyCat AJAX Testimonials
+	Plugin URI: http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/
+	Description: Simply add dynamic testimonials to your site.
+	Author: IvyCat Web Services
+	Author URI: http://www.ivycat.com
+	Version: 1.4.0
+	License: GNU General Public License v2.0
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
  ------------------------------------------------------------------------
-	IvyCat AJAX Testimonials, Copyright 2012 IvyCat, Inc. (admins@ivycat.com)
+	IvyCat AJAX Testimonials, Copyright 2013 IvyCat, Inc. (admins@ivycat.com)
 	
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -34,6 +33,10 @@ if ( ! defined( 'ICTESTI_DIR' ) )
 if ( ! defined( 'ICTESTI_URL' ) )
 	define( 'ICTESTI_URL', plugin_dir_url( __FILE__ ) );
 
+// Load the class for displaying testimonials_in_page
+if ( !class_exists( 'ICTestimonialPosts' ) ) {
+        require_once( 'lib/IvyCatTestimonialsPosts.php' );
+}
 
 add_action( 'plugins_loaded', array( 'IvyCatTestimonials', 'start' ) );
 
@@ -182,7 +185,8 @@ class IvyCatTestimonials {
 			'all_url' => false,
 			'fadeIn' => 500,
 			'fadeOut' => 300,
-			'speed' => 8000
+			'speed' => 8000,
+			'display' => 'single'
 		) );
 		extract( apply_filters( 'ic_testimonials_args', $atts ) );
 		$testimonials = apply_filters( 
@@ -191,6 +195,23 @@ class IvyCatTestimonials {
 		);
 		if( count( $testimonials ) == 0 )
 			return '';
+
+                // check for display option set to list
+                if( $display == 'list' ) : 
+                        // turn off ajax
+                        $ajax_on = 'no';
+                        // pagination
+                        $atts['paginate'] = true;
+                        // if user set a number of posts to show pass it on
+                        if( $atts['quantity'] != '3' ):
+                                $atts['showposts'] = $atts['quantity'];
+                        endif;
+                        // call the class
+                        $new_output = new ICTestimonialPosts( $atts );
+                        // display loop in our page/post
+                        return $new_output->output_testimonials();
+                endif;
+
 		if( $ajax_on == 'yes' ): 
 			wp_enqueue_script( 'ict-ajax-scripts' );
 			wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
