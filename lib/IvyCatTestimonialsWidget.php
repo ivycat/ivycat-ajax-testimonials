@@ -101,7 +101,9 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'fadeOut' => $instance['testimonial_fadeout'],
 			'speed' => $instance['testimonial_slide_speed']
 		);
+		echo $args[ 'before_widget' ];
 		echo IvyCatTestimonials::do_testimonials( $atts );
+		echo $args[ 'after_widget' ];
 	}
 	
 	public function update( $new_instance, $old_instance ) {
