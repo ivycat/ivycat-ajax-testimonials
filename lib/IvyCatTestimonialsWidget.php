@@ -49,7 +49,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		</p>
 		<p>
 			<input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_ajax_on' ); ?>"
-				id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="checkbox" value="no"<?php checked( $ajax_on, 'no' ); ?>"/>
+				id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="checkbox" value="no"<?php checked( $ajax_on, 'no' ); ?>" />
 			<label for="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>"><?php _e( 'Disable Ajax', 'ivycat-ajax-testimonials' ); ?></label>
 		</p>
 		<p>
@@ -84,8 +84,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 	
 	public function widget( $args, $instance ) {
 		
-		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Testimonials', 'ivycat-ajax-testimonials' ) : $instance['title'], $instance, $this->id_base );
-	   
+		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
 		$quantity = ( $instance['testimonial_quantity'] ) ? absint( $instance['testimonial_quantity'] ) : 1;
 		$group = ( isset( $instance['testimonial_group'] ) && 'All Groups' !== $instance['testimonial_group'] ) ? $instance['testimonial_group'] : false;
 		$atts = array(
