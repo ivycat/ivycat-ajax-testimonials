@@ -90,7 +90,6 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$atts = array(
 			'quantity' => ( is_numeric( $quantity ) ) ? $quantity : 3,
 			'group' => $group,
-			'title' => $title,
 			'link_testimonials' => $instance['testimonial_link_testimonials'],
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : 'Read More...',
@@ -101,6 +100,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'speed' => $instance['testimonial_slide_speed']
 		);
 		echo $args[ 'before_widget' ];
+		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];
 		echo IvyCatTestimonials::do_testimonials( $atts );
 		echo $args[ 'after_widget' ];
 	}
