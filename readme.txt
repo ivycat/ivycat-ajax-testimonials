@@ -136,6 +136,11 @@ We can certainly work with you, and later versions of this plugin might support 
 
 == Changelog ==
 
+= 1.4.0 =
+* New Feature: List testimonials out in a post or page, instead of rotating one-by-one.  Great if you have a Testimonials page where you list all testimonials.
+* Bug fixes for widget - formatting for before/after title & widget
+
+
 = 1.3.5 =
 * Fixed a few embarrasing misspellings.
 
@@ -169,6 +174,9 @@ We can certainly work with you, and later versions of this plugin might support 
 * Added new shortcode Features
 
 == Upgrade Notice ==
+
+= 1.4.0 = 
+New features & bug fixes - please update.
 
 = 1.3.5 =
 Minor update - cosmetic only.
