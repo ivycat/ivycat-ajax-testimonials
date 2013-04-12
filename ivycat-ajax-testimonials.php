@@ -10,6 +10,7 @@
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
  ------------------------------------------------------------------------
+	
 	IvyCat AJAX Testimonials, Copyright 2013 IvyCat, Inc. (admins@ivycat.com)
 	
 	This program is free software; you can redistribute it and/or modify
@@ -35,7 +36,7 @@ if ( ! defined( 'ICTESTI_URL' ) )
 
 // Load the class for displaying testimonials_in_page
 if ( !class_exists( 'ICTestimonialPosts' ) ) {
-        require_once( 'lib/IvyCatTestimonialsPosts.php' );
+	require_once( 'lib/IvyCatTestimonialsPosts.php' );
 }
 
 add_action( 'plugins_loaded', array( 'IvyCatTestimonials', 'start' ) );
@@ -196,21 +197,21 @@ class IvyCatTestimonials {
 		if( count( $testimonials ) == 0 )
 			return '';
 
-                // check for display option set to list
-                if( $display == 'list' ) : 
-                        // turn off ajax
-                        $ajax_on = 'no';
-                        // pagination
-                        $atts['paginate'] = true;
-                        // if user set a number of posts to show pass it on
-                        if( $atts['quantity'] != '3' ):
-                                $atts['showposts'] = $atts['quantity'];
-                        endif;
-                        // call the class
-                        $new_output = new ICTestimonialPosts( $atts );
-                        // display loop in our page/post
-                        return $new_output->output_testimonials();
-                endif;
+				// check for display option set to list
+				if( $display == 'list' ) : 
+						// turn off ajax
+						$ajax_on = 'no';
+						// pagination
+						$atts['paginate'] = true;
+						// if user set a number of posts to show pass it on
+						if( $atts['quantity'] != '3' ):
+								$atts['showposts'] = $atts['quantity'];
+						endif;
+						// call the class
+						$new_output = new ICTestimonialPosts( $atts );
+						// display loop in our page/post
+						return $new_output->output_testimonials();
+				endif;
 
 		if( $ajax_on == 'yes' ): 
 			wp_enqueue_script( 'ict-ajax-scripts' );
@@ -255,31 +256,30 @@ class IvyCatTestimonials {
 		$group = $_POST['ict_group'];
 		$num_words = absint( $_POST['num_words'] );
 		$more_tag = $_POST['more_tag'];
-
-        $testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
-        if( $testimonials )
-        	echo json_encode( $testimonials );
-        wp_die();
-    }
-    
-    public function get_testimonials( $quantity , $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) {
-        $args = array(
-            'post_type' => 'testimonials',
-            'orderby' => ( 'yes' == $ajax_on ) ? 'meta_value_num' : 'rand',
-            'meta_key' => 'ivycat_testimonial_order',
-            'order' => 'ASC',
-            'posts_per_page' => $quantity
-        );
-        
-        if ( $group ) {
-            $args['tax_query'] = array(
-                array(
-                    'taxonomy' => 'testimonial-group',
-                    'field' => is_numeric( $group ) ? 'id' : 'slug',
-                    'terms' => $group
-                )
-            );
-        }
+		$testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
+		if( $testimonials )
+			echo json_encode( $testimonials );
+		wp_die();
+	}
+	
+	public function get_testimonials( $quantity , $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) {
+		$args = array(
+			'post_type' => 'testimonials',
+			'orderby' => ( 'yes' == $ajax_on ) ? 'meta_value_num' : 'rand',
+			'meta_key' => 'ivycat_testimonial_order',
+			'order' => 'ASC',
+			'posts_per_page' => $quantity
+		);
+		
+		if ( $group ) {
+			$args['tax_query'] = array(
+					array(
+					'taxonomy' => 'testimonial-group',
+					'field' => is_numeric( $group ) ? 'id' : 'slug',
+					'terms' => $group
+				)
+			);
+		}
 		
 		$more = ( $more_tag ) ? $more_tag : 'Read More';
 		$testimonials = get_posts( $args );
