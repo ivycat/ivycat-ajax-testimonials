@@ -71,7 +71,7 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials group='my-created-group']` - Adds testimonials from a custom group.  Defaults to 3 testimonials
 * `[ic_do_testimonials quantity='5']` - changes default quantity to 5.
 * `[ic_do_testimonials num_words='55']` - Shows only the first x number of words, as defined by value given
-* `[ic_do_testimonials num_words='55' more_tag='[...]' ]` - When num_words is given, allows the text for the "read more" link to be changed
+* `[ic_do_testimonials num_words='55' more_tag='Read More...' ]` - When num_words is given, allows the text for the "read more" link to be changed
 * `[ic_do_testimonials ajax_on='no']` - Adds the ability to turn off AJAX. If AJAX is disabled, a random testimonial will be shown on page load. (on by default)
 * `[ic_do_testimonials link_testimonials='yes']` - Adds the ability to link to individual testimonials. (off by default)
 * `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - give a url to show all of the testimonials.  The page for this is not part of the plugin, so you'll want to add one.
