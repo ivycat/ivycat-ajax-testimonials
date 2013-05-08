@@ -217,12 +217,12 @@ class IvyCatTestimonials {
 
                 // if more tag is set add the filter
                 if( $more_tag !== false ) :
-                    add_filter( 'excerpt_more', array( __CLASS__, 'custom_excerpt_more' ) );
+                    add_filter( 'excerpt_more', array( __CLASS__, 'ivycat_custom_excerpt_more' ) );
                 endif;
 
                 // if num words is set add the filter
                 if( $show_posts !== false ) :
-                    add_filter( 'excerpt_length', array( __CLASS__, 'custom_excerpt_length' ), 999 );
+                    add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
                 endif;
 
                 // call the class
@@ -325,12 +325,12 @@ class IvyCatTestimonials {
 		return apply_filters( 'ic_testimonials_data_array', $testimonial_data );
 	}
 
-    public function custom_excerpt_more( $more ) {
+    public function ivycat_custom_excerpt_more( $more ) {
         $more_tag = self::$more_tag;
         return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
     }
 
-    public function custom_excerpt_length( $length ) {
+    public function ivycat_custom_excerpt_length( $length ) {
         $num_words = self::$num_words;
         return $num_words;
     }
