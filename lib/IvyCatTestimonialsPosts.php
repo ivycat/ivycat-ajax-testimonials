@@ -40,6 +40,11 @@ class ICTestimonialPosts {
 			) . '</div>' : '';
 		endif;
 		wp_reset_postdata( );
+
+        // remove our filters for excerpt more and length
+        remove_filter( 'excerpt_more', array( 'IvyCatTestimonials', 'ivycat_custom_excerpt_more' ) );
+        remove_filter( 'excerpt_length', array( 'IvyCatTestimonials', 'ivycat_custom_excerpt_length' ) );
+
 		return $output;
 	}
 	
