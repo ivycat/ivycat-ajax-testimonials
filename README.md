@@ -1,32 +1,39 @@
 # IvyCat AJAX Testimonials #
-**Contributors:** dgilfoy, ivycat, sewmyheadon  
+**Contributors:** ivycat, sewmyheadon, gehidore, dgilfoy  
 **Donate link:** http://www.ivycat.com/contribute/  
 **Tags:** testimonial, recommendation, reference, referral, testimony, ajax, widget  
 **Requires at least:** 3.0  
-**Tested up to:** 3.5  
+**Tested up to:** 3.5.1  
 **Stable tag:** trunk  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Easily add rotating testimonials to your website.  Testimonials can be categorized and rotated dynamically via AJAX or on page load.
+Easily add rotating or static testimonials to your website.  Testimonials can be categorized and rotated dynamically via AJAX or on page load.
 
 ## Description ##
 
-This plugin is a light template/framework for developers to easily add rotating testimonials to a site. 
+IvyCat AJAX Testimonials adds a _Testimonials_ menu item to the WordPress Dashboard navigation.
+
+Testimonials can be entered as easily as a normal post and can be grouped or categorized, so you can _pull_ testimonials into different areas of a site based on group, if needed.
+
+You can embed testimonials via an easy shortcode, or by using a widget.
+
+You can also list multiple testimonials out in a post or page.
 
 ### Features ###
 
-* Use simple shortcodes to add a testimonial to a page.
-* Create multiple testimonial groups.
-* Supports one testimonial per page.
-* The first testimonial loads when the page loads and the rest are pulled in via AJAX, speeding up initial page load.
 * Uses a *Testimonials* custom post type, making it easy for you, or your customers, to add new testimonials and testimonial groups.
-* Testimonials can contain images too.
+* Use simple shortcodes to add testimonials to a page or post.
+* Create multiple testimonial groups for categorization.
+* Supports one testimonial per page by default.
+* List all testimonials using a shortcode.  This is great if you want to create a Testimonials page that displays all testimonials.
+* The first testimonial loads when the page loads and the rest are pulled in via AJAX, speeding up initial page load.
+* Supports images in testimonials.
 * You set the testimonial order.
 
-Plugin depends upon your theme's style and _does not_ contain native styles.  
+Plugin depends upon your theme's styles and _does not_ contain native styles.  
 
-This is a minimal plugin, preferring function over form.  If you would like to extend it, or would like us to extend it in later versions, feel free to post ideas in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/), or [contact us](http://www.ivycat.com/contact/).
+This is a minimal plugin, preferring function over form.  If you have ideas for feature requests, please post them in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/).
 
 ## Installation ##
 
@@ -34,11 +41,11 @@ You can install from within WordPress using the Plugin/Add New feature, or if yo
 
 1. Download the plugin.
 1. Upload the entire `ivycat-ajax-testimonials` directory to your plugins folder.
-1. Click Activate Plugin in your WordPress plugin page.
+1. In the WordPress Dashboard under Plugins, activate the plugin.
 
 ### Overview ###
 
-*Here's the gist:* you add testimonials to the system, and create testimonial groups if you need to categorize them so you can 'pull' them into different areas of the site.  Then use simple shortcodes to embed a testimonial in a page or post.
+*Here's the gist:* you add testimonials to the system, and create testimonial groups if you need to categorize them so you can 'pull' them into different areas of the site.  Then use simple shortcodes or a widget to embed a testimonial in a page or post.
 
 ### Create a Testimonial Group ###
 
@@ -50,11 +57,11 @@ For example, if you wanted to have a specific testimonial that is shown in the _
 
 Adding testimonials is easy:
 
-1. Go to Testimonials / New Testimonial - this will allow you to enter the testimonial, cite (where it comes from), and embed images, if necessary.
-1. Give your testimonial a title; this is the *cite*, so if the testimonial is from _Joe Blow_, you'd enter "Joe Blow".
-**1. Enter the testimonial content (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
-1. Assign the testimonial to a group, if applicable.  If you haven't already created a group, click on the _Add New Category_ link in the testimonial Groups box and add one.
-1. Give this testimonial an order in its group.  If you want it to show first in your _Services_ testimonial, set _Order_ to 1 under _Testimonial Data_.
+1. *Go to Testimonials / New Testimonial* - this will allow you to enter the testimonial, cite (where it comes from), and embed images, if necessary.
+1. *Give your testimonial a title*; this is the *cite*, so if the testimonial is from _Joe Blow_, you'd enter "Joe Blow".
+**1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
+1. *Assign the testimonial to a group*, if applicable.  If you haven't already created a group, click on the _Add New Category_ link in the testimonial Groups box and add one.
+1. *Give this testimonial an order* in its group.  If you want it to show first in your _Services_ testimonial, set _Order_ to 1 under _Testimonial Data_.
 
 ### Embed a testimonial in a page or post using shortcodes: ###
 
@@ -66,8 +73,16 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials num_words='55']` - Shows only the first x number of words, as defined by value given
 * `[ic_do_testimonials num_words='55' more_tag='Read More...' ]` - When num_words is given, allows the text for the "read more" link to be changed
 * `[ic_do_testimonials ajax_on='no']` - Adds the ability to turn off AJAX. If AJAX is disabled, a random testimonial will be shown on page load. (on by default)
-* `[ic_do_testimonials link_testimonials=true]` - Adds the ability to link to individual testimonials. (off by default)
+* `[ic_do_testimonials link_testimonials='yes']` - Adds the ability to link to individual testimonials. (off by default)
 * `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - give a url to show all of the testimonials.  The page for this is not part of the plugin, so you'll want to add one.
+
+### List testimonials on a page or post using a shortcode: ###
+
+Want to display your testimonials in a list, instead of one at a time?  Try the following:
+
+*** `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  Note:** this shortcode honors the default quantity of 3 posts, but you can modify the number of testimonials that display in your list by using `quantity='x' ` in your shortcode.  
+* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
+
 
 ### Changing timing on AJAX rotation: ###
 
@@ -127,6 +142,11 @@ We can certainly work with you, and later versions of this plugin might support 
 
 ## Changelog ##
 
+### 1.4.0 ###
+*** New Feature:** List testimonials out in a post or page, instead of rotating one-by-one.  Great if you have a Testimonials page where you list all testimonials.  
+* Bug fixes for widget - formatting for before/after title & widget
+
+
 ### 1.3.5 ###
 * Fixed a few embarrasing misspellings.
 
@@ -160,6 +180,9 @@ We can certainly work with you, and later versions of this plugin might support 
 * Added new shortcode Features
 
 ## Upgrade Notice ##
+
+### 1.4.0 ###
+New features & bug fixes - please update.
 
 ### 1.3.5 ###
 Minor update - cosmetic only.

@@ -1,5 +1,5 @@
 === IvyCat AJAX Testimonials ===
-Contributors: dgilfoy, ivycat, sewmyheadon
+Contributors: ivycat, sewmyheadon, gehidore, dgilfoy
 Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
