@@ -33,7 +33,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>"><?php _e( 'Quantity to Display', 'ivycat-ajax-testimonials' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>"><?php _e( 'How many testimonials in rotation?', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_quantity' ); ?>"
 				id="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_quantity', 'is_numeric', 3, $instance ); ?>"/>
 		</p>
