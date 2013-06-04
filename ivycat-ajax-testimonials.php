@@ -221,7 +221,7 @@ class IvyCatTestimonials {
                 endif;
 
                 // if num words is set add the filter
-                if( $show_posts !== false ) :
+                if( $num_words !== false ) :
                     add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
                 endif;
 

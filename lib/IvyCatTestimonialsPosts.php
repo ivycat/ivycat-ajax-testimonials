@@ -85,7 +85,15 @@ class ICTestimonialPosts {
 		if ( isset( $wp_query->query_vars['page'] ) &&  $wp_query->query_vars['page'] > 1 ) {
 			$this->args['paged'] = $wp_query->query_vars['page'];
 		}
-		
+	    if ( isset( $atts['group'] ) ) {
+			$this->args['tax_query'] = array(
+					array(
+					'taxonomy' => 'testimonial-group',
+					'field' => is_numeric( $atts['group'] ) ? 'id' : 'slug',
+					'terms' => $atts['group']
+				)
+			);
+		}	
 		$this->args = apply_filters( 'testimonials_in_page_args', $this->args );
 	}
 	
