@@ -25,9 +25,9 @@ You can also list multiple testimonials out in a post or page.
 * Uses a *Testimonials* custom post type, making it easy for you, or your customers, to add new testimonials and testimonial groups.
 * Use simple shortcodes to add testimonials to a page or post.
 * Create multiple testimonial groups for categorization.
-* Supports one testimonial per page by default.
+* Supports showing one testimonial per page by default, which can be rotated via AJAX, or on page refresh.
 * List all testimonials using a shortcode.  This is great if you want to create a Testimonials page that displays all testimonials.
-* The first testimonial loads when the page loads and the rest are pulled in via AJAX, speeding up initial page load.
+* The first testimonial shows when the page loads and the rest are pulled in via AJAX, speeding up initial page load.
 * Supports images in testimonials.
 * You set the testimonial order.
 
@@ -76,14 +76,6 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials link_testimonials='yes']` - Adds the ability to link to individual testimonials. (off by default)
 * `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - give a url to show all of the testimonials.  The page for this is not part of the plugin, so you'll want to add one.
 
-= List testimonials on a page or post using a shortcode: = 
-
-Want to display your testimonials in a list, instead of one at a time?  Try the following:
-
-* `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  Note: this shortcode honors the default quantity of 3 posts, but you can modify the number of testimonials that display in your list by using `quantity='x' ` in your shortcode.
-* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
-
-
 = Changing timing on AJAX rotation: =
 
 **Note:** All timing speeds below are listed in _milliseconds_.  
@@ -109,6 +101,20 @@ Or, say you wanted to dynamically rotate between five testimonials in the group 
 
 `[ic_do_testimonials group='licorice' quantity='5' num_words='30' more_tag='find out more . . .']` 
 
+= List testimonials on a page or post using a shortcode: = 
+
+Want to display your testimonials in a _list_, instead of one at a time?  
+
+* `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  Note: this shortcode honors the default quantity of 3 posts, but you can modify the number of testimonials that display in your list by using `quantity='x' ` in your shortcode.
+* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
+
+= Change the format of testimonial lists and keep changes after plugin updates =
+
+Prefer to tweak the layout of the testimonial list output?  Great, you've got two choices:
+
+1. If you're only showing testimonial lists in one place, or your testimonial lists always use the same styles, you can simply copy the `testimonials-loop-template.php` file to your theme's main directory and customize it any way you like. 
+1. Specify a custom template file in your shortcode that points to a file in your theme directory like `[ic_do_testimonials template='my-custom-template.php']`  Note, it's probably best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
+
 = Embed a testimonial directly in your theme template =
 
 You can drop the following WordPress function in your template files, replacing the `[shortcode]` part with your, custom shortcode.
@@ -125,14 +131,26 @@ You can drop the following WordPress function in your template files, replacing 
 
 = What is the point of this plugin? =
 
-We wanted a lighter weight testimonials plugin, that loads quickly.  Some of the other plugins load all the Testimonials at once, and use JavaScript to rotate through.  Some don't load at all if JavaScript is disabled.  
+We wanted a lightweight testimonials plugin that loads quickly.  Some of the other plugins load all the testimonials at once, and use JavaScript to rotate through.  Some other plugins require JavaScript to work at all.
 
-This plugin loads a single testimonial on page load and, once the page is loaded, makes an AJAX request to retrieve the rest of them.  It receives them in JSON format and the individual elements are switched rather than any hiding/showing going on. 
+By default, this plugin loads a single testimonial on page load and, after the page is loaded, makes an AJAX request to retrieve the rest of them.  It receives them in JSON format and the individual elements are switched rather than any hiding/showing going on. 
 
 = What if I don't know CSS? =
 
 We can certainly work with you, and later versions of this plugin might support automatic features and other tweaks. The point of this is an easy to get to template.  Fork it, incorporate it into a theme, have at it.  If you make changes to the core code, we recommend renaming, so future versions don't overwrite your code.
 
+= The testimonials on my site aren't matching my theme - how do I change your styles? =
+
+We don't have any built-in styles, but it's not uncommon for things to look a bit awkward in some themes, depending on the theme's CSS.  We recommend using a tool like Firebug or Chrome's dev tools to identify what styles are used in your site and modify the output template or your stylesheet to fit.
+
+= I have 25 testimonials in the system, so why are only 10 are showing per page? =
+
+This plugin respects the _Blog pages show at most x posts_ setting in the WordPress Dashboard unders Settings/Reading.  
+
+You can change this setting in WordPress, but that may affect all posts on your site; not just testimonials).  A better way to control number of testimonials shown in a list is to modify your shortcode to add `quantity='x'` like so: 
+
+* `[ic_do_testimonials display='list' quantity='7']` - shows 7 posts per page
+* `[ic_do_testimonials display='list' quantity='-1']` - shows all posts
 
 == Changelog ==
 
