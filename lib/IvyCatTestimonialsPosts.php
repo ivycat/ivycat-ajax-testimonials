@@ -85,7 +85,7 @@ class ICTestimonialPosts {
 		if ( isset( $wp_query->query_vars['page'] ) &&  $wp_query->query_vars['page'] > 1 ) {
 			$this->args['paged'] = $wp_query->query_vars['page'];
 		}
-	    if ( isset( $atts['group'] ) ) {
+	    if ( $atts['group'] !== false ) {
 			$this->args['tax_query'] = array(
 					array(
 					'taxonomy' => 'testimonial-group',
