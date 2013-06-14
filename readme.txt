@@ -72,9 +72,16 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials quantity='5']` - changes default quantity of testimonials in rotation to 5. Defaults to 3 testimonials
 * `[ic_do_testimonials num_words='55']` - Shows only the first x number of words.
 * `[ic_do_testimonials num_words='55' more_tag='Read More...' ]` - When num_words is given, allows the text for the "read more" link to be changed
-* `[ic_do_testimonials ajax_on='no']` - Adds the ability to turn off AJAX. If AJAX is disabled, a random testimonial will be shown on page load. (on by default)
-* `[ic_do_testimonials link_testimonials='yes']` - Adds the ability to link to individual testimonials. (off by default)
+* `[ic_do_testimonials ajax_on='no']` - Adds the ability to turn off AJAX. When AJAX is disabled, a random testimonial will be shown on page load. (on by default)
+* `[ic_do_testimonials link_testimonials='yes']` - Adds the a link within the `<cite>` that points to the individual testimonial. (off by default)
 * `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - give a url to show all of the testimonials.  The page for this is not part of the plugin, so you'll want to add one.
+
+= List testimonials on a page or post using a shortcode: = 
+
+Want to display your testimonials in a _list_, instead of one at a time?  
+
+* `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  Note: this shortcode honors the default quantity of 3 posts, but you can modify the number of testimonials that display in your list by using `quantity='x' ` in your shortcode.
+* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
 
 = Changing timing on AJAX rotation: =
 
@@ -101,12 +108,7 @@ Or, say you wanted to dynamically rotate between five testimonials in the group 
 
 `[ic_do_testimonials group='licorice' quantity='5' num_words='30' more_tag='find out more . . .']` 
 
-= List testimonials on a page or post using a shortcode: = 
 
-Want to display your testimonials in a _list_, instead of one at a time?  
-
-* `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  Note: this shortcode honors the default quantity of 3 posts, but you can modify the number of testimonials that display in your list by using `quantity='x' ` in your shortcode.
-* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
 
 = Change the format of testimonial lists and keep changes after plugin updates =
 

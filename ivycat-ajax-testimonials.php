@@ -174,11 +174,11 @@ class IvyCatTestimonials {
 		update_post_meta( $post_id, 'ivycat_testimonial_order', $_POST['testimonial_order'] );
 	}
 
-    public static $more_tag;
-    public static $num_words;
+	public static $more_tag;
+	public static $num_words;
 
 	public function do_testimonials( $args, $content = null ) {
-        $atts = wp_parse_args( $args, array(
+	$atts = wp_parse_args( $args, array(
 			'quantity' => 3,
 			'title' => false,
 			'link_testimonials' => false,
@@ -204,32 +204,32 @@ class IvyCatTestimonials {
 		if( count( $testimonials ) == 0 )
 			return '';
 
-        // check for display option set to list
-        if( $display == 'list' ) : 
-                // turn off ajax
-                $ajax_on = 'no';
-                // pagination
-                $atts['paginate'] = true;
-                // if user set a number of posts to show pass it on
-                if( $atts['quantity'] != '3' ) :
-                        $atts['showposts'] = $atts['quantity'];
-                endif;
+	// check for display option set to list
+	if( $display == 'list' ) : 
+		// turn off ajax
+		$ajax_on = 'no';
+		// pagination
+		$atts['paginate'] = true;
+		// if user set a number of posts to show pass it on
+		if( $atts['quantity'] != '3' ) :
+		 	$atts['showposts'] = $atts['quantity'];
+		endif;
 
-                // if more tag is set add the filter
-                if( $more_tag !== false ) :
-                    add_filter( 'excerpt_more', array( __CLASS__, 'ivycat_custom_excerpt_more' ) );
-                endif;
+		// if more tag is set add the filter
+		if( $more_tag !== false ) :
+		    add_filter( 'excerpt_more', array( __CLASS__, 'ivycat_custom_excerpt_more' ) );
+		endif;
 
-                // if num words is set add the filter
-                if( $num_words !== false ) :
-                    add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
-                endif;
+		// if num words is set add the filter
+		if( $num_words !== false ) :
+		    add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
+		endif;
 
-                // call the class
-                $new_output = new ICTestimonialPosts( $atts );
-                // display loop in our page/post
-                return $new_output->output_testimonials();
-        endif;
+		// call the class
+		$new_output = new ICTestimonialPosts( $atts );
+		// display loop in our page/post
+		return $new_output->output_testimonials();
+	endif;
 
 		if( $ajax_on == 'yes' ): 
 			wp_enqueue_script( 'ict-ajax-scripts' );
@@ -326,12 +326,12 @@ class IvyCatTestimonials {
 	}
 
     public function ivycat_custom_excerpt_more( $more ) {
-        $more_tag = self::$more_tag;
-        return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
+	$more_tag = self::$more_tag;
+	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
     }
 
     public function ivycat_custom_excerpt_length( $length ) {
-        $num_words = self::$num_words;
-        return $num_words;
+	$num_words = self::$num_words;
+	return $num_words;
     }
 }
