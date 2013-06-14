@@ -225,6 +225,20 @@ class IvyCatTestimonials {
 		    add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
 		endif;
 
+        //fade in/out/speed
+
+        if( $fadeIn != 500 ) {
+            $atts['fadeIn'] = $fadeIn;
+        }
+
+        if( $fadeOut != 300 ) {
+            $atts['fadeOut'] = $fadeOut;
+        }
+
+        if( $speed != 8000 ) {
+            $atts['speed'] = $speed;
+        }
+
 		// call the class
 		$new_output = new ICTestimonialPosts( $atts );
 		// display loop in our page/post
