@@ -45,10 +45,10 @@ jQuery( 'document' ).ready( function( $ ){
 					testimonial_cite = testimonials[current].testimonial_title;
 				}
 
-				jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( parseInt( ICTaconn.fadeOut, 10 ), function(){
+				jQuery( '#ivycat-testimonial blockquote' ).customFadeOut( parseInt( ICTaconn.fade_out, 10 ), function(){
 				jQuery( '#ivycat-testimonial cite' ).html( testimonial_cite );
 				jQuery( '#ivycat-testimonial div.ict-content' ).html( testimonials[current].testimonial_content  );
-				jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( parseInt( ICTaconn.fadeIn, 10 ), function(){});
+				jQuery( '#ivycat-testimonial blockquote' ).customFadeIn( parseInt( ICTaconn.fade_in, 10 ), function(){});
 				});
 			};
 			

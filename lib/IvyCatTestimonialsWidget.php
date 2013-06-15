@@ -95,8 +95,8 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : 'Read More...',
 			'ajax_on' => ( 'no' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
 			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) > 1 ) ? $instance['testimonial_show_all'] : false,
-			'fadeIn' => $instance['testimonial_fadein'],
-			'fadeOut' => $instance['testimonial_fadeout'],
+			'fade_in' => $instance['testimonial_fadein'],
+			'fade_out' => $instance['testimonial_fadeout'],
 			'speed' => $instance['testimonial_slide_speed']
 		);
 		echo $args[ 'before_widget' ];
