@@ -178,6 +178,10 @@ class IvyCatTestimonials {
 	public static $num_words;
 
 	public function do_testimonials( $args, $content = null ) {
+    // fix for camel case previous verions
+    if( isset( $args['fadein'] ) ) $args['fade_in'] = $args['fadein'];
+    if( isset( $args['fadeout'] ) ) $args['fade_out'] = $args['fadeout'];
+
 	$atts = wp_parse_args( $args, array(
 			'quantity' => 3,
 			'title' => false,
@@ -187,8 +191,8 @@ class IvyCatTestimonials {
 			'more_tag' => false,
 			'ajax_on' => 'yes',
 			'all_url' => false,
-			'fadeIn' => 500,
-			'fadeOut' => 300,
+			'fade_in' => 500,
+			'fade_out' => 300,
 			'speed' => 8000,
 			'display' => 'single'
 		) );
@@ -197,7 +201,6 @@ class IvyCatTestimonials {
 			'ic_testimonials_data', 
 			self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) 
 		);
-
         self::$more_tag = $atts['more_tag'];
         self::$num_words = $atts['num_words'];
 
@@ -225,20 +228,6 @@ class IvyCatTestimonials {
 		    add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
 		endif;
 
-        //fade in/out/speed
-
-        if( $fadeIn != 500 ) {
-            $atts['fadeIn'] = $fadeIn;
-        }
-
-        if( $fadeOut != 300 ) {
-            $atts['fadeOut'] = $fadeOut;
-        }
-
-        if( $speed != 8000 ) {
-            $atts['speed'] = $speed;
-        }
-
 		// call the class
 		$new_output = new ICTestimonialPosts( $atts );
 		// display loop in our page/post
@@ -257,8 +246,8 @@ class IvyCatTestimonials {
 					'num_words' => $num_words,
 					'more_tag' => $more_tag,
 					'all_url' => $all_url,
-					'fadeIn' => $fadeIn,
-					'fadeOut' => $fadeOut,
+					'fade_in' => $fade_in,
+					'fade_out' => $fade_out,
 					'speed' => $speed,
 					'link_testimonials' => $link_testimonials
 				) )
