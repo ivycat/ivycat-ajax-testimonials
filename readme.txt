@@ -135,22 +135,38 @@ You can drop the following WordPress function in your template files, replacing 
 
 == Frequently Asked Questions ==
 
+= Where are the instructions? =
+
+Check the [Installation tab](http://wordpress.org/plugins/ivycat-ajax-testimonials/installation/).
+
+In an upcoming version, we'll include a page within the WordPress Admin containing a shortcode cheat sheet.
+
 = Why are the styles for the testimonials different than the other content on the page or widgets in my sidebar.  =
 
-This plugin depends upon your theme's styles and _does not_ contain native styles.  
-
+This plugin depends upon *your theme's* styles and _does not_ contain native styles.  
 
 = The testimonials on my site aren't matching my theme - how do I change your styles? =
 
-We don't have any built-in styles, but it's not uncommon for things to look a bit awkward in some themes, depending on the theme's CSS.  
+We don't have any built-in styles, so it's not uncommon for things to look a bit awkward in some themes, depending on the theme's CSS.  Usually, with some quick poking around, you can change markup, CSS or both so the testimonials will display exactly as you'd like. *Screencast coming soon . . .*
 
-We recommend using a tool like Firebug or Chrome's dev tools to identify what styles are used in your site so you can modify the output template or your stylesheet to fit.
+We recommend using a tool like [Firebug](https://getfirebug.com/) or Google [Chrome DevTools](https://developers.google.com/chrome-developer-tools/) to identify what styles are used in your site so you can modify the output template or your stylesheet to fit.
 
-*Using Shortcodes:* If you're using a shortcode to display testimonials in a list, rather than individually, you can customize the `testimonials-loop-template.php` file to suit your site.
+*Styling Testimonials Embedded Using Shortcodes?* 
 
-*Using Widgets:* You may need to use a tool like Firebug or Google Chrome Dev Tools to inspect the CSS classes and IDs in your theme and adjust the CSS accordingly.
+If you're using a shortcode to display testimonials in a list, rather than individually, you can customize the `testimonials-loop-template.php` file to suit your site.
 
-= Hey dudes, why don't you add a feature that _________? =
+*Styling Testimonials Embedded Using Widgets?* 
+
+You may need to a tool like [Firebug](https://getfirebug.com/) or Google [Chrome DevTools](https://developers.google.com/chrome-developer-tools/) to inspect the markup and CSS in your theme and adjust as needed accordingly.
+
+= What if I don't know CSS? =
+
+You might be okay, but if you need style tweaks, you can either:
+
+* Find a friend with some CSS chops that can help out. Or,
+* Post your questions in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/) and we'll try to help out when we get time.
+
+= Hey guys, why don't you add a feature that _________? =
 
 This is a minimal plugin that prefers function over form.  When you have ideas for new features, please post them in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/) and we'll respond ASAP.
 
@@ -168,18 +184,11 @@ If you've got an idea for a feature that we wouldn't use, we'll look at creating
 
 [GitHub](https://github.com/ivycat/IvyCat-Ajax-Testimonials)
 
-= What if I don't know CSS? =
-
-You might be okay, but if you need style tweaks, you can either:
-
-* Find a friend with some CSS chops that can help out. Or,
-* Post your questions in this [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/) and we'll try to help out when we get time.
-
 = I have 25 testimonials in the system, so why are only 10 are showing per page? =
 
 This plugin respects the _Blog pages show at most x posts_ setting in WordPress under **Admin > Settings > Reading**.  
 
-Of course, you can change this setting in WordPress, but that will likely affect all posts on your site; not just testimonials.  A better way to control number of testimonials shown in a list is to modify your shortcode to add `quantity='x'` like so: 
+Of course, you can change this setting in the WordPress Admin, but that will likely affect *all posts* on your site; not just testimonials.  A better way to control number of testimonials shown in a list is to modify your shortcode to add `quantity='x'` like so: 
 
 * `[ic_do_testimonials display='list' quantity='7']` - shows 7 posts per page
 * `[ic_do_testimonials display='list' quantity='-1']` - shows all posts
