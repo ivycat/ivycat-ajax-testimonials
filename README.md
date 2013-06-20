@@ -3,8 +3,8 @@
 **Donate link:** http://www.ivycat.com/contribute/  
 **Tags:** testimonial, recommendation, reference, referral, testimony, ajax, widget  
 **Requires at least:** 3.0  
-**Tested up to:** 3.5.1  
-**Stable tag:** trunk  
+**Tested up to:** 3.6-beta3  
+**Stable tag:** 1.4.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -65,7 +65,7 @@ Adding testimonials is easy:
 
 1. *Go to Testimonials > New Testimonial* - this will allow you to enter the testimonial, cite (where it comes from), and embed images, if necessary.
 1. *Give your testimonial a title*; this is the *cite*, so if the testimonial is from _Joe Blow_, you'd enter "Joe Blow".
-1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
+**1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
 1. *Assign the testimonial to a group*, if applicable.  If you haven't already created a group, click on the _Add New Category_ link in the testimonial Groups box and add one.
 1. *Give this testimonial an order* in its group.  If you want it to show first in your _Services_ testimonial, set _Order_ to 1 under _Testimonial Data_.
 
