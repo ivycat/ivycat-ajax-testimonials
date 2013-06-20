@@ -5,7 +5,7 @@
 	Description: Simply add dynamic testimonials to your site.
 	Author: IvyCat Web Services
 	Author URI: http://www.ivycat.com
-	Version: 1.4.0
+	Version: 1.4.1
 	License: GNU General Public License v2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -328,13 +328,13 @@ class IvyCatTestimonials {
 		return apply_filters( 'ic_testimonials_data_array', $testimonial_data );
 	}
 
-    public function ivycat_custom_excerpt_more( $more ) {
-	$more_tag = self::$more_tag;
-	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
-    }
+	public function ivycat_custom_excerpt_more( $more ) {
+		$more_tag = self::$more_tag;
+		return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
+	}
 
-    public function ivycat_custom_excerpt_length( $length ) {
-	$num_words = self::$num_words;
-	return $num_words;
-    }
+	public function ivycat_custom_excerpt_length( $length ) {
+		$num_words = self::$num_words;
+		return $num_words;
+	}
 }
