@@ -39,7 +39,7 @@ You can also list multiple testimonials out in a post or page using a shortcode 
 * List all testimonials using a shortcode.  Great for creating a Testimonials page that displays all testimonials, or a list of testimonials from a specific group.
 * Customize the output template for the testimonial list to suit your needs.
 
-**Note:** Plugin depends upon your theme's styles and _does not_ contain native styles.  You may have to tweak the plugin output template, or your own CSS to make your tesimonial styles consistent with the trest of your site.
+**Note:** Plugin depends upon your theme's styles and _does not_ contain native styles.  You may have to tweak the plugin output template, or your own CSS to make your tesimonial styles consistent with the rest of your site.
 
 == Installation ==
 

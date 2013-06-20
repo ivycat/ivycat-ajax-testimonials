@@ -39,7 +39,7 @@ You can also list multiple testimonials out in a post or page using a shortcode 
 * List all testimonials using a shortcode.  Great for creating a Testimonials page that displays all testimonials, or a list of testimonials from a specific group.
 * Customize the output template for the testimonial list to suit your needs.
 
-**Note:** Plugin depends upon your theme's styles and _does not_ contain native styles.  You may have to tweak the plugin output template, or your own CSS to make your tesimonial styles consistent with the trest of your site.
+**Note:** Plugin depends upon your theme's styles and _does not_ contain native styles.  You may have to tweak the plugin output template, or your own CSS to make your tesimonial styles consistent with the rest of your site.
 
 ## Installation ##
 
@@ -65,7 +65,7 @@ Adding testimonials is easy:
 
 1. *Go to Testimonials > New Testimonial* - this will allow you to enter the testimonial, cite (where it comes from), and embed images, if necessary.
 1. *Give your testimonial a title*; this is the *cite*, so if the testimonial is from _Joe Blow_, you'd enter "Joe Blow".
-**1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
+1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
 1. *Assign the testimonial to a group*, if applicable.  If you haven't already created a group, click on the _Add New Category_ link in the testimonial Groups box and add one.
 1. *Give this testimonial an order* in its group.  If you want it to show first in your _Services_ testimonial, set _Order_ to 1 under _Testimonial Data_.
 
@@ -126,17 +126,6 @@ Or, say you wanted to dynamically rotate between five testimonials in the group 
 You can drop the following WordPress function in your template files, replacing the `[shortcode]` part with your, custom shortcode.
 
 `<?php echo do_shortcode("[shortcode]"); ?>`
-
-## Screenshots ##
-
-###1. A testimonial showing on a site.###
-![A testimonial showing on a site.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-1.png)
-
-###2. A list of testimonials.###
-![A list of testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-2.png)
-
-###3. Add / edit testimonials.###
-![Add / edit testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-3.png)
 
 
 ## Frequently Asked Questions ##
