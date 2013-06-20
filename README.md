@@ -82,14 +82,7 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials link_testimonials='yes']` - Adds the a link within the `<cite>` tag that points to the individual testimonial. **Note:** Pretty permalinks must be set to allow testimonial linking.  If you're using the default (ugly) permalinks, which include a query string, linking won't work. Not sure?  If your links look like `http://my-amazeballs-domain.com/?p=123` you're _not_ using Pretty Permalinks. (off by default)
 * `[ic_do_testimonials all_url='http://www.example.com/testimonials/']` - specify a link to a page that lists all testimonials.  The plugin doesn't create this page, so you'll want to add a page and embed the list of testimonials using the example below.
 
-### Display testimonials in a list, rather than one at a time. ###
-
-Want to display your testimonials in a non-rotating _list_, instead of one at a time?  
-
-* `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  **Note:** this shortcode honors the default quantity of posts set under *Admin > Settings > Reading*, but you can modify the number of displayed testimonials by using `quantity='x'` in your shortcode.
-* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
-
-### Changing timing on AJAX rotation: ###
+### Changing timing on Testimonial rotation: ###
 
 **Note:** All timing speeds below are listed in _milliseconds_.  
 
@@ -99,6 +92,13 @@ Want to display your testimonials in a non-rotating _list_, instead of one at a 
 * `[ic_do_testimonials speed='6000']` - change how long each slide is shown.
 * `[ic_do_testimonials fade_in='600']` - change timing for each slide to fade in.
 * `[ic_do_testimonials fade_out='700']` - change timing for each slide to fade out.
+
+### Display testimonials in a list, rather than one at a time. ###
+
+Want to display your testimonials in a non-rotating _list_, instead of one at a time?  
+
+* `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  **Note:** this shortcode honors the default quantity of posts set under *Admin > Settings > Reading*, but you can modify the number of displayed testimonials by using `quantity='x'` in your shortcode.
+* `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
 
 ### Shortcode Examples ###
 
@@ -114,12 +114,12 @@ Or, say you wanted to dynamically rotate between five testimonials in the group 
 
 `[ic_do_testimonials group='licorice' quantity='5' num_words='30' more_tag='find out more . . .']` 
 
-### Customize the format of testimonial lists and keep changes after plugin updates ###
+### Customize testimonial list presentation ###
 
-Prefer to tweak the layout of the testimonial list output?  Great, you've got two choices:
+**Want to tweak the layout of the testimonial list output?**  Great, you've got two choices and both will ensure that you don't lose your changes when you upgrade the plugin.
 
-1. If you're only showing testimonial lists in one place, or your testimonial lists always use the same styles, you can simply copy the `testimonials-loop-template.php` file to your theme's main directory and customize it any way you like. 
-1. Specify a custom template file in your shortcode that points to a file in your theme directory like `[ic_do_testimonials template='my-custom-template.php']`  Note, it's probably best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
+1. **Copy the `testimonials-loop-template.php` file from the plugin's directory to your theme's main directory**  and you can customize it any way you like.  This works best if you're only showing testimonial lists in one place, or your testimonial lists always use the same styles. The plugin looks in your theme's directory for this file before using the file that comes with the plugin.
+1. **Specify a custom template file** in your shortcode that points to a file in your theme directory like `[ic_do_testimonials template='my-custom-template.php']`  Note, it's best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
 
 ### Embed a testimonial directly in your theme template ###
 
@@ -143,7 +143,7 @@ You can drop the following WordPress function in your template files, replacing 
 
 ### Where are the instructions? ###
 
-Check the [Installation tab](http://wordpress.org/plugins/ivycat-ajax-testimonials/installation/).
+Check the plugin's [Installation tab](http://wordpress.org/plugins/ivycat-ajax-testimonials/installation/).
 
 In an upcoming version, we'll include a page within the WordPress Admin containing a shortcode cheat sheet.
 
@@ -157,11 +157,11 @@ We don't have any built-in styles, so it's not uncommon for things to look a bit
 
 We recommend using a tool like [Firebug](https://getfirebug.com/) or Google [Chrome DevTools](https://developers.google.com/chrome-developer-tools/) to identify what styles are used in your site so you can modify the output template or your stylesheet to fit.
 
-*Styling Testimonials Embedded Using Shortcodes?* 
+**Styling Testimonials Embedded Using Shortcodes?**
 
 If you're using a shortcode to display testimonials in a list, rather than individually, you can customize the `testimonials-loop-template.php` file to suit your site.
 
-*Styling Testimonials Embedded Using Widgets?* 
+**Styling Testimonials Embedded Using Widgets?** 
 
 You may need to a tool like [Firebug](https://getfirebug.com/) or Google [Chrome DevTools](https://developers.google.com/chrome-developer-tools/) to inspect the markup and CSS in your theme and adjust as needed accordingly.
 
@@ -184,9 +184,9 @@ If you've got an idea for a feature that we wouldn't use, we'll look at creating
 
 ### How Can I Help Out? ###
 
-*If you're a developer*, we'd love your help reviewing code, submitting bug reports or patches, testing, and participating over in the [GitHub repository](https://github.com/ivycat/IvyCat-Ajax-Testimonials).
+**If you're a developer**, we'd love your help reviewing code, submitting bug reports or patches, testing, and participating over in the [GitHub repository](https://github.com/ivycat/IvyCat-Ajax-Testimonials).
 
-*If you're _not_ a developer*, but you can following instructions and take notes, we'd love to have your help beta testing new releases.  If you're interested in beta testing, please let us know by posting in the [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/).
+**If you're _not_ a developer**, but you can follow instructions and take notes, we'd love to have your help beta testing new releases.  If you're interested in beta testing, please let us know by posting in the [plugin's support forum](http://wordpress.org/extend/plugins/ivycat-ajax-testimonials/).
 
 [GitHub](https://github.com/ivycat/IvyCat-Ajax-Testimonials)
 
