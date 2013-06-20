@@ -93,12 +93,19 @@ There are several shortcode variations listed below, and the shortcodes can be c
 * `[ic_do_testimonials fade_in='600']` - change timing for each slide to fade in.
 * `[ic_do_testimonials fade_out='700']` - change timing for each slide to fade out.
 
-### Display testimonials in a list, rather than one at a time. ###
+### Display testimonials in a List, rather than one at a time. ###
 
 Want to display your testimonials in a non-rotating _list_, instead of one at a time?  
 
 * `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  **Note:** this shortcode honors the default quantity of posts set under *Admin > Settings > Reading*, but you can modify the number of displayed testimonials by using `quantity='x'` in your shortcode.
 * `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
+
+### Customize testimonial list presentation ###
+
+**Want to tweak the layout of the testimonial list output?**  Great, you've got two choices and both will ensure that you don't lose your changes when you upgrade the plugin. *Note:* This does not work when using the widget.
+
+1. **Copy the `testimonials-loop-template.php` file from the plugin's directory to your theme's main directory**  and you can customize it any way you like.  This works best if you're only showing testimonial lists in one place, or your testimonial lists always use the same styles. The plugin looks in your theme's directory for this file before using the file that comes with the plugin.
+1. **Specify a custom template file** in your shortcode that points to a file in your theme directory like `[ic_do_testimonials template='my-custom-template.php']`  Note, it's best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
 
 ### Shortcode Examples ###
 
@@ -114,19 +121,11 @@ Or, say you wanted to dynamically rotate between five testimonials in the group 
 
 `[ic_do_testimonials group='licorice' quantity='5' num_words='30' more_tag='find out more . . .']` 
 
-### Customize testimonial list presentation ###
-
-**Want to tweak the layout of the testimonial list output?**  Great, you've got two choices and both will ensure that you don't lose your changes when you upgrade the plugin.
-
-1. **Copy the `testimonials-loop-template.php` file from the plugin's directory to your theme's main directory**  and you can customize it any way you like.  This works best if you're only showing testimonial lists in one place, or your testimonial lists always use the same styles. The plugin looks in your theme's directory for this file before using the file that comes with the plugin.
-1. **Specify a custom template file** in your shortcode that points to a file in your theme directory like `[ic_do_testimonials template='my-custom-template.php']`  Note, it's best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
-
 ### Embed a testimonial directly in your theme template ###
 
 You can drop the following WordPress function in your template files, replacing the `[shortcode]` part with your, custom shortcode.
 
 `<?php echo do_shortcode("[shortcode]"); ?>`
-
 
 ## Frequently Asked Questions ##
 
