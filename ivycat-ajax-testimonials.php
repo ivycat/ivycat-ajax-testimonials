@@ -5,7 +5,7 @@
 	Description: Simply add dynamic testimonials to your site.
 	Author: IvyCat Web Services
 	Author URI: http://www.ivycat.com
-	Version: 1.4.1
+	Version: 1.4.2
 	License: GNU General Public License v2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
  

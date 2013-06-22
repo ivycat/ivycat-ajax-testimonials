@@ -4,7 +4,7 @@ Donate link: http://www.ivycat.com/contribute/
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
 Tested up to: 3.6-beta3
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -195,6 +195,9 @@ Of course, you can change this setting in the WordPress Admin, but that will lik
 
 == Changelog ==
 
+= 1.4.2 =
+* Improve markup in testimonials-loop-template.php
+
 = 1.4.1 =
 * AJAX rotation timing fixed.
 * Documentation improvements.
@@ -237,6 +240,9 @@ Of course, you can change this setting in the WordPress Admin, but that will lik
 * Added new shortcode Features
 
 == Upgrade Notice ==
+
+= 1.4.2 =
+Updated new testimonial list template. No security updates.
 
 = 1.4.1 =
 Important bug fixes.  Please upgrade after reading Changelog.
