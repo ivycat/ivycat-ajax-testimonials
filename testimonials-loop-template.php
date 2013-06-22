@@ -1,37 +1,24 @@
 <!-- 
-	NOTE: If you need to make changes to this file, copy it to your current theme's main
+
+NOTE:	If you'd like to make changes to this file, copy it to your current theme's main
 	directory so your changes won't be overwritten when the plugin is upgraded. 
+
+	You can also rename this template, place it in your theme folder and point to
+	it using the shortcode argument: template='my-custom-template.php'.
 -->
 
-<!-- Start of Post Wrap -->
-<div class="post hentry ivycat-testimonial">
-	<!-- This is the output of the post TITLE -->
-	<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+<!-- Start of Testimonial Wrap -->
+<div class="ivycat-testimonial testimonial-wrap post hentry ">
 
-	<!-- This is the output of the EXCERPT -->
-	<div class="entry-summary">
+	<!-- This is the output of the testimonial excerpt -->
+	<blockquote class="testimonial-content content entry-content">
 		<?php the_excerpt(); ?>
-	</div>
+	</blockquote>
 
-	<!-- This is the output of the META information -->
-	<div class="entry-utility">
-		<?php if ( count( get_the_category() ) ) : ?>
-			<span class="cat-links">
-				<?php printf( __( '<span class="%1$s">Posted in</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
-			</span>
-			<span class="meta-sep">|</span>
-		<?php endif; ?>
-		<?php
-			$tags_list = get_the_tag_list( '', ', ' );
-			if ( $tags_list ):
-		?>
-			<span class="tag-links">
-				<?php printf( __( '<span class="%1$s">Tagged</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
-			</span>
-			<span class="meta-sep">|</span>
-		<?php endif; ?>
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></span>
-		<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
-	</div>
+	<!-- This is the output of the testimonial author -->
+	<footer class="testimonial-source">
+		<cite><?php the_title(); ?></cite>
+	</footer>
+
 </div>
-<!-- // End of Post Wrap -->
+<!-- // End of Testimonial Wrap -->
