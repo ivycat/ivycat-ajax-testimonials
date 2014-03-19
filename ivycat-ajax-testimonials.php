@@ -174,8 +174,8 @@ class IvyCatTestimonials {
 		update_post_meta( $post_id, 'ivycat_testimonial_order', $_POST['testimonial_order'] );
 	}
 
-	public static $more_tag;
-	public static $num_words;
+	public $more_tag;
+	public $num_words;
 
 	public function do_testimonials( $args, $content = null ) {
     // fix for camel case previous verions
@@ -202,8 +202,8 @@ class IvyCatTestimonials {
 			'ic_testimonials_data', 
 			$this->get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) 
 		);
-        $this->$more_tag = $atts['more_tag'];
-        $this->$num_words = $atts['num_words'];
+        $this->more_tag = $atts['more_tag'];
+        $this->num_words = $atts['num_words'];
 
 		if( count( $testimonials ) == 0 )
 			return '';
