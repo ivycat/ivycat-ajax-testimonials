@@ -75,7 +75,7 @@ class IvyCatTestimonials {
 			'capability_type'      => 'post',
 			'hierarchical'         => false,
 			'menu_position'        => 4,
-			'supports'             => array( 'title', 'editor', 'excerpt' )
+			'supports'             => array( 'title', 'editor', 'excerpt', )
 		) );
 
 		register_post_type( 'testimonials', $args );
@@ -102,6 +102,7 @@ class IvyCatTestimonials {
 			'hierarchical'   => true,
 			'labels'         => $tax_labels,
 			'rewrite'        => true,
+			'show_admin_column'	=> true,
 		) );
 		
 		register_taxonomy( 'testimonial-group', 'testimonials', $tax_args );
@@ -279,7 +280,7 @@ class IvyCatTestimonials {
 		$group = $_POST['ict_group'];
 		$num_words = absint( $_POST['num_words'] );
 		$more_tag = $_POST['more_tag'];
-		$testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
+		$testimonials = $this->get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
 		if( $testimonials )
 			echo json_encode( $testimonials );
 		wp_die();
@@ -319,7 +320,7 @@ class IvyCatTestimonials {
 				$testimonial_data[] = array(
 					'testimonial_id' => $row->ID,
 					'testimonial_title' => $row->post_title,
-					'testimonial_link' => ( $link_testimonials ) ? home_url( '/testimonials/' ) . $row->post_name . '/' : false,
+					'testimonial_link' => ( $link_testimonials ) ? get_permalink ($row->ID) : false,
 					'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) 
 						? $row->post_excerpt 
 						: apply_filters( 'the_content', $post_content ) 
@@ -331,12 +332,12 @@ class IvyCatTestimonials {
 	}
 
 	public function ivycat_custom_excerpt_more( $more ) {
-		$more_tag = self::$more_tag;
+		$more_tag = $this->more_tag;
 		return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
 	}
 
 	public function ivycat_custom_excerpt_length( $length ) {
-		$num_words = self::$num_words;
+		$num_words = $this->num_words;
 		return $num_words;
 	}
 }

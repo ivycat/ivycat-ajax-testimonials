@@ -16,6 +16,7 @@ jQuery( 'document' ).ready( function( $ ){
 					'ict_group' : ICTaconn.ict_group,
 					'num_words' : ICTaconn.num_words,
 					'more_tag' : ICTaconn.more_tag,
+					'all_title' : ICTaconn.all_title,
 					'all_url' : ICTaconn.all_url,
 					'link_testimonials' : ICTaconn.link_testimonials
 				}, function( resp ){
