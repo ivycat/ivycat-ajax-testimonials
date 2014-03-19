@@ -38,8 +38,8 @@ if ( ! defined( 'ICTESTI_URL' ) )
 if ( !class_exists( 'ICTestimonialPosts' ) ) {
 	require_once( 'lib/IvyCatTestimonialsPosts.php' );
 }
-$IvyCatTest_Object = new IvyCatTestimonials();
-add_action( 'plugins_loaded', array( $IvyCatTest_Object, 'start' ) );
+$IvyCatTestimonials_Object = new IvyCatTestimonials();
+add_action( 'plugins_loaded', array( $IvyCatTestimonials_Object, 'start' ) );
 
 class IvyCatTestimonials {
 	

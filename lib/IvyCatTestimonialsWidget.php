@@ -107,8 +107,8 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		);
 		echo $args[ 'before_widget' ];
 		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];
-		$IvyCatTest_Object = new IvyCatTestimonials();
-		echo $IvyCatTest_Object->do_testimonials( $atts );
+		Global $IvyCatTestimonials_Object;
+		echo $IvyCatTestimonials_Object->do_testimonials( $atts );
 		echo $args[ 'after_widget' ];
 	}
 	
