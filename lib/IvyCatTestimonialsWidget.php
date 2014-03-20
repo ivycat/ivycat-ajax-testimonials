@@ -24,6 +24,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 				<option><?php _e( 'All Groups', 'ivycat-ajax-testimonials' ); ?></option><?php
 				$cats = get_terms( 'testimonial-group', array( 'hide_empty' => 0 ) );
 				foreach ( ( object ) $cats as $cat ) :
+					if ( array_key_exists('testimonial_group', $instance ) ) 
 					printf( '<option value="%s"%s">%s</option>',
 						$cat->slug,
 						selected( $instance['testimonial_group'], $cat->slug, false ),
@@ -119,14 +120,14 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_quantity'] = absint( $new_instance['testimonial_quantity'] );
 		$instance['testimonial_num_words'] = absint( $new_instance['testimonial_num_words'] );
 		$instance['testimonial_read_more'] = wp_strip_all_tags( $new_instance['testimonial_read_more'] );
-		$instance['testimonial_ajax_on'] = $new_instance['testimonial_ajax_on'];
+		$instance['testimonial_ajax_on'] = ( isset( $new_instance['testimonial_ajax_on'] ) && 'no' == $new_instance['testimonial_ajax_on'] ? 'no' : false );
 		$instance['title_testimonial_show_all'] = $new_instance['title_testimonial_show_all'];
 		$instance['testimonial_show_all'] = $new_instance['testimonial_show_all'];
 		$instance['title'] = wp_strip_all_tags( $new_instance['title'] );
 		$instance['testimonial_slide_speed'] = absint( $new_instance['testimonial_slide_speed'] );
 		$instance['testimonial_fadein'] = absint( $new_instance['testimonial_fadein'] );
 		$instance['testimonial_fadeout'] = absint( $new_instance['testimonial_fadeout'] );
-		$instance['testimonial_link_testimonials'] = $new_instance['testimonial_link_testimonials'];
+		$instance['testimonial_link_testimonials'] = ( isset( $new_instance['testimonial_link_testimonials'] ) && 'yes' == $new_instance['testimonial_link_testimonials'] ? 'yes' : false );
 		
 		return apply_filters( 'ic_testimonials_widget_save', $instance, $new_instance );
 	}
