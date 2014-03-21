@@ -37,15 +37,18 @@ if ( ! defined( 'ICTESTI_URL' ) )
 // Load the class for displaying testimonials_in_page
 if ( !class_exists( 'ICTestimonialPosts' ) ) {
 	require_once( 'lib/IvyCatTestimonialsPosts.php' );
-}
+} 
 
-add_action( 'plugins_loaded', array( 'IvyCatTestimonials', 'start' ) );
+function init_ic_ivycat_testimonials ( ) {
+	new IvyCatTestimonials ( );
+}
+add_action( 'plugins_loaded', 'init_ic_ivycat_testimonials' );
 
 class IvyCatTestimonials {
 	
-	public function start() {
-		add_action( 'init', array( __CLASS__, 'init' ) );
-		add_action( 'widgets_init', array( __CLASS__, 'register_widgets' ) );
+	public function __construct() {
+		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
 	
 	public function init() {
@@ -70,7 +73,7 @@ class IvyCatTestimonials {
 			'publicly_queryable'   => true,
 			'show_ui'              => true, 
 			'query_var'            => true,
-			'register_meta_box_cb' => array( __CLASS__, 'register_testimonial_meta_boxes' ),
+			'register_meta_box_cb' => array( $this, 'register_testimonial_meta_boxes' ),
 			'rewrite'              => true,
 			'capability_type'      => 'post',
 			'hierarchical'         => false,
@@ -102,16 +105,17 @@ class IvyCatTestimonials {
 			'hierarchical'   => true,
 			'labels'         => $tax_labels,
 			'rewrite'        => true,
+			'show_admin_column'	=> true,
 		) );
 		
 		register_taxonomy( 'testimonial-group', 'testimonials', $tax_args );
 		
-		add_action( 'wp_ajax_nopriv_get-testimonials',  array( __CLASS__, 'more_testimonials' ) );
-		add_action( 'wp_ajax_get-testimonials',  array( __CLASS__, 'more_testimonials' ) );
-		add_action( 'save_post' , array( __CLASS__, 'save_testimonial_metadata' ), 10, 2 );
-		add_filter( 'post_updated_messages', array( __CLASS__, 'testimonial_update_messages' ) );
+		add_action( 'wp_ajax_nopriv_get-testimonials',  array( $this, 'more_testimonials' ) );
+		add_action( 'wp_ajax_get-testimonials',  array( $this, 'more_testimonials' ) );
+		add_action( 'save_post' , array( $this, 'save_testimonial_metadata' ), 10, 2 );
+		add_filter( 'post_updated_messages', array( $this, 'testimonial_update_messages' ) );
 		
-		add_shortcode( 'ic_do_testimonials', array( __CLASS__, 'do_testimonials' ) );
+		add_shortcode( 'ic_do_testimonials', array( $this, 'do_testimonials' ) );
 		
 		wp_register_script( 'ict-ajax-scripts', ICTESTI_URL . 'assets/ivycat-testimonials-scripts.js', array( 'jquery' ) );
 	}
@@ -148,7 +152,7 @@ class IvyCatTestimonials {
 		add_meta_box(
 			'Testimonialinfo-meta',
 			__( 'Testimonial Data', 'ivycat-ajax-testimonials' ),
-			array( __CLASS__, 'testimonial_metabox' ),
+			array( $this, 'testimonial_metabox' ),
 			'testimonials',
 			'side',
 			'high'
@@ -174,8 +178,8 @@ class IvyCatTestimonials {
 		update_post_meta( $post_id, 'ivycat_testimonial_order', $_POST['testimonial_order'] );
 	}
 
-	public static $more_tag;
-	public static $num_words;
+	public $more_tag;
+	public $num_words;
 
 	public function do_testimonials( $args, $content = null ) {
     // fix for camel case previous verions
@@ -190,6 +194,7 @@ class IvyCatTestimonials {
 			'num_words' => false,
 			'more_tag' => false,
 			'ajax_on' => 'yes',
+			'all_title' => false,
 			'all_url' => false,
 			'fade_in' => 500,
 			'fade_out' => 300,
@@ -199,10 +204,10 @@ class IvyCatTestimonials {
 		extract( apply_filters( 'ic_testimonials_args', $atts ) );
 		$testimonials = apply_filters( 
 			'ic_testimonials_data', 
-			self::get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) 
+			$this->get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on, $link_testimonials ) 
 		);
-        self::$more_tag = $atts['more_tag'];
-        self::$num_words = $atts['num_words'];
+        $this->more_tag = $atts['more_tag'];
+        $this->num_words = $atts['num_words'];
 
 		if( count( $testimonials ) == 0 )
 			return '';
@@ -220,12 +225,12 @@ class IvyCatTestimonials {
 
 		// if more tag is set add the filter
 		if( $more_tag !== false ) :
-		    add_filter( 'excerpt_more', array( __CLASS__, 'ivycat_custom_excerpt_more' ) );
+		    add_filter( 'excerpt_more', array( $this, 'ivycat_custom_excerpt_more' ) );
 		endif;
 
 		// if num words is set add the filter
 		if( $num_words !== false ) :
-		    add_filter( 'excerpt_length', array( __CLASS__, 'ivycat_custom_excerpt_length' ), 999 );
+		    add_filter( 'excerpt_length', array( $this, 'ivycat_custom_excerpt_length' ), 999 );
 		endif;
 
 		// call the class
@@ -245,6 +250,7 @@ class IvyCatTestimonials {
 					'ict_group' => $group,
 					'num_words' => $num_words,
 					'more_tag' => $more_tag,
+					'all_title' => $all_title,
 					'all_url' => $all_url,
 					'fade_in' => $fade_in,
 					'fade_out' => $fade_out,
@@ -265,7 +271,7 @@ class IvyCatTestimonials {
 			: $testimonials[0]['testimonial_title'];
 		$contents .= '</cite>
 			</footer>';
-		$contents .= ( strlen( $all_url ) > 1 ) ? '<p><a href="' . $all_url .'">See All Testimonials</a></p>' : '';
+		$contents .= ( strlen( $all_url ) > 1 ) ? '<p><a href="' . $all_url .'">'.$all_title.'</a></p>' : '';
 		$contents .= '</blockquote>';
 		$contents .= '</div>';
 		
@@ -277,7 +283,7 @@ class IvyCatTestimonials {
 		$group = $_POST['ict_group'];
 		$num_words = absint( $_POST['num_words'] );
 		$more_tag = $_POST['more_tag'];
-		$testimonials = self::get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
+		$testimonials = $this->get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
 		if( $testimonials )
 			echo json_encode( $testimonials );
 		wp_die();
@@ -317,7 +323,7 @@ class IvyCatTestimonials {
 				$testimonial_data[] = array(
 					'testimonial_id' => $row->ID,
 					'testimonial_title' => $row->post_title,
-					'testimonial_link' => ( $link_testimonials ) ? home_url( '/testimonials/' ) . $row->post_name . '/' : false,
+					'testimonial_link' => ( $link_testimonials ) ? get_permalink ($row->ID) : false,
 					'testimonial_content' => ( strlen( $row->post_excerpt ) > 1 ) 
 						? $row->post_excerpt 
 						: apply_filters( 'the_content', $post_content ) 
@@ -329,12 +335,12 @@ class IvyCatTestimonials {
 	}
 
 	public function ivycat_custom_excerpt_more( $more ) {
-		$more_tag = self::$more_tag;
+		$more_tag = $this->more_tag;
 		return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $more_tag . '</a>';
 	}
 
 	public function ivycat_custom_excerpt_length( $length ) {
-		$num_words = self::$num_words;
+		$num_words = $this->num_words;
 		return $num_words;
 	}
 }
