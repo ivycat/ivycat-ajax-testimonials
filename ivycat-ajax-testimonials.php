@@ -75,7 +75,7 @@ class IvyCatTestimonials {
 			'capability_type'      => 'post',
 			'hierarchical'         => false,
 			'menu_position'        => 4,
-			'supports'             => array( 'title', 'editor', 'excerpt', )
+			'supports'             => array( 'title', 'editor', 'excerpt' )
 		) );
 
 		register_post_type( 'testimonials', $args );
