@@ -38,12 +38,20 @@ if ( ! defined( 'ICTESTI_URL' ) )
 if ( !class_exists( 'ICTestimonialPosts' ) ) {
 	require_once( 'lib/IvyCatTestimonialsPosts.php' );
 } 
-$IvyCatTestimonials_Object = new IvyCatTestimonials();
-add_action( 'plugins_loaded', array( $IvyCatTestimonials_Object, 'start' ) );
+
+function init_ic_ivycat_testimonials ( ) {
+	new IvyCatTestimonials ( );
+}
+add_action( 'plugins_loaded', 'init_ic_ivycat_testimonials' );
 
 class IvyCatTestimonials {
 	
-	public function start() {
+	/*public function __construct ( ) {
+		add_action( 'init', array( $this, 'start' ) );
+	}*/
+
+	// public function start() {
+	public function __construct() {
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
