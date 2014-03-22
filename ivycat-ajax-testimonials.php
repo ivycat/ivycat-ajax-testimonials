@@ -37,7 +37,7 @@ if ( ! defined( 'ICTESTI_URL' ) )
 // Load the class for displaying testimonials_in_page
 if ( !class_exists( 'ICTestimonialPosts' ) ) {
 	require_once( 'lib/IvyCatTestimonialsPosts.php' );
-} 
+}
 
 $GLOBALS['IvyCatTestimonials_Object'] = new IvyCatTestimonials();
 add_action( 'plugins_loaded', array( $IvyCatTestimonials_Object, 'start' ) );

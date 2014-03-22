@@ -1,5 +1,5 @@
 jQuery( 'document' ).ready( function( $ ){
-	( function ( ) { 
+	( function ( ) {
 		var featured_posts = false,
 			testimonials = {},
 			play;
