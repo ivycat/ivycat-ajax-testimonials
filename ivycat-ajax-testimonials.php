@@ -43,7 +43,10 @@ $GLOBALS['IvyCatTestimonials_Object'] = new IvyCatTestimonials();
 add_action( 'plugins_loaded', array( $IvyCatTestimonials_Object, 'start' ) );
 
 class IvyCatTestimonials {
-	
+
+	public $more_tag;
+	public $num_words;
+
 	public function start() {
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
@@ -175,9 +178,6 @@ class IvyCatTestimonials {
 		do_action( 'ic_testimonials_save_metadata', $post_id, $post );
 		update_post_meta( $post_id, 'ivycat_testimonial_order', $_POST['testimonial_order'] );
 	}
-
-	public $more_tag;
-	public $num_words;
 
 	public function do_testimonials( $args, $content = null ) {
     // fix for camel case previous verions

@@ -24,12 +24,13 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 				<option><?php _e( 'All Groups', 'ivycat-ajax-testimonials' ); ?></option><?php
 				$cats = get_terms( 'testimonial-group', array( 'hide_empty' => 0 ) );
 				foreach ( ( object ) $cats as $cat ) :
-					if ( array_key_exists('testimonial_group', $instance ) ) 
-					printf( '<option value="%s"%s">%s</option>',
-						$cat->slug,
-						selected( $instance['testimonial_group'], $cat->slug, false ),
-						$cat->name
-					);
+					if ( array_key_exists('testimonial_group', $instance ) ) {
+						printf( '<option value="%s"%s">%s</option>',
+							$cat->slug,
+							selected( $instance['testimonial_group'], $cat->slug, false ),
+							$cat->name
+						);
+					}
 				endforeach; ?>
 			</select>
 		</p>
