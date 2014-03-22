@@ -60,9 +60,9 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'testimonial_link_testimonials' ); ?>"><?php _e( 'Link Individual Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title_testimonial_show_all' ); ?>"><?php _e( 'Title for Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
-			<input type="text" name="<?php echo $this->get_field_name( 'title_testimonial_show_all' ); ?>"
-				id="<?php echo $this->get_field_id( 'title_testimonial_show_all' ); ?>" class="widefat" value="<?php echo $this->set_field( 'title_testimonial_show_all', 'is_string', 'See All Testimonials', $instance );?>"/>
+			<label for="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>"><?php _e( 'Title for Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
+			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all_title' ); ?>"
+				id="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>" class="widefat" value="<?php echo $this->set_field( 'testimonial_show_all_title', 'is_string', 'See All Testimonials', $instance );?>"/>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>"><?php _e( 'Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
@@ -101,7 +101,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'num_words' => ( is_numeric( $instance['testimonial_num_words'] ) ) ? $instance['testimonial_num_words'] : false,
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : 'Read More...',
 			'ajax_on' => ( 'no' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
-			'all_title' =>  ( strlen( $instance['title_testimonial_show_all'] ) > 1 ) ? $instance['title_testimonial_show_all'] : false,
+			'all_title' =>  ( strlen( $instance['testimonial_show_all_title'] ) > 1 ) ? $instance['testimonial_show_all_title'] : false,
 			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) > 1 ) ? $instance['testimonial_show_all'] : false,
 			'fade_in' => $instance['testimonial_fadein'],
 			'fade_out' => $instance['testimonial_fadeout'],
@@ -121,7 +121,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_num_words'] = absint( $new_instance['testimonial_num_words'] );
 		$instance['testimonial_read_more'] = wp_strip_all_tags( $new_instance['testimonial_read_more'] );
 		$instance['testimonial_ajax_on'] = ( isset( $new_instance['testimonial_ajax_on'] ) && 'no' == $new_instance['testimonial_ajax_on'] ? 'no' : false );
-		$instance['title_testimonial_show_all'] = $new_instance['title_testimonial_show_all'];
+		$instance['testimonial_show_all_title'] = $new_instance['testimonial_show_all_title'];
 		$instance['testimonial_show_all'] = $new_instance['testimonial_show_all'];
 		$instance['title'] = wp_strip_all_tags( $new_instance['title'] );
 		$instance['testimonial_slide_speed'] = absint( $new_instance['testimonial_slide_speed'] );
