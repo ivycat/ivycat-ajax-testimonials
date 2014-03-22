@@ -39,8 +39,8 @@ if ( !class_exists( 'ICTestimonialPosts' ) ) {
 	require_once( 'lib/IvyCatTestimonialsPosts.php' );
 }
 
-$GLOBALS['IvyCatTestimonials_Object'] = new IvyCatTestimonials();
-add_action( 'plugins_loaded', array( $GLOBALS['IvyCatTestimonials_Object'], 'start' ) );
+$GLOBALS['IvyCatTestimonials'] = new IvyCatTestimonials();
+add_action( 'plugins_loaded', array( $GLOBALS['IvyCatTestimonials'], 'start' ) );
 
 class IvyCatTestimonials {
 

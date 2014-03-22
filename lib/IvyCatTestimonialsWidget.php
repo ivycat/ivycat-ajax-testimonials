@@ -95,6 +95,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 	}
 	
 	public function widget( $args, $instance ) {
+		global $IvyCatTestimonials;
 		
 		$title = empty($instance['testimonial_title']) ? ' ' : apply_filters('widget_title', $instance['testimonial_title']);
 		$quantity = ( $instance['testimonial_quantity'] ) ? absint( $instance['testimonial_quantity'] ) : 1;
@@ -114,7 +115,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		);
 		echo $args[ 'before_widget' ];
 		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];
-		echo $GLOBALS['IvyCatTestimonials_Object']->do_testimonials( $atts );
+		echo $IvyCatTestimonials->do_testimonials( $atts );
 		echo $args[ 'after_widget' ];
 	}
 	
