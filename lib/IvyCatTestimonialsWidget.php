@@ -131,7 +131,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_ajax_on'] = ( isset( $new_instance['testimonial_ajax_on'] ) ? true : false );
 		$instance['testimonial_show_all_title'] = sanitize_text_field( $new_instance['testimonial_show_all_title'] );
 		$instance['testimonial_show_all'] = esc_url_raw( $new_instance['testimonial_show_all'] );
-		$instance['testimonial_title'] = wp_strip_all_tags( $new_instance['testimonial_title'] );
+		$instance['title'] = wp_strip_all_tags( $new_instance['title'] );
 		$instance['testimonial_slide_speed'] = absint( $new_instance['testimonial_slide_speed'] );
 		$instance['testimonial_fadein'] = absint( $new_instance['testimonial_fadein'] );
 		$instance['testimonial_fadeout'] = absint( $new_instance['testimonial_fadeout'] );
