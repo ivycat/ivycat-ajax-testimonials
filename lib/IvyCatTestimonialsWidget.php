@@ -7,7 +7,6 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 	}
 	
 	function form( $instance ) {	
-		AJs_log_me( $instance );
 		$instance = wp_parse_args( $instance, array(
 			'title'                          => 'Testimonials',
 			'testimonial_group'              => 0,
