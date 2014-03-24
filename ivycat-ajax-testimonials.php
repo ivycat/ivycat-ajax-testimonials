@@ -40,7 +40,7 @@ if ( !class_exists( 'ICTestimonialPosts' ) ) {
 }
 
 $GLOBALS['ivy_cat_testimonials'] = new IvyCatTestimonials();
-add_action( 'plugins_loaded', array( $GLOBALS['IvyCatTestimonials'], 'start' ) );
+add_action( 'plugins_loaded', array( $GLOBALS['ivy_cat_testimonials'], 'start' ) );
 
 class IvyCatTestimonials {
 
