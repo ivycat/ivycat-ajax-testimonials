@@ -7,18 +7,20 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 	}
 	
 	function form( $instance ) {	
-		$title = isset( $instance['title'] ) ? $instance['title'] : 'Testimonials' ;
-		$group = isset( $instance['testimonial_group'] ) ? $instance['testimonial_group'] : 0;
-		$quantity = isset( $instance['testimonial_quantity'] ) ? $instance['testimonial_quantity'] : 3;
-		$num_words = isset( $instance['testimonial_num_words'] ) ? $instance['testimonial_num_words'] : 0;
-		$read_more = isset( $instance['testimonial_read_more'] ) ? $instance['testimonial_read_more'] : 'Read More...';
-		$ajax_on = isset( $instance['testimonial_ajax_on'] ) ? $instance['testimonial_ajax_on'] : false;
-		$linked_testimonials = isset( $instance['testimonial_link_testimonials'] ) ? $instance['testimonial_link_testimonials'] : false; 
-		$linkto_title = isset( $instance['testimonial_show_all_title'] ) ? $instance['testimonial_show_all_title'] : 'See All Testimonials'; 
-		$linkto_url = isset( $instance['testimonial_show_all'] ) ? $instance['testimonial_show_all'] : get_bloginfo( 'url' ); 
-		$slider_speed = isset(  $instance['testimonial_slide_speed'] ) ? $instance['testimonial_slide_speed'] : 8000;
-		$slider_fadein = isset(  $instance['testimonial_fadein'] ) ? $instance['testimonial_fadein'] : 1000;
-		$slider_fadeout = isset(  $instance['testimonial_fadeout'] ) ? $instance['testimonial_fadeout'] : 1000; ?>
+		$instance = wp_parse_args( $instances, array(
+			'title'                          => 'Testimonials',
+			'testimonial_group'              => 0,
+			'testimonial_quantity'           => 3,
+			'testimonial_num_words'          => 0,
+			'testimonial_read_more'          => 0,
+			'testimonial_ajax_on'            => false,
+			'testimonial_link_testimonials'  => false,
+			'testimonial_show_all_title'     => 'See All Testimonials',
+			'testimonial_show_all'           => get_bloginfo( 'url' ),
+			'testimonial_slide_speed'        => 8000,
+			'testimonial_fadein'             => 1000,
+			'testimonial_fadeout'            => 1000,
+		) ); ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_title' ); ?>" id="<?php echo $this->get_field_id( 'testimonial_title' ); ?>" value="<?php echo esc_attr( $title ); ?>" class="widefat">
@@ -32,7 +34,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 					if ( array_key_exists('testimonial_group', $instance ) ) {
 						printf( '<option value="%s"%s">%s</option>',
 							$cat->slug,
-							selected( absint( $instance['testimonial_group'] ), $cat->slug, false ),
+							selected( $instance['testimonial_group'], $cat->slug, false ),
 							$cat->name
 						);
 					}
@@ -128,7 +130,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$instance['testimonial_read_more'] = wp_strip_all_tags( $new_instance['testimonial_read_more'] );
 		$instance['testimonial_ajax_on'] = ( isset( $new_instance['testimonial_ajax_on'] ) ? true : false );
 		$instance['testimonial_show_all_title'] = sanitize_text_field( $new_instance['testimonial_show_all_title'] );
-		$instance['testimonial_show_all'] = esc_url( $new_instance['testimonial_show_all'] );
+		$instance['testimonial_show_all'] = esc_url_raw( $new_instance['testimonial_show_all'] );
 		$instance['testimonial_title'] = wp_strip_all_tags( $new_instance['testimonial_title'] );
 		$instance['testimonial_slide_speed'] = absint( $new_instance['testimonial_slide_speed'] );
 		$instance['testimonial_fadein'] = absint( $new_instance['testimonial_fadein'] );
