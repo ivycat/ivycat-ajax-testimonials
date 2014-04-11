@@ -6,23 +6,25 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		$this->WP_Widget( 'IvyCatTestimonialsWidget', __( 'IvyCat Testimonial Widget', 'ivycat-ajax-testimonials' ), $widget_ops );
 	}
 	
-	function form( $instance ) {	
+	function form( $instance ) {
+		load_plugin_textdomain( 'ivycat-ajax-testimonials', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		$instance = wp_parse_args( $instance, array(
-			'title'                          => 'Testimonials',
+			'title'                          => __( 'Testimonials', 'ivycat-ajax-testimonials' ),
 			'testimonial_group'              => 0,
 			'testimonial_quantity'           => 3,
 			'testimonial_num_words'          => 0,
 			'testimonial_read_more'          => 0,
 			'testimonial_ajax_on'            => false,
 			'testimonial_link_testimonials'  => false,
-			'testimonial_show_all_title'     => 'See All Testimonials',
+			'testimonial_show_all_title'     => __( 'See All Testimonials', 'ivycat-ajax-testimonials' ),
 			'testimonial_show_all'           => get_bloginfo( 'url' ),
 			'testimonial_slide_speed'        => 8000,
 			'testimonial_fadein'             => 1000,
 			'testimonial_fadeout'            => 1000,
 		) ); ?>
+
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title']  ); ?>" class="widefat">
 		</p>
 		<p>
