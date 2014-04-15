@@ -1,0 +1,20 @@
+{
+  "name": "posts-in-page",
+  "version": "1.2.5",
+  "description": "Simply add dynamic testimonials to your site.",
+  "main": "Gruntfile.js",
+"repository": {
+    "type": "git",
+    "url": "git://github.com/ivycat/IvyCat-Ajax-Testimonials.git"
+  },
+  "author": "IvyCat",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/ivycat/IvyCat-Ajax-Testimonials/issues"
+  },
+  "homepage": "https://github.com/ivycat/IvyCat-Ajax-Testimonials",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-wp-i18n": "^0.4.3"
+  }
+}

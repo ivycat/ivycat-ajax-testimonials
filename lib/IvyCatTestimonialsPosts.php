@@ -4,7 +4,7 @@
  */
 
 if ( !function_exists( 'add_action' ) )
-	wp_die( 'You are trying to access this file in a manner not allowed.', 'Direct Access Forbidden', array( 'response' => '403' ) );
+	wp_die( __( 'You are trying to access this file in a manner not allowed.', 'ivycat-ajax-testimonials' ), __( 'Direct Access Forbidden', 'ivycat-ajax-testimonials' ), array( 'response' => '403' ) );
 
 class ICTestimonialPosts {
 	

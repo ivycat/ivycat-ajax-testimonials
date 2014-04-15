@@ -7,7 +7,6 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 	}
 	
 	function form( $instance ) {
-		load_plugin_textdomain( 'ivycat-ajax-testimonials', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		$instance = wp_parse_args( $instance, array(
 			'title'                          => __( 'Testimonials', 'ivycat-ajax-testimonials' ),
 			'testimonial_group'              => 0,

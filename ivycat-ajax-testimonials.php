@@ -43,6 +43,7 @@ if ( !class_exists( 'ICTestimonialPosts' ) ) {
 
 $GLOBALS['ivycat_testimonials'] = new IvyCatTestimonials();
 add_action( 'plugins_loaded', array( $GLOBALS['ivycat_testimonials'], 'start' ) );
+		load_plugin_textdomain( 'ivycat-ajax-testimonials', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 class IvyCatTestimonials {
 
