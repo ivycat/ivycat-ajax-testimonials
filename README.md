@@ -105,7 +105,7 @@ Want to display your testimonials in a non-rotating _list_, instead of one at a 
 **Want to tweak the layout of the testimonial list output?**  Great, you've got two choices and both will ensure that you don't lose your changes when you upgrade the plugin. *Note:* This does not work when using the widget.
 
 1. **Copy the `testimonials-loop-template.php` file from the plugin's directory to your theme's main directory**  and you can customize it any way you like.  This works best if you're only showing testimonial lists in one place, or your testimonial lists always use the same styles. The plugin looks in your theme's directory for this file before using the file that comes with the plugin.
-1. **Specify a custom template file** in your shortcode that points to a file in your theme directory like `[ic_do_testimonials template='my-custom-template.php']`  Note, it's best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
+1. **Specify a custom template file** in your shortcode that points to a file in your theme directory like `[ic_do_testimonials display='list' template='my-custom-template.php']`  Note, it's best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
 
 ### Shortcode Examples ###
 
