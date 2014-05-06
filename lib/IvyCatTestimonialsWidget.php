@@ -18,7 +18,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'testimonial_link_testimonials'  => false,
 			'testimonial_show_all_title'     => __( 'See All Testimonials', 'ivycat-ajax-testimonials' ),
 			'testimonial_show_all'           => get_bloginfo( 'url' ),
-			'template'           => '',
+			'template'                       => '',
 			'testimonial_slide_speed'        => 8000,
 			'testimonial_fadein'             => 1000,
 			'testimonial_fadeout'            => 1000,
