@@ -85,7 +85,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 				id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo esc_url( $instance['testimonial_show_all'] );?>"/>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'template' ); ?>"><?php _e( 'Custom Template (disable AJAX)', 'ivycat-ajax-testimonials' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'template' ); ?>"><?php _e( 'Custom Template (enable List Mode)', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" placeholder ="Place file in theme folder" name="<?php echo $this->get_field_name( 'template' ); ?>"
 				id="<?php echo $this->get_field_id( 'template' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['template'] );?>"/>
 		</p>
