@@ -1,12 +1,12 @@
 # IvyCat AJAX Testimonials #
-**Contributors:** ivycat, sewmyheadon, gehidore, dgilfoy  
-**Donate link:** http://www.ivycat.com/contribute/  
-**Tags:** testimonial, recommendation, reference, referral, testimony, ajax, widget  
-**Requires at least:** 3.0  
-**Tested up to:** 3.6-beta3  
+**Contributors:** ivycat, sewmyheadon, gehidore, dgilfoy
+**Donate link:** http://www.ivycat.com/contribute/
+**Tags:** testimonial, recommendation, reference, referral, testimony, ajax, widget
+**Requires at least:** 3.0
+**Tested up to:** 3.6-beta3
 **Stable tag:** 1.4.2
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+**License:** GPLv2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 Easily add rotating or static testimonials to your website.  Testimonials can be categorized and rotated dynamically via AJAX or on page load.
 
@@ -22,9 +22,9 @@ You can embed testimonials in your site using:
 1. The built-in Testimonials widget, or
 1. A PHP snippet that wraps a shortcode.
 
-You can also list multiple testimonials out in a post or page using a shortcode or PHP.  
+You can also list multiple testimonials out in a post or page using a shortcode or PHP.
 
-***Note*:** the IvyCat Testimonials Widget does not support listing multiple testimonials yet, although you can embed testimonial lists using shortcodes.  
+***Note*:** the IvyCat Testimonials Widget does not support listing multiple testimonials yet, although you can embed testimonial lists using shortcodes.
 
 ### Features ###
 
@@ -65,7 +65,7 @@ Adding testimonials is easy:
 
 1. *Go to Testimonials > New Testimonial* - this will allow you to enter the testimonial, cite (where it comes from), and embed images, if necessary.
 1. *Give your testimonial a title*; this is the *cite*, so if the testimonial is from _Joe Blow_, you'd enter "Joe Blow".
-**1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.  
+1. *Enter the testimonial content* (text or HTML) in the main editor window, which is the body of the testimonial.  Note:** images, html and text are okay here.
 1. *Assign the testimonial to a group*, if applicable.  If you haven't already created a group, click on the _Add New Category_ link in the testimonial Groups box and add one.
 1. *Give this testimonial an order* in its group.  If you want it to show first in your _Services_ testimonial, set _Order_ to 1 under _Testimonial Data_.
 
@@ -74,7 +74,7 @@ Adding testimonials is easy:
 There are several shortcode variations listed below, and the shortcodes can be combined to pull only the testimonials you need, displayed how you'd like them.
 
 * `[ic_do_testimonials]` - Adds a rotating testimonial (defaults to three testimonials in ID order).
-* `[ic_do_testimonials group='my-created-group']` - Adds testimonials from a custom group using the group's slug, in this case `my-created-group`.  
+* `[ic_do_testimonials group='my-created-group']` - Adds testimonials from a custom group using the group's slug, in this case `my-created-group`.
 * `[ic_do_testimonials quantity='5']` - changes default quantity of testimonials in rotation to 5. Defaults to 3 testimonials.
 * `[ic_do_testimonials num_words='X']` - Shows only the first _X_ number of words.
 * `[ic_do_testimonials num_words='55' more_tag='Read More...' ]` - When `num_words` is specified, the `more_tag` lets you specify the text for the "read more" link.
@@ -84,7 +84,7 @@ There are several shortcode variations listed below, and the shortcodes can be c
 
 ### Changing timing on Testimonial rotation: ###
 
-**Note:** All timing speeds below are listed in _milliseconds_.  
+**Note:** All timing speeds below are listed in _milliseconds_.
 
 1000 milliseconds = 1 second
 100 milliseconds = 1/10th of a second
@@ -95,31 +95,31 @@ There are several shortcode variations listed below, and the shortcodes can be c
 
 ### Display testimonials in a List, rather than one at a time. ###
 
-Want to display your testimonials in a non-rotating _list_, instead of one at a time?  
+Want to display your testimonials in a non-rotating _list_, instead of one at a time?
 
 * `[ic_do_testimonials display='list']` - Lists out testimonials, one after the other in a page or post.  **Note:** this shortcode honors the default quantity of posts set under *Admin > Settings > Reading*, but you can modify the number of displayed testimonials by using `quantity='x'` in your shortcode.
 * `[ic_do_testimonials display='list' quantity='-1']` - Lists out _all_ testimonials, one after the other in a page or post.
 
 ### Customize testimonial list presentation ###
 
-**Want to tweak the layout of the testimonial list output?**  Great, you've got two choices and both will ensure that you don't lose your changes when you upgrade the plugin. *Note:* This does not work when using the widget.
+**Want to tweak the layout of the testimonial list output?**  Great, you've got two choices and both will ensure that you don't lose your changes when you upgrade the plugin.
 
-1. **Copy the `testimonials-loop-template.php` file from the plugin's directory to your theme's main directory**  and you can customize it any way you like.  This works best if you're only showing testimonial lists in one place, or your testimonial lists always use the same styles. The plugin looks in your theme's directory for this file before using the file that comes with the plugin.
+1. **Copy the `testimonials-loop-template.php` file from the plugin's directory to your theme's main directory**  and you can customize it any way you like.  This works best if you're only showing testimonial lists in one place, or your testimonial lists always use the same styles. The plugin looks in your theme's directory for this file before using the file that comes with the plugin. *Note:* When using this with the widget you'll need to specify the template file to use on the widget edit screen. Then place the specified file in your theme folder.
 1. **Specify a custom template file** in your shortcode that points to a file in your theme directory like `[ic_do_testimonials display='list' template='my-custom-template.php']`  Note, it's best to start by copying the `testimonials-loop-template.php` file to your theme folder, rename, and edit as needed.
 
 ### Shortcode Examples ###
 
 If you wanted to pull in a total of three testimonials from the 'rubber-chicken' category, but you don't want AJAX rotation, your shortcode might look like:
 
-`[ic_do_testimonials group='rubber-chicken' ajax_on='no']` 
+`[ic_do_testimonials group='rubber-chicken' ajax_on='no']`
 
-**Note:** I didn't specify 3 testimonials because that's the default number, but I could have:  
+**Note:** I didn't specify 3 testimonials because that's the default number, but I could have:
 
-`[ic_do_testimonials group='rubber-chicken' ajax_on='no' quantity='3']` 
+`[ic_do_testimonials group='rubber-chicken' ajax_on='no' quantity='3']`
 
 Or, say you wanted to dynamically rotate between five testimonials in the group called 'licorice', but you only want to show the first 30 words, followed by a link that says "find out more . . ." your shortcode would look like this:
 
-`[ic_do_testimonials group='licorice' quantity='5' num_words='30' more_tag='find out more . . .']` 
+`[ic_do_testimonials group='licorice' quantity='5' num_words='30' more_tag='find out more . . .']`
 
 ### Embed a testimonial directly in your theme template ###
 
@@ -137,7 +137,7 @@ In an upcoming version, we'll include a page within the WordPress Admin containi
 
 ### Why are the styles for the testimonials different than the other content on the page or widgets in my sidebar.  ###
 
-This plugin depends upon *your theme's* styles and _does not_ contain native styles.  
+This plugin depends upon *your theme's* styles and _does not_ contain native styles.
 
 ### The testimonials on my site aren't matching my theme - how do I change your styles? ###
 
@@ -149,7 +149,7 @@ We recommend using a tool like [Firebug](https://getfirebug.com/) or Google [Chr
 
 If you're using a shortcode to display testimonials in a list, rather than individually, you can customize the `testimonials-loop-template.php` file to suit your site.
 
-**Styling Testimonials Embedded Using Widgets?** 
+**Styling Testimonials Embedded Using Widgets?**
 
 You may need to a tool like [Firebug](https://getfirebug.com/) or Google [Chrome DevTools](https://developers.google.com/chrome-developer-tools/) to inspect the markup and CSS in your theme and adjust as needed accordingly.
 
@@ -180,9 +180,9 @@ If you've got an idea for a feature that we wouldn't use, we'll look at creating
 
 ### I have 25 testimonials in the system, so why are only 10 are showing per page? ###
 
-This plugin respects the _Blog pages show at most x posts_ setting in WordPress under **Admin > Settings > Reading**.  
+This plugin respects the _Blog pages show at most x posts_ setting in WordPress under **Admin > Settings > Reading**.
 
-Of course, you can change this setting in the WordPress Admin, but that will likely affect *all posts* on your site; not just testimonials.  A better way to control number of testimonials shown in a list is to modify your shortcode to add `quantity='x'` like so: 
+Of course, you can change this setting in the WordPress Admin, but that will likely affect *all posts* on your site; not just testimonials.  A better way to control number of testimonials shown in a list is to modify your shortcode to add `quantity='x'` like so:
 
 * `[ic_do_testimonials display='list' quantity='7']` - shows 7 posts per page
 * `[ic_do_testimonials display='list' quantity='-1']` - shows all posts
@@ -195,10 +195,10 @@ Of course, you can change this setting in the WordPress Admin, but that will lik
 ### 1.4.1 ###
 * AJAX rotation timing fixed.
 * Documentation improvements.
-*** Bug fix:** changed `read_more` tag to `more_tag` to avoid conflicts within WordPress.  
+*** Bug fix:** changed `read_more` tag to `more_tag` to avoid conflicts within WordPress.
 
 ### 1.4.0 ###
-*** New Feature:** List testimonials out in a post or page, instead of rotating one-by-one.  Great if you have a Testimonials page where you list all testimonials.  
+*** New Feature:** List testimonials out in a post or page, instead of rotating one-by-one.  Great if you have a Testimonials page where you list all testimonials.
 * Bug fixes for widget - formatting for before/after title & widget
 
 ### 1.3.5 ###
@@ -248,13 +248,13 @@ New features & bug fixes - please update.
 Minor update - cosmetic only.
 
 ### 1.3.4 ###
-**Bug fixes and new features:** please upgrade.  
+**Bug fixes and new features:** please upgrade.
 
 ### 1.3.0 ###
-**Bug fixes and new features:** please upgrade.  
+**Bug fixes and new features:** please upgrade.
 
 ### 1.2.3 ###
-**Bug fixes:** recommended upgrade.  
+**Bug fixes:** recommended upgrade.
 
 Latest versions mean latest security, latest features and the best time!
 
