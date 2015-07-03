@@ -31,13 +31,15 @@
 
  */
 
-if ( ! defined( 'ICTESTI_DIR' ) )
+if ( ! defined( 'ICTESTI_DIR' ) ) {
 	define( 'ICTESTI_DIR', plugin_dir_path( __FILE__ ) );
-if ( ! defined( 'ICTESTI_URL' ) )
+}
+if ( ! defined( 'ICTESTI_URL' ) ) {
 	define( 'ICTESTI_URL', plugin_dir_url( __FILE__ ) );
+}
 
 // Load the class for displaying testimonials_in_page
-if ( !class_exists( 'ICTestimonialPosts' ) ) {
+if ( ! class_exists( 'ICTestimonialPosts' ) ) {
 	require_once( 'lib/IvyCatTestimonialsPosts.php' );
 }
 
@@ -176,16 +178,17 @@ class IvyCatTestimonials {
 	}
 
 	public function save_testimonial_metadata( $post_id, $post ) {
-		if ( ! isset( $_POST['ivycat_testimonial_order_nonce'] ) || ! wp_verify_nonce( $_POST['ivycat_testimonial_order_nonce'], 'save-testimonial-order_' . $post_id ) )
+		if ( ! isset( $_POST['ivycat_testimonial_order_nonce'] ) || ! wp_verify_nonce( $_POST['ivycat_testimonial_order_nonce'], 'save-testimonial-order_' . $post_id ) ) {
 			return;
+		}
 		do_action( 'ic_testimonials_save_metadata', $post_id, $post );
 		update_post_meta( $post_id, 'ivycat_testimonial_order', $_POST['testimonial_order'] );
 	}
 
 	public function do_testimonials( $args, $content = null ) {
-    // fix for camel case previous verions
-    if( isset( $args['fadein'] ) ) $args['fade_in'] = $args['fadein'];
-    if( isset( $args['fadeout'] ) ) $args['fade_out'] = $args['fadeout'];
+	// fix for camel case previous verions
+	if( isset( $args['fadein'] ) ) $args['fade_in'] = $args['fadein'];
+	if( isset( $args['fadeout'] ) ) $args['fade_out'] = $args['fadeout'];
 	$atts = wp_parse_args( $args, array(
 			'quantity' => 3,
 			'title' => false,
@@ -206,30 +209,31 @@ class IvyCatTestimonials {
 			'ic_testimonials_data',
 			$this->get_testimonials( 1, $group, $num_words, $more_tag, $ajax_on, $link_testimonials )
 		);
-        $this->more_tag = $atts['more_tag'];
-        $this->num_words = $atts['num_words'];
+		$this->more_tag = $atts['more_tag'];
+		$this->num_words = $atts['num_words'];
 
-		if( count( $testimonials ) == 0 )
+		if( count( $testimonials ) == 0 ) {
 			return '';
+		}
 	// check for display option set to list
-	if( $display == 'list' ) :
+	if( 'list' == $display ) :
 		// turn off ajax
 		$ajax_on = 'no';
 		// pagination
 		$atts['paginate'] = true;
 		// if user set a number of posts to show pass it on
 		if( $atts['quantity'] != '3' ) :
-		 	$atts['showposts'] = $atts['quantity'];
+			$atts['showposts'] = $atts['quantity'];
 		endif;
 
 		// if more tag is set add the filter
 		if( $more_tag !== false ) :
-		    add_filter( 'excerpt_more', array( $this, 'ivycat_custom_excerpt_more' ) );
+			add_filter( 'excerpt_more', array( $this, 'ivycat_custom_excerpt_more' ) );
 		endif;
 
 		// if num words is set add the filter
 		if( $num_words !== false ) :
-		    add_filter( 'excerpt_length', array( $this, 'ivycat_custom_excerpt_length' ), 999 );
+			add_filter( 'excerpt_length', array( $this, 'ivycat_custom_excerpt_length' ), 999 );
 		endif;
 
 		// call the class
