@@ -278,3 +278,7 @@ Latest versions mean latest security, latest features and the best time!
 
 1. Suggest a feature...
 2. Contribute on [GitHub](https://github.com/ivycat/IvyCat-Ajax-Testimonials)
+
+## Code ##
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ivycat/IvyCat-AJAX-Testimonials/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ivycat/IvyCat-AJAX-Testimonials/?branch=master)

@@ -112,7 +112,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		global $ivycat_testimonials;
 
-		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+		$title = empty( $instance['title'] ) ? ' ' : apply_filters( 'widget_title', $instance['title'] );
 		$quantity = ( $instance['testimonial_quantity'] ) ? absint( $instance['testimonial_quantity'] ) : 1;
 		$group = ( isset( $instance['testimonial_group'] ) && 'All Groups' !== $instance['testimonial_group'] ) ? $instance['testimonial_group'] : false;
 		$atts = array(
@@ -123,17 +123,17 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'more_tag' => ( strlen( $instance['testimonial_read_more'] ) > 1 ) ? $instance['testimonial_read_more'] : 'Read More...',
 			'ajax_on' => ( 'no' == $instance['testimonial_ajax_on'] ) ? 'no' : 'yes',
 			'display' => ( 'single' == $instance['testimonial_display'] ) ? 'single' : 'list',
-			'all_title' =>  ( strlen( $instance['testimonial_show_all_title'] ) > 1 ) ? $instance['testimonial_show_all_title'] : false,
-			'all_url' =>  ( strlen( $instance['testimonial_show_all'] ) > 1 ) ? $instance['testimonial_show_all'] : false,
+			'all_title' => ( strlen( $instance['testimonial_show_all_title'] ) > 1 ) ? $instance['testimonial_show_all_title'] : false,
+			'all_url' => ( strlen( $instance['testimonial_show_all'] ) > 1 ) ? $instance['testimonial_show_all'] : false,
 			'template' => ( strlen( $instance['template'] ) ) ? $instance['template'] : false,
 			'fade_in' => $instance['testimonial_fadein'],
 			'fade_out' => $instance['testimonial_fadeout'],
 			'speed' => $instance['testimonial_slide_speed']
 		);
-		echo $args[ 'before_widget' ];
+		echo $args['before_widget'];
 		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];
 		echo $ivycat_testimonials->do_testimonials( $atts );
-		echo $args[ 'after_widget' ];
+		echo $args['after_widget'];
 	}
 
 	public function update( $new_instance, $old_instance ) {
