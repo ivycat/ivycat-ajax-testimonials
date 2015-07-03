@@ -128,7 +128,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'template' => ( strlen( $instance['template'] ) ) ? $instance['template'] : false,
 			'fade_in' => $instance['testimonial_fadein'],
 			'fade_out' => $instance['testimonial_fadeout'],
-			'speed' => $instance['testimonial_slide_speed']
+			'speed' => $instance['testimonial_slide_speed'],
 		);
 		echo $args['before_widget'];
 		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];

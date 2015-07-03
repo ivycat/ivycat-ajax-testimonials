@@ -215,12 +215,12 @@ class IvyCatTestimonials {
 		if( count( $testimonials ) == 0 ) {
 			return '';
 		}
-	// check for display option set to list
-	if( 'list' == $display ) :
-		// turn off ajax
-		$ajax_on = 'no';
-		// pagination
-		$atts['paginate'] = true;
+		// check for display option set to list
+		if( 'list' == $display ) :
+			// turn off ajax
+			$ajax_on = 'no';
+			// pagination
+			$atts['paginate'] = true;
 		// if user set a number of posts to show pass it on
 		if( $atts['quantity'] != '3' ) :
 			$atts['showposts'] = $atts['quantity'];
