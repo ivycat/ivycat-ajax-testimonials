@@ -1,0 +1,279 @@
+# Copyright (C) 2014 IvyCat AJAX Testimonials
+# This file is distributed under the same license as the IvyCat AJAX Testimonials package.
+msgid ""
+msgstr ""
+"Project-Id-Version: IvyCat AJAX Testimonials 1.4.2\n"
+"Report-Msgid-Bugs-To: "
+"http://wordpress.org/support/plugin/IvyCat-Ajax-Testimonials\n"
+"POT-Creation-Date: 2014-04-15 20:51:28+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: ivycat-ajax-testimonials.php:63
+msgid "Add New Testimonial"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:64
+msgid "Edit Testimonial"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:65
+msgid "New Testimonial"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:66
+msgid "View Testimonial"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:67
+msgid "Search Testimonials"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:68
+msgid "No testimonials found."
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:69
+msgid "No testimonials found in Trash."
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:70
+msgid "All Testimonials"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:71 lib/IvyCatTestimonialsWidget.php:11
+msgid "Testimonials"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:93
+msgid "Search Testimonial Groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:94
+msgid "Popular Testimonial Groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:95
+msgid "All Testimonial Groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:96
+msgid "Parent Testimonial Groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:97
+msgid "Parent Testimonial Group:"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:98
+msgid "Edit Testimonial Group"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:99
+msgid "View Testimonial Group"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:100
+msgid "Update Testimonial Group"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:101
+msgid "Add New Testimonial Group"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:102
+msgid "New Testimonial Group Name"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:103
+msgid "Separate testimonial groups with commas"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:104
+msgid "Add or remove testimonial groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:105
+msgid "Choose from most used testimonial groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:137
+msgid "Testimonial updated. <a href=\"%s\">View Testimonial</a>"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:138
+msgid "Custom field updated."
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:139
+msgid "Custom field deleted."
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:140
+msgid "Testimonial updated."
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:142
+#. translators: %s: date and time of the revision
+msgid "Testimonial restored to revision from %s"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:143
+msgid "Testimonial published. <a href=\"%s\">View Testimonial</a>"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:144
+msgid "Testimonial saved."
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:145
+msgid ""
+"Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview "
+"Testimonial</a>"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:146
+msgid ""
+"Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
+"href=\"%2$s\">Preview Testimonial</a>"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:148
+#. translators: Publish box date format, see http:php.net/date
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:149
+msgid ""
+"Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
+"Testimonial</a>"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:158
+msgid "Testimonial Data"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:171
+msgid "Order:"
+msgstr ""
+
+#: lib/IvyCatTestimonialsPosts.php:7
+msgid "You are trying to access this file in a manner not allowed."
+msgstr ""
+
+#: lib/IvyCatTestimonialsPosts.php:7
+msgid "Direct Access Forbidden"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:5
+msgid "Displays testimonial custom post type content in a widget"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:6
+msgid "IvyCat Testimonial Widget"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:18
+msgid "See All Testimonials"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:26
+msgid "Title:"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:30
+msgid "Display Testimonial Group:"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:32
+msgid "All Groups"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:46
+msgid "How many testimonials in rotation?"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:51
+msgid "Number of Words (0 for all)"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:56
+msgid "Read More Text"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:63
+msgid "Disable AJAX"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:68
+msgid "Link Individual Testimonials"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:71
+msgid "Title for Link to all Testimonials"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:76
+msgid "Link to all Testimonials"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:82
+msgid "Testimonial Rotation (miliseconds)"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:87
+msgid "Testimonial Fade In (miliseconds)"
+msgstr ""
+
+#: lib/IvyCatTestimonialsWidget.php:92
+msgid "Testimonial Fade Out (miliseconds)"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "IvyCat AJAX Testimonials"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.ivycat.com/wordpress/wordpress-plugins/ivycat-ajax-testimonials/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Simply add dynamic testimonials to your site."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "IvyCat Web Services"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.ivycat.com"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:60
+msgctxt "post format general name"
+msgid "Testimonials"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:61
+msgctxt "post format singular name"
+msgid "Testimonial"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:62
+msgctxt "testimonials"
+msgid "Add New"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:91
+msgctxt "taxonomy general name"
+msgid "Testimonial Groups"
+msgstr ""
+
+#: ivycat-ajax-testimonials.php:92
+msgctxt "taxonomy singular name"
+msgid "Testimonial Group"
+msgstr ""
