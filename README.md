@@ -282,3 +282,5 @@ Latest versions mean latest security, latest features and the best time!
 ## Code ##
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ivycat/IvyCat-AJAX-Testimonials/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ivycat/IvyCat-AJAX-Testimonials/?branch=master)
+
+[![Build Status](https://scrutinizer-ci.com/g/ivycat/IvyCat-AJAX-Testimonials/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ivycat/IvyCat-AJAX-Testimonials/build-status/master)
