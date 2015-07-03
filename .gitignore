@@ -1,5 +1,4 @@
 .DS_Store
-/IvyCat-AJAX-Testimonials.komodoproject
-/IvyCat-AJAX-Testimonials.sublime-workspace
-/IvyCat-AJAX-Testimonials.sublime-project
-/IvyCat-AJAX-Testimonials/node_modules
+*.sublime-workspace
+*.sublime-project
+node_modules
