@@ -3,9 +3,9 @@
 	Plugin Name: IvyCat AJAX Testimonials
 	Plugin URI: http://www.ivycat.com/wordpress/wordpress-plugins/ivycat-ajax-testimonials/
 	Description: Simply add dynamic testimonials to your site.
-	Author: IvyCat Web Services
-	Author URI: http://www.ivycat.com
-	Version: 1.4.2
+	Author: IvyCat, Inc.
+	Author URI: https://ivycat.com
+	Version: 1.5.0
 	License: GNU General Public License v2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	Text Domian: ivycat-ajax-testimonials
@@ -13,7 +13,7 @@
 
  ------------------------------------------------------------------------
 
-	IvyCat AJAX Testimonials, Copyright 2013 IvyCat, Inc. (admins@ivycat.com)
+	IvyCat AJAX Testimonials, Copyright 2015 IvyCat, Inc. (plugins@ivycat.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by

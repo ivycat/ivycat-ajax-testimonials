@@ -1,10 +1,9 @@
 === IvyCat AJAX Testimonials ===
-Contributors: ivycat, sewmyheadon, gehidore, dgilfoy
-Donate link: http://www.ivycat.com/contribute/
+Contributors: ivycat, sewmyheadon, jasonm4563, gehidore, dgilfoy, 
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
-Tested up to: 3.6-beta3
-Stable tag: 1.4.2
+Tested up to: 4.2.2
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,6 +193,11 @@ Of course, you can change this setting in the WordPress Admin, but that will lik
 * `[ic_do_testimonials display='list' quantity='-1']` - shows all posts
 
 == Changelog ==
+
+= 1.5.0 =
+* Add internationalization support
+* Fix browser detection issue by adding jquery-migrate dependency
+* Add jasonm4563 as a contributor - thanks AJ!
 
 = 1.4.2 =
 * Improve markup in testimonials-loop-template.php
