@@ -187,8 +187,12 @@ class IvyCatTestimonials {
 
 	public function do_testimonials( $args, $content = null ) {
 	// fix for camel case previous verions
-	if( isset( $args['fadein'] ) ) $args['fade_in'] = $args['fadein'];
-	if( isset( $args['fadeout'] ) ) $args['fade_out'] = $args['fadeout'];
+	if( isset( $args['fadein'] ) ) {
+		$args['fade_in'] = $args['fadein'];
+	}
+	if( isset( $args['fadeout'] ) ) { 
+		$args['fade_out'] = $args['fadeout'];
+	}
 	$atts = wp_parse_args( $args, array(
 			'quantity' => 3,
 			'title' => false,
@@ -286,8 +290,9 @@ class IvyCatTestimonials {
 		$num_words = absint( $_POST['num_words'] );
 		$more_tag = $_POST['more_tag'];
 		$testimonials = $this->get_testimonials( $quantity, $group, $num_words, $more_tag, 'yes', $_POST['link_testimonials'] );
-		if( $testimonials )
+		if( $testimonials ) {
 			echo json_encode( $testimonials );
+		}
 		wp_die();
 	}
 
