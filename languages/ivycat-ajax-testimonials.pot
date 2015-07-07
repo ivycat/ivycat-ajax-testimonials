@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the IvyCat AJAX Testimonials package.
 msgid ""
 msgstr ""
-"Project-Id-Version: IvyCat AJAX Testimonials 1.5.0\n"
+"Project-Id-Version: IvyCat AJAX Testimonials 1.5.1\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/ivycat-ajax-testimonials\n"
-"POT-Creation-Date: 2015-07-03 01:58:06+00:00\n"
+"POT-Creation-Date: 2015-07-07 22:32:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,151 +13,151 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: ivycat-ajax-testimonials.php:63
+#: ivycat-ajax-testimonials.php:65
 msgid "Add New Testimonial"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:64
+#: ivycat-ajax-testimonials.php:66
 msgid "Edit Testimonial"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:65
+#: ivycat-ajax-testimonials.php:67
 msgid "New Testimonial"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:66
+#: ivycat-ajax-testimonials.php:68
 msgid "View Testimonial"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:67
+#: ivycat-ajax-testimonials.php:69
 msgid "Search Testimonials"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:68
+#: ivycat-ajax-testimonials.php:70
 msgid "No testimonials found."
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:69
+#: ivycat-ajax-testimonials.php:71
 msgid "No testimonials found in Trash."
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:70
+#: ivycat-ajax-testimonials.php:72
 msgid "All Testimonials"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:71 lib/IvyCatTestimonialsWidget.php:11
+#: ivycat-ajax-testimonials.php:73 lib/IvyCatTestimonialsWidget.php:11
 msgid "Testimonials"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:93
+#: ivycat-ajax-testimonials.php:95
 msgid "Search Testimonial Groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:94
+#: ivycat-ajax-testimonials.php:96
 msgid "Popular Testimonial Groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:95
+#: ivycat-ajax-testimonials.php:97
 msgid "All Testimonial Groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:96
+#: ivycat-ajax-testimonials.php:98
 msgid "Parent Testimonial Groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:97
+#: ivycat-ajax-testimonials.php:99
 msgid "Parent Testimonial Group:"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:98
+#: ivycat-ajax-testimonials.php:100
 msgid "Edit Testimonial Group"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:99
+#: ivycat-ajax-testimonials.php:101
 msgid "View Testimonial Group"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:100
+#: ivycat-ajax-testimonials.php:102
 msgid "Update Testimonial Group"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:101
+#: ivycat-ajax-testimonials.php:103
 msgid "Add New Testimonial Group"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:102
+#: ivycat-ajax-testimonials.php:104
 msgid "New Testimonial Group Name"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:103
+#: ivycat-ajax-testimonials.php:105
 msgid "Separate testimonial groups with commas"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:104
+#: ivycat-ajax-testimonials.php:106
 msgid "Add or remove testimonial groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:105
+#: ivycat-ajax-testimonials.php:107
 msgid "Choose from most used testimonial groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:137
+#: ivycat-ajax-testimonials.php:139
 msgid "Testimonial updated. <a href=\"%s\">View Testimonial</a>"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:138
+#: ivycat-ajax-testimonials.php:140
 msgid "Custom field updated."
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:139
+#: ivycat-ajax-testimonials.php:141
 msgid "Custom field deleted."
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:140
+#: ivycat-ajax-testimonials.php:142
 msgid "Testimonial updated."
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:142
+#: ivycat-ajax-testimonials.php:144
 #. translators: %s: date and time of the revision
 msgid "Testimonial restored to revision from %s"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:143
+#: ivycat-ajax-testimonials.php:145
 msgid "Testimonial published. <a href=\"%s\">View Testimonial</a>"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:144
+#: ivycat-ajax-testimonials.php:146
 msgid "Testimonial saved."
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:145
+#: ivycat-ajax-testimonials.php:147
 msgid ""
 "Testimonial submitted. <a target=\"_blank\" href=\"%s\">Preview "
 "Testimonial</a>"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:146
+#: ivycat-ajax-testimonials.php:148
 msgid ""
 "Testimonial scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
 "href=\"%2$s\">Preview Testimonial</a>"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:148
+#: ivycat-ajax-testimonials.php:150
 #. translators: Publish box date format, see http:php.net/date
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:149
+#: ivycat-ajax-testimonials.php:151
 msgid ""
 "Testimonial draft updated. <a target=\"_blank\" href=\"%s\">Preview "
 "Testimonial</a>"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:158
+#: ivycat-ajax-testimonials.php:160
 msgid "Testimonial Data"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:171
+#: ivycat-ajax-testimonials.php:173
 msgid "Order:"
 msgstr ""
 
@@ -261,27 +261,27 @@ msgstr ""
 msgid "https://ivycat.com"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:60
+#: ivycat-ajax-testimonials.php:62
 msgctxt "post format general name"
 msgid "Testimonials"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:61
+#: ivycat-ajax-testimonials.php:63
 msgctxt "post format singular name"
 msgid "Testimonial"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:62
+#: ivycat-ajax-testimonials.php:64
 msgctxt "testimonials"
 msgid "Add New"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:91
+#: ivycat-ajax-testimonials.php:93
 msgctxt "taxonomy general name"
 msgid "Testimonial Groups"
 msgstr ""
 
-#: ivycat-ajax-testimonials.php:92
+#: ivycat-ajax-testimonials.php:94
 msgctxt "taxonomy singular name"
 msgid "Testimonial Group"
 msgstr ""
