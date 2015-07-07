@@ -1,11 +1,11 @@
 # IvyCat AJAX Testimonials #
-**Contributors:** ivycat, sewmyheadon, jasonm4563, gehidore, dgilfoy,
+**Contributors:** ivycat, sewmyheadon, jasonm4563, gehidore, dgilfoy
 **Tags:** testimonial, recommendation, reference, referral, testimony, ajax, widget
-**Requires at least:** 3.0  
-**Tested up to:** 4.2.2  
-**Stable tag:** 1.5.1  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+**Requires at least:** 3.0
+**Tested up to:** 4.2.2
+**Stable tag:** 1.5.1
+**License:** GPLv2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 Easily add rotating or static testimonials to your website.  Testimonials can be categorized and rotated dynamically via AJAX or on page load.
 
@@ -125,17 +125,6 @@ Or, say you wanted to dynamically rotate between five testimonials in the group 
 You can drop the following WordPress function in your template files, replacing the `[shortcode]` part with your, custom shortcode.
 
 `<?php echo do_shortcode("[shortcode]"); ?>`
-
-## Screenshots ##
-
-###1. A testimonial showing on a site.###
-![A testimonial showing on a site.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-1.png)
-
-###2. A list of testimonials.###
-![A list of testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-2.png)
-
-###3. Add / edit testimonials.###
-![Add / edit testimonials.](http://s.wordpress.org/extend/plugins/ivycat-ajax-testimonials/screenshot-3.png)
 
 
 ## Frequently Asked Questions ##
