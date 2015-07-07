@@ -3,7 +3,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 
 	public function __construct() {
 		$widget_ops = array( 'description' => __( 'Displays testimonial custom post type content in a widget', 'ivycat-ajax-testimonials' ) );
-		$this->WP_Widget( 'IvyCatTestimonialsWidget', __( 'IvyCat Testimonial Widget', 'ivycat-ajax-testimonials' ), $widget_ops );
+		parent::__construct( 'IvyCatTestimonialsWidget', __( 'IvyCat Testimonial Widget', 'ivycat-ajax-testimonials' ), $widget_ops );
 	}
 
 	function form( $instance ) {
@@ -131,7 +131,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'speed' => $instance['testimonial_slide_speed'],
 		);
 		echo $args['before_widget'];
-		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];
+		echo ( empty( $title  )) ? '' : $args['before_title'] . $title . $args['after_title'];
 		echo $ivycat_testimonials->do_testimonials( $atts );
 		echo $args['after_widget'];
 	}
