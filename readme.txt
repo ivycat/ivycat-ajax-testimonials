@@ -3,7 +3,7 @@ Contributors: ivycat, sewmyheadon, jasonm4563, gehidore, dgilfoy,
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,9 +194,14 @@ Of course, you can change this setting in the WordPress Admin, but that will lik
 
 == Changelog ==
 
+= 1.5.1 =
+* Add Featured Image support
+
 = 1.5.0 =
 * Add internationalization support
 * Fix browser detection issue by adding jquery-migrate dependency
+* Fix Scrutinizer code sniffer issues
+* Update PHP5 object constructors in WP Widget API 
 * Add jasonm4563 as a contributor - thanks AJ!
 
 = 1.4.2 =
