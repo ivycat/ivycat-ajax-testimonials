@@ -1,7 +1,7 @@
 <?php
 /**
- *	Page Posts Class, main workhorse for the ic_add_testimonials shortcode.
- */
+	 *	Page Posts Class, main workhorse for the ic_add_testimonials shortcode.
+	 */
 
 if ( ! function_exists( 'add_action' ) ) {
 	wp_die( __( 'You are trying to access this file in a manner not allowed.', 'ivycat-ajax-testimonials' ), __( 'Direct Access Forbidden', 'ivycat-ajax-testimonials' ), array( 'response' => '403' ) );
@@ -28,8 +28,9 @@ class ICTestimonialPosts {
 	 *	@return string output of template file
 	 */
 	public function output_testimonials() {
-		if ( ! $this->args )
-			return '';
+		if ( ! $this->args ) {
+					return '';
+		}
 		$page_testimonials = apply_filters( 'testimonials_in_page_results', new WP_Query( $this->args ) ); // New WP_Query object
 		$output = '';
 		if ( $page_testimonials->have_posts( ) ):
@@ -42,22 +43,22 @@ class ICTestimonialPosts {
 		endif;
 		wp_reset_postdata( );
 
-        // remove our filters for excerpt more and length
-        remove_filter( 'excerpt_more', array( 'IvyCatTestimonials', 'ivycat_custom_excerpt_more' ) );
-        remove_filter( 'excerpt_length', array( 'IvyCatTestimonials', 'ivycat_custom_excerpt_length' ) );
+		// remove our filters for excerpt more and length
+		remove_filter( 'excerpt_more', array( 'IvyCatTestimonials', 'ivycat_custom_excerpt_more' ) );
+		remove_filter( 'excerpt_length', array( 'IvyCatTestimonials', 'ivycat_custom_excerpt_length' ) );
 
 		return $output;
 	}
 
-	protected function paginate_links( $posts ){
+	protected function paginate_links( $posts ) {
 		global $wp_query;
 		$page_url = home_url( '/' . $wp_query->post->post_name . '/' );
 		$page = isset( $_GET['page'] ) ? $_GET['page'] : 1;
 		$total_pages = $posts->max_num_pages;
 		$per_page = $posts->query_vars['posts_per_page'];
-		$curr_page = ( isset( $posts->query_vars['paged'] ) && $posts->query_vars['paged'] > 0  ) ? $posts->query_vars['paged'] : 1;
-		$prev = ( $curr_page && $curr_page > 1 ) ? '<li><a href="'.$page_url.'?page='. ( $curr_page-1 ).'">Previous</a></li>' : '';
-		$next = ( $curr_page && $curr_page < $total_pages ) ? '<li><a href="'.$page_url.'?page='. ( $curr_page+1 ).'">Next</a></li>' : '';
+		$curr_page = ( isset( $posts->query_vars['paged'] ) && $posts->query_vars['paged'] > 0 ) ? $posts->query_vars['paged'] : 1;
+		$prev = ( $curr_page && $curr_page > 1 ) ? '<li><a href="' . $page_url . '?page=' . ( $curr_page - 1 ) . '">Previous</a></li>' : '';
+		$next = ( $curr_page && $curr_page < $total_pages ) ? '<li><a href="' . $page_url . '?page=' . ( $curr_page + 1 ) . '">Next</a></li>' : '';
 		return '<ul>' . $prev . $next . '</ul>';
 	}
 
@@ -79,14 +80,14 @@ class ICTestimonialPosts {
 
 		// show number of posts (default is 10, showposts or posts_per_page are both valid, only one is needed)
 		if ( isset( $atts['showposts'] ) ) {
-			$this->args[ 'posts_per_page' ] = $atts['showposts'];
+			$this->args['posts_per_page'] = $atts['showposts'];
 		}
 
 		// handle pagination (for code, template pagination is in the template)
-		if ( isset( $wp_query->query_vars['page'] ) &&  $wp_query->query_vars['page'] > 1 ) {
+		if ( isset( $wp_query->query_vars['page'] ) && $wp_query->query_vars['page'] > 1 ) {
 			$this->args['paged'] = $wp_query->query_vars['page'];
 		}
-	    if ( false !== $atts['group'] ) {
+		if ( false !== $atts['group'] ) {
 			$this->args['tax_query'] = array(
 					array(
 					'taxonomy' => 'testimonial-group',
@@ -101,11 +102,11 @@ class ICTestimonialPosts {
 	/**
 	 *	Tests if a theme has a theme template file that exists
 	 *
-	 *	@return true if template exists, false otherwise.
+	 *	@return string|false if template exists, false otherwise.
 	 */
 	protected function has_theme_template( ) {
 		$template_file = ( $this->args['template'] )
-			? get_stylesheet_directory( )  . '/' . $this->args['template'] // use specified template file
+			? get_stylesheet_directory( ) . '/' . $this->args['template'] // use specified template file
 			: get_stylesheet_directory( ) . '/testimonials-loop-template.php'; // use default template file
 		return ( file_exists( $template_file ) ) ? $template_file : false;
 	}

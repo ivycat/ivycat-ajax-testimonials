@@ -26,7 +26,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'ivycat-ajax-testimonials' ); ?></label>
-			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title']  ); ?>" class="widefat">
+			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat">
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_group' ); ?>"><?php _e( 'Display Testimonial Group:', 'ivycat-ajax-testimonials' ); ?></label>
@@ -34,7 +34,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 				<option><?php _e( 'All Groups', 'ivycat-ajax-testimonials' ); ?></option><?php
 				$cats = get_terms( 'testimonial-group', array( 'hide_empty' => 0 ) );
 				foreach ( ( object ) $cats as $cat ) :
-					if ( array_key_exists('testimonial_group', $instance ) ) {
+					if ( array_key_exists( 'testimonial_group', $instance ) ) {
 						printf( '<option value="%s"%s">%s</option>',
 							$cat->slug,
 							selected( $instance['testimonial_group'], $cat->slug, false ),
@@ -77,17 +77,17 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>"><?php _e( 'Title for Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all_title' ); ?>"
-				id="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['testimonial_show_all_title'] );?>"/>
+				id="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['testimonial_show_all_title'] ); ?>"/>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>"><?php _e( 'Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all' ); ?>"
-				id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo esc_url( $instance['testimonial_show_all'] );?>"/>
+				id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat" value="<?php echo esc_url( $instance['testimonial_show_all'] ); ?>"/>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'template' ); ?>"><?php _e( 'Custom Template (enable List Mode)', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" placeholder ="Place file in theme folder" name="<?php echo $this->get_field_name( 'template' ); ?>"
-				id="<?php echo $this->get_field_id( 'template' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['template'] );?>"/>
+				id="<?php echo $this->get_field_id( 'template' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['template'] ); ?>"/>
 		</p>
 		<h3>Testimonial Rotation Settings</h3>
 		<p>
@@ -98,7 +98,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>"><?php _e( 'Testimonial Fade In (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'testimonial_fadein' ); ?>"
-				id="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>" class="widefat" value="<?php echo absint ( $instance['testimonial_fadein'] ); ?>"/>
+				id="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>" class="widefat" value="<?php echo absint( $instance['testimonial_fadein'] ); ?>"/>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'testimonial_fadeout' ); ?>"><?php _e( 'Testimonial Fade Out (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
@@ -131,7 +131,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 			'speed' => $instance['testimonial_slide_speed'],
 		);
 		echo $args['before_widget'];
-		echo ( empty( $title  )) ? '' : $args['before_title'] . $title . $args['after_title'];
+		echo ( empty( $title ) ) ? '' : $args['before_title'] . $title . $args['after_title'];
 		echo $ivycat_testimonials->do_testimonials( $atts );
 		echo $args['after_widget'];
 	}
