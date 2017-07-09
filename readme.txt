@@ -2,7 +2,7 @@
 Contributors: ivycat, sewmyheadon, jasonm4563, gehidore, dgilfoy, 
 Tags: testimonial, recommendation, reference, referral, testimony, ajax, widget
 Requires at least: 3.0
-Tested up to: 4.2.2
+Tested up to: 4.8
 Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -193,6 +193,10 @@ Of course, you can change this setting in the WordPress Admin, but that will lik
 * `[ic_do_testimonials display='list' quantity='-1']` - shows all posts
 
 == Changelog ==
+
+= 1.5.2 =
+* Update docs
+* Code cleanup
 
 = 1.5.1 =
 * Add Featured Image support
