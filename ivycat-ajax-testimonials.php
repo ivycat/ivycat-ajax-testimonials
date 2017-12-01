@@ -222,12 +222,12 @@ class IvyCatTestimonials {
 			endif;
 
 			// if more tag is set add the filter
-			if (false !== $more_tag ) :
+			if ( false !== $more_tag ) :
 				add_filter( 'excerpt_more', array( $this, 'ivycat_custom_excerpt_more' ) );
 			endif;
 
 			// if num words is set add the filter
-			if ( false !==  $num_words ) :
+			if ( false !== $num_words ) :
 				add_filter( 'excerpt_length', array( $this, 'ivycat_custom_excerpt_length' ), 999 );
 			endif;
 

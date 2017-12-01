@@ -70,7 +70,7 @@ class IvyCatTestimonialsWidget extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_read_more' ) ); ?>"><?php _e( 'Read More Text', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo sc_attr( $this->get_field_name( 'testimonial_read_more' ) ); ?>"
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_read_more' ) ); ?>"
                    id="<?php echo esc_attr( $this->get_field_id( 'testimonial_read_more' ) ); ?>" class="widefat"
                    value="<?php echo esc_attr( $instance['testimonial_read_more'] ); ?>"/>
         </p>
