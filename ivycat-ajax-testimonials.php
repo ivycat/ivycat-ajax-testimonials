@@ -131,7 +131,7 @@ class IvyCatTestimonials {
 			3  => __( 'Custom field deleted.', 'ivycat-ajax-testimonials' ),
 			4  => __( 'Testimonial updated.', 'ivycat-ajax-testimonials' ),
 			/* translators: %s: date and time of the revision */
-			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Testimonial restored to revision from %s', 'ivycat-ajax-testimonials' ), wp_post_revision_title( ( int ) $_GET['revision'], false ) ) : false,
+			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Testimonial restored to revision from %s', 'ivycat-ajax-testimonials' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
 			6  => sprintf( __( 'Testimonial published. <a href="%s">View Testimonial</a>', 'ivycat-ajax-testimonials' ), esc_url( get_permalink( $post->ID ) ) ),
 			7  => __( 'Testimonial saved.', 'ivycat-ajax-testimonials' ),
 			8  => sprintf( __( 'Testimonial submitted. <a target="_blank" href="%s">Preview Testimonial</a>', 'ivycat-ajax-testimonials' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),

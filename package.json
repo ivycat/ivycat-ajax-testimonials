@@ -1,6 +1,6 @@
 {
 	"name": "posts-in-page",
-	"version": "1.5.1",
+	"version": "1.5.2",
 	"description": "Simply add dynamic testimonials to your site.",
 	"main": "Gruntfile.js",
 	"repository": {
