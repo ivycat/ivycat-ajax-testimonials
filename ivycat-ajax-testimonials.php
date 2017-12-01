@@ -217,17 +217,17 @@ class IvyCatTestimonials {
 			// pagination
 			$atts['paginate'] = true;
 			// if user set a number of posts to show pass it on
-			if ( $atts['quantity'] != '3' ) :
+			if ( '3' != $atts['quantity'] ) :
 				$atts['showposts'] = $atts['quantity'];
 			endif;
 
 			// if more tag is set add the filter
-			if ( $more_tag !== false ) :
+			if (false !== $more_tag ) :
 				add_filter( 'excerpt_more', array( $this, 'ivycat_custom_excerpt_more' ) );
 			endif;
 
 			// if num words is set add the filter
-			if ( $num_words !== false ) :
+			if ( false !==  $num_words ) :
 				add_filter( 'excerpt_length', array( $this, 'ivycat_custom_excerpt_length' ), 999 );
 			endif;
 
@@ -238,7 +238,7 @@ class IvyCatTestimonials {
 			return $new_output->output_testimonials();
 		endif;
 
-		if ( $ajax_on == 'yes' ):
+		if ( 'yes' == $ajax_on ):
 			wp_enqueue_script( 'ict-ajax-scripts' );
 			wp_localize_script( 'ict-ajax-scripts', 'ICTaconn',
 				apply_filters( 'ICTaconn-variables', array(
@@ -254,7 +254,7 @@ class IvyCatTestimonials {
 					'fade_in'           => $fade_in,
 					'fade_out'          => $fade_out,
 					'speed'             => $speed,
-					'link_testimonials' => $link_testimonials
+					'link_testimonials' => $link_testimonials,
 				) )
 			);
 		endif;
@@ -295,7 +295,7 @@ class IvyCatTestimonials {
 			'orderby'        => ( 'yes' == $ajax_on ) ? 'meta_value_num' : 'rand',
 			'meta_key'       => 'ivycat_testimonial_order',
 			'order'          => 'ASC',
-			'posts_per_page' => $quantity
+			'posts_per_page' => $quantity,
 		);
 
 		if ( $group ) {

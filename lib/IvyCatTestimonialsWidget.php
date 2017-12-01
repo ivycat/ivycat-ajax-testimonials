@@ -34,15 +34,15 @@ class IvyCatTestimonialsWidget extends WP_Widget {
 		) ); ?>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>"
-                   id="<?php echo $this->get_field_id( 'title' ); ?>"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
                    value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_group' ); ?>"><?php _e( 'Display Testimonial Group:', 'ivycat-ajax-testimonials' ); ?></label>
-            <select name="<?php echo $this->get_field_name( 'testimonial_group' ); ?>"
-                    id="<?php echo $this->get_field_id( 'testimonial_group' ); ?>" class="widefat">
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_group' ) ); ?>"><?php _e( 'Display Testimonial Group:', 'ivycat-ajax-testimonials' ); ?></label>
+            <select name="<?php echo esc_attr( $this->get_field_name( 'testimonial_group' ) ); ?>"
+                    id="<?php echo esc_attr( $this->get_field_id( 'testimonial_group' ) ); ?>" class="widefat">
                 <option><?php _e( 'All Groups', 'ivycat-ajax-testimonials' ); ?></option><?php
 				$cats = get_terms( 'testimonial-group', array( 'hide_empty' => 0 ) );
 				foreach ( ( object ) $cats as $cat ) :
@@ -57,77 +57,79 @@ class IvyCatTestimonialsWidget extends WP_Widget {
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>"><?php _e( 'How many testimonials in rotation?', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_quantity' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_quantity' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_quantity' ) ); ?>"><?php _e( 'How many testimonials in rotation?', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_quantity' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_quantity' ) ); ?>" class="widefat"
                    value="<?php echo absint( $instance['testimonial_quantity'] ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>"><?php _e( 'Number of Words (0 for all)', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_num_words' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_num_words' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_num_words' ) ); ?>"><?php _e( 'Number of Words (0 for all)', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_num_words' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_num_words' ) ); ?>" class="widefat"
                    value="<?php echo absint( $instance['testimonial_num_words'] ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_read_more' ); ?>"><?php _e( 'Read More Text', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_read_more' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_read_more' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_read_more' ) ); ?>"><?php _e( 'Read More Text', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo sc_attr( $this->get_field_name( 'testimonial_read_more' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_read_more' ) ); ?>" class="widefat"
                    value="<?php echo esc_attr( $instance['testimonial_read_more'] ); ?>"/>
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_ajax_on' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>" class="checkbox"
+            <input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_ajax_on' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_ajax_on' ) ); ?>" class="checkbox"
                    value="no"<?php checked( $instance['testimonial_ajax_on'] ); ?>/>
-            <label for="<?php echo $this->get_field_id( 'testimonial_ajax_on' ); ?>"><?php _e( 'Disable AJAX', 'ivycat-ajax-testimonials' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_ajax_on' ) ); ?>"><?php _e( 'Disable AJAX', 'ivycat-ajax-testimonials' ); ?></label>
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_link_testimonials' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_link_testimonials' ); ?>" class="checkbox"
+            <input type="checkbox"
+                   name="<?php echo esc_attr( $this->get_field_name( 'testimonial_link_testimonials' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_link_testimonials' ) ); ?>"
+                   class="checkbox"
                    value="yes"<?php checked( $instance['testimonial_link_testimonials'] ); ?>/>
-            <label for="<?php echo $this->get_field_id( 'testimonial_link_testimonials' ); ?>"><?php _e( 'Link Individual Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_link_testimonials' ) ); ?>"><?php _e( 'Link Individual Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'testimonial_display' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_display' ); ?>" class="checkbox"
+            <input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_display' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_display' ) ); ?>" class="checkbox"
                    value="single"<?php checked( $instance['testimonial_display'], 'list' ); ?>/>
-            <label for="<?php echo $this->get_field_id( 'testimonial_display' ); ?>"><?php _e( 'List Mode', 'ivycat-ajax-testimonials' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_display' ) ); ?>"><?php _e( 'List Mode', 'ivycat-ajax-testimonials' ); ?></label>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>"><?php _e( 'Title for Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all_title' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_show_all_title' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_show_all_title' ) ); ?>"><?php _e( 'Title for Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_show_all_title' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_show_all_title' ) ); ?>" class="widefat"
                    value="<?php echo esc_attr( $instance['testimonial_show_all_title'] ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>"><?php _e( 'Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_show_all' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_show_all' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_show_all' ) ); ?>"><?php _e( 'Link to all Testimonials', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_show_all' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_show_all' ) ); ?>" class="widefat"
                    value="<?php echo esc_url( $instance['testimonial_show_all'] ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'template' ); ?>"><?php _e( 'Custom Template (enable List Mode)', 'ivycat-ajax-testimonials' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'template' ) ); ?>"><?php _e( 'Custom Template (enable List Mode)', 'ivycat-ajax-testimonials' ); ?></label>
             <input type="text" placeholder="Place file in theme folder"
-                   name="<?php echo $this->get_field_name( 'template' ); ?>"
-                   id="<?php echo $this->get_field_id( 'template' ); ?>" class="widefat"
+                   name="<?php echo esc_attr( $this->get_field_name( 'template' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'template' ) ); ?>" class="widefat"
                    value="<?php echo esc_attr( $instance['template'] ); ?>"/>
         </p>
         <h3>Testimonial Rotation Settings</h3>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_slide_speed' ); ?>"><?php _e( 'Testimonial Rotation (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_slide_speed' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_slide_speed' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_slide_speed' ) ); ?>"><?php _e( 'Testimonial Rotation (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_slide_speed' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_slide_speed' ) ); ?>" class="widefat"
                    value="<?php echo absint( $instance['testimonial_slide_speed'] ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>"><?php _e( 'Testimonial Fade In (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_fadein' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_fadein' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_fadein' ) ); ?>"><?php _e( 'Testimonial Fade In (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_fadein' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_fadein' ) ); ?>" class="widefat"
                    value="<?php echo absint( $instance['testimonial_fadein'] ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'testimonial_fadeout' ); ?>"><?php _e( 'Testimonial Fade Out (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
-            <input type="text" name="<?php echo $this->get_field_name( 'testimonial_fadeout' ); ?>"
-                   id="<?php echo $this->get_field_id( 'testimonial_fadeout' ); ?>" class="widefat"
+            <label for="<?php echo esc_attr( $this->get_field_id( 'testimonial_fadeout' ) ); ?>"><?php _e( 'Testimonial Fade Out (miliseconds)', 'ivycat-ajax-testimonials' ); ?></label>
+            <input type="text" name="<?php echo esc_attr( $this->get_field_name( 'testimonial_fadeout' ) ); ?>"
+                   id="<?php echo esc_attr( $this->get_field_id( 'testimonial_fadeout' ) ); ?>" class="widefat"
                    value="<?php echo absint( $instance['testimonial_fadeout'] ); ?>"/>
         </p>
 		<?php

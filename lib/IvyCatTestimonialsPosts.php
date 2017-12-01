@@ -43,8 +43,8 @@ class ICTestimonialPosts {
 				$output .= self::add_template_part( $page_testimonials );
 			endwhile;
 			$output .= ( $this->args['paginate'] ) ? '<div class="pip-nav">' . apply_filters( 'testimonials_in_page_paginate',
-					$this->paginate_links( $page_testimonials )
-				) . '</div>' : '';
+				$this->paginate_links( $page_testimonials )
+			) . '</div>' : '';
 		endif;
 		wp_reset_postdata();
 
@@ -132,7 +132,7 @@ class ICTestimonialPosts {
 		$output = '';
 		ob_start();
 		$output .= apply_filters( 'testimonials_in_page_pre_loop', '' );
-		require ( $file_path = self::has_theme_template() )
+		require( $file_path = self::has_theme_template() )
 			? $file_path // use template file in theme
 			: ICTESTI_DIR . '/testimonials-loop-template.php'; // use default plugin template file
 		$output .= ob_get_contents();
